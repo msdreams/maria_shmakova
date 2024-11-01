@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/maria_shmakova/static/css/main.f855e6bc.css",
-    "main.js": "/maria_shmakova/static/js/main.262a95f5.js",
+    "main.css": "/maria_shmakova/static/css/main.fe5bcdd7.css",
+    "main.js": "/maria_shmakova/static/js/main.8c0db830.js",
     "static/js/453.8599e074.chunk.js": "/maria_shmakova/static/js/453.8599e074.chunk.js",
-    "static/media/logo.svg": "/maria_shmakova/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/Jura-VariableFont_wght.ttf": "/maria_shmakova/static/media/Jura-VariableFont_wght.8b9338810a4d628fd950.ttf",
     "index.html": "/maria_shmakova/index.html",
-    "main.f855e6bc.css.map": "/maria_shmakova/static/css/main.f855e6bc.css.map",
-    "main.262a95f5.js.map": "/maria_shmakova/static/js/main.262a95f5.js.map",
+    "main.fe5bcdd7.css.map": "/maria_shmakova/static/css/main.fe5bcdd7.css.map",
+    "main.8c0db830.js.map": "/maria_shmakova/static/js/main.8c0db830.js.map",
     "453.8599e074.chunk.js.map": "/maria_shmakova/static/js/453.8599e074.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.262a95f5.js"
+    "static/css/main.fe5bcdd7.css",
+    "static/js/main.8c0db830.js"
   ]
 }
