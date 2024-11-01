@@ -1,0 +1,12 @@
+@import "../../styles/main.scss";
+
+.P5Wrapper {
+  border: solid rgb(145, 143, 158) 1px;
+  position: relative;
+
+  &__title {
+    position: absolute;
+    
+    @include card-header;
+  }
+}

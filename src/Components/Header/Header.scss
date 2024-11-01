@@ -1,0 +1,33 @@
+@import "../../styles/main.scss";
+
+.header {
+  background-color: rgb(40, 44, 52);
+  display: flex;
+  justify-content: start;
+  color: white;
+  border: solid rgb(145, 143, 158) 1px;
+  padding-inline: 30px;
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  &__name {
+    color: #61dafb;
+    text-align: start;
+    font-family: "Roboto";
+    font-weight: 400;
+
+    font-size: 36px;
+    padding-bottom: 8px;
+  }
+
+  &__position {
+    font-size: 20px;
+    font-family: Jura;
+  }
+}

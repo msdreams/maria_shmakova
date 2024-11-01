@@ -1,0 +1,44 @@
+@import "../../styles/main.scss";
+
+.about {
+
+  &__banner {
+    height: 600px;
+    display: flex;
+  }
+
+  &__text {
+    position: relative;
+    margin-bottom: 32px;
+    @include card-header;
+    &::after {
+      position: absolute;
+      content: '';
+      width: 260px;
+      height: 1px;
+      left: 0;
+      bottom: -6px;
+      background-color: white;
+    }
+  }
+
+  &__animation {
+    flex: 1;
+  }
+
+  &__skills {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  &__block {
+    flex: 1;
+    height: 600px;
+    min-width: 360px;
+    border: solid rgb(145, 143, 158) 1px;
+  }
+
+}

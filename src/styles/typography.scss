@@ -1,0 +1,14 @@
+@font-face {
+  font-family: Jura;
+  src: url(./../fonts/Jura-VariableFont_wght.ttf);
+}
+
+@mixin card-header {
+  font-family: Jura;
+  line-height: 140%;
+  font-weight: 400;
+  color: white;
+  font-size: 20px;
+  padding-top: 24px;
+  padding-left: 24px;
+}
