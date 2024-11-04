@@ -1,16 +1,42 @@
 {
   "files": {
-    "main.css": "/maria_shmakova/static/css/main.fe5bcdd7.css",
-    "main.js": "/maria_shmakova/static/js/main.8c0db830.js",
-    "static/js/453.8599e074.chunk.js": "/maria_shmakova/static/js/453.8599e074.chunk.js",
+    "main.css": "/maria_shmakova/static/css/main.bc393570.css",
+    "main.js": "/maria_shmakova/static/js/main.35e31fc6.js",
+    "static/js/453.552ae3fc.chunk.js": "/maria_shmakova/static/js/453.552ae3fc.chunk.js",
+    "static/media/Photo.png": "/maria_shmakova/static/media/Photo.c2d39b9658d0578893bc.png",
+    "static/media/walkingCircle.jpg": "/maria_shmakova/static/media/walkingCircle.4f0516ae90c5f768d3c8.jpg",
+    "static/media/1.jpg": "/maria_shmakova/static/media/1.9c14fbc61c0d8b48d55c.jpg",
+    "static/media/boze.jpg": "/maria_shmakova/static/media/boze.1598700f1b057afb6abc.jpg",
     "static/media/Jura-VariableFont_wght.ttf": "/maria_shmakova/static/media/Jura-VariableFont_wght.8b9338810a4d628fd950.ttf",
+    "static/media/potr-pots.jpg": "/maria_shmakova/static/media/potr-pots.55a0565ef101b3c127d8.jpg",
+    "static/media/2.jpg": "/maria_shmakova/static/media/2.936eb0cae25571ffb64b.jpg",
+    "static/media/animatedLines.jpg": "/maria_shmakova/static/media/animatedLines.defcdd19a6c8ae717e7d.jpg",
+    "static/media/phoneCatalog.jpg": "/maria_shmakova/static/media/phoneCatalog.bb17766fde9ee6e93dd7.jpg",
+    "static/media/kidty.jpg": "/maria_shmakova/static/media/kidty.fadaac3c16f00ade3909.jpg",
+    "static/media/Sistems_grid.jpg": "/maria_shmakova/static/media/Sistems_grid.f1400cf7203e06aee0d9.jpg",
+    "static/media/breathing.jpg": "/maria_shmakova/static/media/breathing.953a27df0c774cd8896f.jpg",
+    "static/media/3.jpg": "/maria_shmakova/static/media/3.87fdddec14c637b8916b.jpg",
+    "static/media/dotWave.jpg": "/maria_shmakova/static/media/dotWave.4eda0ea8776b77e8fad6.jpg",
+    "static/media/4.jpg": "/maria_shmakova/static/media/4.2e2554d00b725124bd90.jpg",
+    "static/media/2048.jpg": "/maria_shmakova/static/media/2048.94e405a4ebb0a031db11.jpg",
+    "static/media/Random_triangles.jpg": "/maria_shmakova/static/media/Random_triangles.ae46a7d91f7fcb7c7ae4.jpg",
+    "static/media/todos.jpg": "/maria_shmakova/static/media/todos.418836d4995f3d76f3fc.jpg",
+    "static/media/movementOfDots.jpg": "/maria_shmakova/static/media/movementOfDots.36bd0206086c3006e8ee.jpg",
+    "static/media/mandrian.jpg": "/maria_shmakova/static/media/mandrian.3206d606916fc9a1e25d.jpg",
+    "static/media/instagram.svg": "/maria_shmakova/static/media/instagram.8819a54396108c24b5297d73f6cf8a38.svg",
+    "static/media/location.svg": "/maria_shmakova/static/media/location.d881932f16e34d203e2320f2ecbf0094.svg",
+    "static/media/linkedin.svg": "/maria_shmakova/static/media/linkedin.55543236393ca0f4433039b0ee2e8321.svg",
+    "static/media/phone.svg": "/maria_shmakova/static/media/phone.2b54c1ad5daea443af3e1cfd5ae92021.svg",
+    "static/media/github.svg": "/maria_shmakova/static/media/github.4f43287b84b9e29dc1654d9eea2325aa.svg",
+    "static/media/email.svg": "/maria_shmakova/static/media/email.ad30153e1b3a012180b21e71532b0912.svg",
     "index.html": "/maria_shmakova/index.html",
-    "main.fe5bcdd7.css.map": "/maria_shmakova/static/css/main.fe5bcdd7.css.map",
-    "main.8c0db830.js.map": "/maria_shmakova/static/js/main.8c0db830.js.map",
-    "453.8599e074.chunk.js.map": "/maria_shmakova/static/js/453.8599e074.chunk.js.map"
+    "static/media/errow.svg": "/maria_shmakova/static/media/errow.6eb2670dbe8d8a5442a1ffc8bac467e8.svg",
+    "main.bc393570.css.map": "/maria_shmakova/static/css/main.bc393570.css.map",
+    "main.35e31fc6.js.map": "/maria_shmakova/static/js/main.35e31fc6.js.map",
+    "453.552ae3fc.chunk.js.map": "/maria_shmakova/static/js/453.552ae3fc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe5bcdd7.css",
-    "static/js/main.8c0db830.js"
+    "static/css/main.bc393570.css",
+    "static/js/main.35e31fc6.js"
   ]
 }
