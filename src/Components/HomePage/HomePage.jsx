@@ -37,7 +37,7 @@ export const HomePage = () => {
       {isModalOpen && currentSketchIndex !== null && (
         <div className="modal">
           <div className="modal__content">
-            <div className='modal__title'>Interactive P5js Sketch</div>
+            <div className='modal__title'>Sketch</div>
             <button onClick={closeModal} className="modal__close">
             ✕ Close
             </button>
