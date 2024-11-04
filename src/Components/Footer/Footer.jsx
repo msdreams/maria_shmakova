@@ -19,15 +19,15 @@ export const Footer = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Contacts
+        Linked In
       </a>
       <a
-        href="https://github.com/msdreams"
+        href="https://www.instagram.com/maria_mariash_"
         className="footer__link"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Rights
+        Instagram
       </a>
     </footer>
   );

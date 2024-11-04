@@ -3,13 +3,13 @@ export const Sketch1 = (p) => {
   let size;
 
   p.setup = () => {
-    p.createCanvas(window.innerWidth, 600);
+    p.createCanvas(window.innerWidth, window.innerHeight, 600);
     p.background(29, 32, 36);
     p.cursor(p.HAND);
   };
 
   p.draw = () => {
-    p.background(29, 32, 36,10);
+    p.background(0, 0, 0, 3);
     if (isResized) {
       p.background("#1d2024");
       isResized = false;
@@ -30,3 +30,5 @@ export const Sketch1 = (p) => {
     isResized = true;
   };
 };
+
+export default Sketch1;

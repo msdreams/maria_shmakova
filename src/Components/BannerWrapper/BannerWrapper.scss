@@ -1,0 +1,11 @@
+@import "../../styles/main.scss";
+
+.BannerWrapper {
+  position: relative;
+
+  &__title {
+    position: absolute;
+    
+    @include card-header;
+  }
+}

@@ -1,0 +1,48 @@
+@import "../../styles/main.scss";
+
+.P5Sketches {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    margin-top: 80px;
+    @include card-header;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px;
+  }
+
+  &__item {
+    min-width: 300px;
+    flex-grow: 1;
+    height: 240px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: solid rgb(145, 143, 158) 1px;
+
+    &:hover {
+      border: solid rgb(221, 222, 227) 1px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

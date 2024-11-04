@@ -50,15 +50,15 @@ export const Sketch4 = (p) => {
   };
 
   p.setup = () => {
-    p.createCanvas(window.innerWidth, 600, p.WEBGL);
-    p.background("#1d2024");
+    p.createCanvas(window.innerWidth, window.innerHeight, p.WEBGL);
+    p.background(0);
     p.angleMode(p.DEGREES);
     initData();
     p.cursor(p.HAND);
   };
 
   p.draw = () => {
-    p.background("#1d2024");
+    p.background(0);
     if (isOrbitControlEnabled) {
       p.orbitControl(1, 1, 0);
     }
@@ -75,3 +75,6 @@ export const Sketch4 = (p) => {
     isOrbitControlEnabled = !isOrbitControlEnabled;
   };
 };
+
+export default Sketch4;
+

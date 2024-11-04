@@ -1,0 +1,145 @@
+@import "../../styles/main.scss";
+
+.bioPage {
+  display: flex;
+  flex-direction: column;
+  padding-inline: 30px;
+
+  &__navigation {
+    margin-top: 24px;
+    color: white;
+    font-size: 16px;
+    font-family: Jura;
+    font-weight: 200px;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    transition: gap 0.3s ease;
+    
+    &:hover {
+      gap: 2px;
+    }
+  }
+
+  &__errow {
+    transform: rotate(90deg);
+    height: 20px;
+  }
+
+  &__presentation {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  &__personal {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  &__photo {
+    display: block;
+    width: 250px;
+    height: 250px;
+  }
+
+  &__sotial {
+    width: 100%;
+    box-sizing: border-box;
+    padding-top: 8px;
+    padding-bottom: 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    gap: 20px;
+  }
+
+  &__header {
+    font-size: 24px;
+  }
+
+  &__text {
+    min-width: 320px;
+    max-width: 880px;
+    flex: 1;
+  }
+
+  &__subheader {
+    font-size: 20px;
+  }
+  
+  &__skills {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 30px;
+  }
+
+  &__block {
+    box-sizing: border-box;
+    padding: 30px;
+    flex: 1;
+    min-width: 360px;
+    border: solid rgb(145, 143, 158) 1px;
+    margin-bottom: 60px;
+  }
+
+  &__section {
+    padding-bottom: 30px;
+  }
+
+  &__link {
+    color: rgb(97, 218, 251);
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__list-header {
+    font-size: 16px;
+  }
+
+  &__title {
+    position: relative;
+    margin-bottom: 32px;
+    @include card-header;
+    padding-top: 0;
+    
+    &::after {
+      position: absolute;
+      content: '';
+      width: 260px;
+      height: 1px;
+      left: 0;
+      bottom: -4px;
+      background-color: white;
+    }
+  }
+}
+
+ul {
+  margin: 0;
+  padding-bottom: 8px;
+}
+.ul__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  row-gap: 0;
+}
+
+li {
+  color: white;
+  font-family: "Roboto";
+  font-weight: 300;
+  font-size: 16px;
+  padding-bottom: 4px;
+}

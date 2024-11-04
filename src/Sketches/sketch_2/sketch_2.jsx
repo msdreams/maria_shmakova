@@ -6,14 +6,14 @@ export const Sketch2 = (p) => {
   let selector; 
 
   p.setup = () => {
-    p.createCanvas(window.innerWidth, 600, p.WEBGL);
+    p.createCanvas(window.innerWidth, window.innerHeight, p.WEBGL);
     p.rectMode(p.CENTER);
     p.cursor(p.HAND);
     p.noStroke();
   };
 
   p.draw = () => {
-    p.background("#1d2024");
+    p.background(0);
     angle += p.radians(0.5);
     p.rotateY(angle);
     p.translate(-p.width / 2, -p.height / 2);
@@ -102,3 +102,5 @@ export const Sketch2 = (p) => {
     showM = !showM;
   };
 };
+
+export default Sketch2;

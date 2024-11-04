@@ -14,13 +14,13 @@ export const Sketch3 = (p) => {
   }
 
   p.setup = () => {
-    p.createCanvas(window.innerWidth, 600, p.WEBGL);
+    p.createCanvas(window.innerWidth, window.innerHeight, p.WEBGL);
     p.rectMode(p.CENTER);
     p.cursor(p.HAND);
   };
 
   p.draw = () => {
-    p.background("#1d2024");
+    p.background(0);
     if (isOrbitControlEnabled) {
       p.orbitControl(1, 1, 0);
     }
@@ -43,3 +43,5 @@ export const Sketch3 = (p) => {
     isOrbitControlEnabled = !isOrbitControlEnabled;
   };
 };
+
+export default Sketch3;

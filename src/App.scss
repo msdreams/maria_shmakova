@@ -1,10 +1,8 @@
 @import "./styles/main.scss";
 
 .App {
-
-  &__body {
-    background-color: #282c34;
-  }
+  display: flex;
+  flex-direction: column;
 }
 
 @keyframes fadeIn {
@@ -16,26 +14,5 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-#sketch1, #sketch2 {
-  height: 600px;
-  transform: translate(-20px, 0);
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.sketches {
-  margin-top: 36px;
-  margin-bottom: 36px;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-.active {
-  margin-top: 36px;
-  transform: translate(0, 0);
-  opacity: 1;
-  animation: fadeIn 0.6s ease forwards;
 }
 

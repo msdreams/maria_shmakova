@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import p5 from 'p5';
 import "./P5Wrapper.scss"
 
+
 export const P5Wrapper = ({ sketch }) => {
   const canvasRef = useRef();
 
@@ -16,8 +17,7 @@ export const P5Wrapper = ({ sketch }) => {
   return <div
     className='P5Wrapper'
     ref={canvasRef} 
-    style={{ width: '100%', height: '600px' }}>
-    <div className='P5Wrapper__title'>Interactive P5js Sketch</div>
+    style={{ width: '100%', height: '100%' }}>
     </div>;
 };
 
