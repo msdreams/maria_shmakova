@@ -46,7 +46,12 @@ export const Header = () => {
 
       <div className='header__left'>
         <div className='header__title'>
-          <p className='header__name'>MARIA SHMAKOVA</p>
+          <Link
+          to="/"
+          className="header__name"
+        >
+          MARIA SHMAKOVA
+        </Link>
           <p className='header__position'>Web Designer / Frontend Developer</p>
         </div>
 
