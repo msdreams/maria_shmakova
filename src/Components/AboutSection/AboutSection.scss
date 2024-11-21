@@ -43,6 +43,7 @@
 
   &__discover {
     position: relative;
+    padding: 8px;
 
     &::after {
       position: absolute;
@@ -58,6 +59,7 @@
   
     &:hover {
       color: white;
+      background-color: #16181b;
     }
   
     &:hover::after {
