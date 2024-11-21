@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/maria_shmakova/static/css/main.bc393570.css",
-    "main.js": "/maria_shmakova/static/js/main.b8bcdb68.js",
+    "main.js": "/maria_shmakova/static/js/main.5d5f8fd8.js",
     "static/js/453.552ae3fc.chunk.js": "/maria_shmakova/static/js/453.552ae3fc.chunk.js",
     "static/media/Photo.png": "/maria_shmakova/static/media/Photo.c2d39b9658d0578893bc.png",
     "static/media/walkingCircle.jpg": "/maria_shmakova/static/media/walkingCircle.4f0516ae90c5f768d3c8.jpg",
@@ -32,11 +32,11 @@
     "index.html": "/maria_shmakova/index.html",
     "static/media/errow.svg": "/maria_shmakova/static/media/errow.6eb2670dbe8d8a5442a1ffc8bac467e8.svg",
     "main.bc393570.css.map": "/maria_shmakova/static/css/main.bc393570.css.map",
-    "main.b8bcdb68.js.map": "/maria_shmakova/static/js/main.b8bcdb68.js.map",
+    "main.5d5f8fd8.js.map": "/maria_shmakova/static/js/main.5d5f8fd8.js.map",
     "453.552ae3fc.chunk.js.map": "/maria_shmakova/static/js/453.552ae3fc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.bc393570.css",
-    "static/js/main.b8bcdb68.js"
+    "static/js/main.5d5f8fd8.js"
   ]
 }
