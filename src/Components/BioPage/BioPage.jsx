@@ -38,7 +38,7 @@ export const BioPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={linkedin} alt="linkedin" />
+                <img src={github} alt="linkedin" />
               </a>
               <a
                 href="https://www.linkedin.com/in/mariashmakova"
@@ -46,7 +46,7 @@ export const BioPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={instagram} alt="instagram" />
+                <img src={linkedin} alt="instagram" />
               </a>
               <a
                 href="https://www.instagram.com/maria_mariash_"
@@ -54,7 +54,7 @@ export const BioPage = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <img src={github} alt="github" />
+                <img src={instagram} alt="github" />
               </a>
             </div>
             
