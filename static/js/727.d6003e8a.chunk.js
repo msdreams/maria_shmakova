@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmaria_shmakova=self.webpackChunkmaria_shmakova||[]).push([[727],{5727:(a,e,r)=>{r.r(e),r.d(e,{default:()=>s});var s=r(82).l},82:(a,e,r)=>{r.d(e,{l:()=>h});var s=r(3279),k=r(4879);const h={renderer:r(9914).J,...s.W,...k.n}}}]);
+//# sourceMappingURL=727.d6003e8a.chunk.js.map
