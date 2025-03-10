@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
 import p5 from 'p5';
-import "./BannerWrapper.scss"
 
 export const BannerWrapper = ({ sketch }) => {
   const canvasRef = useRef();
@@ -14,9 +13,9 @@ export const BannerWrapper = ({ sketch }) => {
   }, [sketch]);
 
   return <div
-    className='BannerWrapper'
+    className='flex flex-col items-center overflow-hidden'
     ref={canvasRef} 
-    style={{ width: '100%', height: '600px' }}>
+    style={{ width: '100%', height: '400px' }}>
     </div>;
 };
 

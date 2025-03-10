@@ -4,7 +4,7 @@ import "./Footer.scss";
 export const Footer = () => {
 
   return (
-    <footer className="footer">
+    <footer className="flex flex-row justify-around items-center text-lg text-gray-100 font-jura px-4 md:px-8 h-[80px]">
       <a
         href="https://github.com/msdreams"
         className="footer__link"

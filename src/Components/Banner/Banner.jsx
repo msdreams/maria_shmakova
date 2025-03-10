@@ -28,25 +28,9 @@ export const Banner = (p) => {
         let wave3 = p.cos(p.radians(p.frameCount* 0.1)) * step;
 
         p.noStroke();
-        p.fill("#61DAFB");
+        p.fill("#2C4359");
         p.rectMode(p.CENTER);
         p.rect(0, 0, s + wave2 - 30, s + wave3 - 30);
-        p.pop();
-      }
-    }
-
-    for (let x = padding + gap; x < p.width - gap; x += step) {
-      for (let y = padding + gap; y < p.height - gap; y += step) {
-        p.push();
-        p.translate(x, y);
-        let s = p.dist(p.width / 2, p.height / 2, x, y) / 15;
-        let wave2 = p.sin(p.radians(p.frameCount * 0.5)) * step;
-        let wave3 = p.cos(p.radians(p.frameCount* 0.5)) * step;
-
-        p.noStroke();
-        p.fill("#16181b");
-        p.rectMode(p.CENTER);
-        p.rect(0, 0, s + wave2 - 28, s + wave3 - 28);
         p.pop();
       }
     }

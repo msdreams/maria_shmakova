@@ -1,16 +1,15 @@
 import { useRef, useState } from "react";
 import { AboutSection } from "../AboutSection/AboutSection"
 import { P5Sketches } from "../P5Sketches/P5Sketches"
-import { Projects } from "../Projects/Projects"
 import { sketches } from "../../Kit/Sketches";
 import P5Wrapper from "../P5Wrapper/P5Wrapper";
-import "./HomePage.scss"
+import { Projects } from "../Projects/Projects";
 
 export const HomePage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentSketchIndex, setCurrentSketchIndex] = useState(0);
 
-  const openModal = (index) => {
+  const openModal = (index: number) => {
     setCurrentSketchIndex(index);
     setIsModalOpen(true);
   };
@@ -21,13 +20,15 @@ export const HomePage = () => {
   };
 
   const currentSketch = sketches[currentSketchIndex].component;
-  const projectsRef = useRef(null);
+  const projectsRef = useRef<HTMLDivElement | null>(null);
   const scrollToProjects = () => {
-    projectsRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (projectsRef.current) {
+      projectsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
-    <div className="homepage">
+    <div className="bg-[#282c34] flex flex-col gap-20">
       <AboutSection scrollToProjects={scrollToProjects} />
       <div ref={projectsRef}>
         <Projects />
@@ -35,15 +36,15 @@ export const HomePage = () => {
       <P5Sketches openModal={openModal} />
       
       {isModalOpen && currentSketchIndex !== null && (
-        <div className="modal">
-          <div className="modal__content">
-            <div className='modal__title'>Sketch</div>
-            <button onClick={closeModal} className="modal__close">
+        <div className="fixed top-0 z-40">
+          <div className="absolute top-0">
+            <div className='absolute top-0 z-50 p-6 text-lg font-jura text-secondary'>P5js Sketch</div>
+            <button onClick={closeModal} className=" absolute top-0 right-4 z-50 p-6 text-lg font-jura text-secondary">
             ✕ Close
             </button>
             <P5Wrapper sketch={currentSketch} />
           </div>
-          <div className="modal__overlay" onClick={closeModal}></div>
+          <div className="absolute" onClick={closeModal}></div>
         </div>
       )}
     </div>

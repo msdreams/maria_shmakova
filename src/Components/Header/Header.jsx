@@ -1,5 +1,4 @@
 import React from 'react';
-import "./Header.scss";
 import { Link } from 'react-router-dom';
 
 import location from "../../assets/icons/location.svg";
@@ -8,24 +7,21 @@ import phone from "../../assets/icons/phone.svg";
 
 export const Header = () => { 
   return (
-    <header className="header">
-      <div className="header__sotial">
-
-      <div >
+    <header className="px-4 pt-4 md:px-8">
+      <div className="relative text-gray-100 text-sm flex flex-row gap-2 flex-wrap justify-end">
         <a
           href="https://www.google.com/maps/place/Kyiv"
           target="_blank"
           rel="noopener noreferrer"
-          className='header__subtitle'
+          className='flex flex-row gap-1'
         >
           <img src={location} alt="location" />
           Kyiv
         </a>
-      </div>
 
         <a
           href="mailto:masha.shmakova@gmail.com"
-          className='header__subtitle'
+          className='flex flex-row gap-1'
           rel="noopener noreferrer"
         >
           <img
@@ -37,33 +33,35 @@ export const Header = () => {
 
         <a
           href="tel:+380660372751"
-          className='header__subtitle'
+          className='flex flex-row gap-1'
         >
         <img src={phone} alt="phone" />
         +380660372751
         </a>
       </div>
 
-      <div className='header__left'>
-        <div className='header__title'>
+      <div className='flex flex-col gap-2'>
+        <div className='text-4xl text-secondary pt-4'>
           <Link
           to="/"
-          className="header__name"
         >
           MARIA SHMAKOVA
-        </Link>
-          <p className='header__position'>Web Designer / Frontend Developer</p>
+          </Link>
         </div>
 
-        <Link
-          to= "bio"
-          className="header__link"
-        >
-          Bio & Resume
-        </Link>
+        <div className='flex flex-col md:flex-row md:justify-between text-xl font-jura text-gray-100'>
+          <p className='text-xl font-jura'>
+            Web Designer / Frontend Developer
+          </p>
 
+          <Link
+            to= "bio"
+            className="hover:border-b-1 transition-border duration-100 text-secondary"
+          >
+            Bio & Resume
+          </Link>
+         </div>
       </div>
-
   </header>
   )
 }

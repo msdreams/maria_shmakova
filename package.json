@@ -4,6 +4,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@heroui/react": "^2.7.4",
+    "@heroui/theme": "^2.4.11",
+    "@iconify/react": "^5.2.0",
+    "@nextui-org/react": "^2.6.11",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
@@ -15,6 +19,7 @@
     "react-p5-wrapper": "^3.4.0",
     "react-router-dom": "^6.27.0",
     "react-scripts": "5.0.1",
+    "tailwindcss-animate": "^1.0.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -46,6 +51,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "sass": "^1.80.5"
+    "sass": "^1.80.5",
+    "tailwindcss": "^3.4.17"
   }
 }
