@@ -1,24 +1,11 @@
-import { Link } from "react-router-dom";
-import errow from "../../assets/icons/errow.svg";
 import photo from "../../assets/images/Photo.png";
 import linkedin from "../../assets/icons/linkedin.svg";
 import instagram from "../../assets/icons/instagram.svg";
 import github from "../../assets/icons/github.svg";
 
-
 export const BioPage = () => {
   return (
     <div className="flex mt-10 flex-col gap-6 px-4 md:px-8 text-white font-roboto font-light" >
-      <Link
-        to="/"
-        className=" mt-4 text-white text-md font-light flex gap-1 items-center"
-      >
-        <img className='h-5 rotate-90' src={errow} alt="errow" />
-        <div className=" border-b-1 border-[#282c34] hover:border-gray-100 transition-color duration-100">
-          back
-        </div>
-      </Link>
-
       <div className="flex flex-col md:flex-row gap-8 w-full">
         <div className="flex flex-col gap-4 items-center ">
           <img

@@ -15,7 +15,6 @@ export const Projects = ()  =>  {
     onOpen();
   };
 
-
   return (
     <div className="flex flex-col px-4 md:px-8 gap-20">
       {frontendProjects.map((project, projectIndex) => (
@@ -44,7 +43,7 @@ export const Projects = ()  =>  {
               className="flex gap-2 flex-nowrap"
               animate={{ x: ["0%", "-100%"] }}
               transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
-              style={{ willChange: "transform" }} // Улучшает плавность анимации
+              style={{ willChange: "transform" }}
             >
               {[...project.img, ...project.img].map((img, imgIndex) => (
                 <div
@@ -61,7 +60,6 @@ export const Projects = ()  =>  {
               ))}
             </motion.div>
           </div>
-
         </div>
       ))}
 
