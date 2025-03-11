@@ -15,14 +15,17 @@ export const Projects = ()  =>  {
     onOpen();
   };
 
+
   return (
-    <div className="flex flex-col px-10 gap-20">
+    <div className="flex flex-col px-4 md:px-8 gap-20">
       {frontendProjects.map((project, projectIndex) => (
         <div key={projectIndex} className="flex flex-col gap-4">
           <div className="flex gap-2 flex-col relative">
             <h2 className="text-2xl font-bold mb-2 font-jura text-secondary">
               {project.title}
             </h2>
+            <p className="mb-2">{project.describtion}</p>
+            <p className="mb-4">Technologies: {project.technologies}</p>
             <Button
               as="a"
               className="md:w-[120px] mb-2"
@@ -32,17 +35,16 @@ export const Projects = ()  =>  {
                 color="primary"
                 variant="flat"
               >
-                Demo
+                Project Page
             </Button>
-            <p className="mb-2">{project.describtion}</p>
-            <p className="mb-4">Technologies: {project.technologies}</p>
           </div>
 
-          <div className="overflow-hidden relative w-full">
+          <div className="overflow-x-auto touch-pan-x w-full relative scrollbar-hide">
             <motion.div
-              className="flex gap-2"
+              className="flex gap-2 flex-nowrap"
               animate={{ x: ["0%", "-100%"] }}
               transition={{ repeat: Infinity, duration: 35, ease: "linear" }}
+              style={{ willChange: "transform" }} // Улучшает плавность анимации
             >
               {[...project.img, ...project.img].map((img, imgIndex) => (
                 <div
@@ -59,6 +61,7 @@ export const Projects = ()  =>  {
               ))}
             </motion.div>
           </div>
+
         </div>
       ))}
 
@@ -69,6 +72,7 @@ export const Projects = ()  =>  {
         classNames={{
           body: "p-0"
         }}
+        placement="center"
       >
         <ModalContent>
           {(onClose) => (
