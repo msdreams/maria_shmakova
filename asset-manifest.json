@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/maria_shmakova/static/css/main.d2bf80c3.css",
-    "main.js": "/maria_shmakova/static/js/main.c6f6ee12.js",
+    "main.css": "/maria_shmakova/static/css/main.65855750.css",
+    "main.js": "/maria_shmakova/static/js/main.08d38f44.js",
     "static/js/501.b6929b1c.chunk.js": "/maria_shmakova/static/js/501.b6929b1c.chunk.js",
     "static/js/727.d6003e8a.chunk.js": "/maria_shmakova/static/js/727.d6003e8a.chunk.js",
     "static/media/Photo.png": "/maria_shmakova/static/media/Photo.c2d39b9658d0578893bc.png",
@@ -34,18 +34,15 @@
     "static/media/moneta8.jpg": "/maria_shmakova/static/media/moneta8.a870bfefefe5416238eb.jpg",
     "static/media/moneta10.jpg": "/maria_shmakova/static/media/moneta10.a9d86393f85df8610567.jpg",
     "static/media/phones1.jpg": "/maria_shmakova/static/media/phones1.1dccab6235ed59d04991.jpg",
-    "static/media/1.jpg": "/maria_shmakova/static/media/1.9c14fbc61c0d8b48d55c.jpg",
     "static/media/moneta5.jpg": "/maria_shmakova/static/media/moneta5.5919446e93fe9cbaf383.jpg",
     "static/media/Jura-VariableFont_wght.ttf": "/maria_shmakova/static/media/Jura-VariableFont_wght.8b9338810a4d628fd950.ttf",
     "static/media/pots4.jpg": "/maria_shmakova/static/media/pots4.4cf89b7f57278393614e.jpg",
     "static/media/2.jpg": "/maria_shmakova/static/media/2.936eb0cae25571ffb64b.jpg",
     "static/media/animatedLines.jpg": "/maria_shmakova/static/media/animatedLines.defcdd19a6c8ae717e7d.jpg",
     "static/media/phones7.jpg": "/maria_shmakova/static/media/phones7.018a50b6e1f2d3951b40.jpg",
-    "static/media/Sistems_grid.jpg": "/maria_shmakova/static/media/Sistems_grid.f1400cf7203e06aee0d9.jpg",
     "static/media/breathing.jpg": "/maria_shmakova/static/media/breathing.953a27df0c774cd8896f.jpg",
     "static/media/3.jpg": "/maria_shmakova/static/media/3.87fdddec14c637b8916b.jpg",
     "static/media/dotWave.jpg": "/maria_shmakova/static/media/dotWave.4eda0ea8776b77e8fad6.jpg",
-    "static/media/4.jpg": "/maria_shmakova/static/media/4.2e2554d00b725124bd90.jpg",
     "static/media/Random_triangles.jpg": "/maria_shmakova/static/media/Random_triangles.ae46a7d91f7fcb7c7ae4.jpg",
     "static/media/movementOfDots.jpg": "/maria_shmakova/static/media/movementOfDots.36bd0206086c3006e8ee.jpg",
     "static/media/mandrian.jpg": "/maria_shmakova/static/media/mandrian.3206d606916fc9a1e25d.jpg",
@@ -57,13 +54,13 @@
     "static/media/email.svg": "/maria_shmakova/static/media/email.ad30153e1b3a012180b21e71532b0912.svg",
     "index.html": "/maria_shmakova/index.html",
     "static/media/errow.svg": "/maria_shmakova/static/media/errow.6eb2670dbe8d8a5442a1ffc8bac467e8.svg",
-    "main.d2bf80c3.css.map": "/maria_shmakova/static/css/main.d2bf80c3.css.map",
-    "main.c6f6ee12.js.map": "/maria_shmakova/static/js/main.c6f6ee12.js.map",
+    "main.65855750.css.map": "/maria_shmakova/static/css/main.65855750.css.map",
+    "main.08d38f44.js.map": "/maria_shmakova/static/js/main.08d38f44.js.map",
     "501.b6929b1c.chunk.js.map": "/maria_shmakova/static/js/501.b6929b1c.chunk.js.map",
     "727.d6003e8a.chunk.js.map": "/maria_shmakova/static/js/727.d6003e8a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d2bf80c3.css",
-    "static/js/main.c6f6ee12.js"
+    "static/css/main.65855750.css",
+    "static/js/main.08d38f44.js"
   ]
 }
