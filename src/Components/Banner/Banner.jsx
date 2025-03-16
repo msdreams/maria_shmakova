@@ -24,8 +24,8 @@ export const Banner = (p) => {
         p.push();
         p.translate(i, j);
         let s = p.dist(p.width / 2, p.height / 2, i, j) / 15;
-        let wave2 = p.sin(p.radians(p.frameCount* 0.1)) * step;
-        let wave3 = p.cos(p.radians(p.frameCount* 0.1)) * step;
+        let wave2 = p.sin(p.radians(p.frameCount)) * step;
+        let wave3 = p.cos(p.radians(p.frameCount)) * step;
 
         p.noStroke();
         p.fill("#2C4359");

@@ -30,7 +30,7 @@ export const Gexagedron = (p) => {
     p.noFill();
     p.strokeWeight(1.5);
     p.background(255, 0);
-    p.stroke("#FF7300");
+    p.stroke("#D23E70");
 
     const wave1 = p.map(p.sin(p.frameCount), -1, 1, 3, 0);
     p.translate(0, 0, 0);

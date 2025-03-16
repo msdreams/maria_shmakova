@@ -28,7 +28,7 @@ export const HomePage = () => {
   };
 
   return (
-    <div className="bg-[#282c34] flex flex-col gap-20">
+    <div className="bg-background flex flex-col gap-20 overflow-hidden">
       <AboutSection scrollToProjects={scrollToProjects} />
       <div ref={projectsRef}>
         <Projects />

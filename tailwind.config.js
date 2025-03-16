@@ -20,13 +20,13 @@ module.exports = {
       themes: {
         light: {
           colors: {
-            background: "#f4f4f9", foreground: "#11181C", placeholder: "#A8A8A8", caret: "#185F0B",
+            background: "#282c34", foreground: "#11181C", placeholder: "#A8A8A8", caret: "#185F0B",
             primary: {
             DEFAULT: "#61DAFB",100: "#DFFEFC",200: "#C0FEFE",300: "#A0F7FD",400: "#88ECFC",500: "#61DAFB",600: "#46AED7",700: "#3085B4",800: "#1E5F91",900: "#124478",}
             ,gray: {
               DEFAULT: "#586F7C",100: "#EAF6F8",200: "#D5ECF1",300: "#B2CED7",400: "#89A4B0",500: "#586F7C",600: "#40586A",700: "#2C4359",800: "#1C2F47",900: "#10213B",}
             ,secondary: {
-            DEFAULT: "#FF7300",100: "#FFEECC",200: "#FFD799",300: "#FFBB66",400: "#FFA03F",500: "#FF7300",600: "#DB5600",700: "#B73E00",800: "#932A00",900: "#7A1C00",}
+            DEFAULT: "#D23E70",100: "#FBCCCD",200: "#F79AA7",300: "#E86584",400: "#D23E70",500: "#B40B55",600: "#9A0856",700: "#810554",800: "#68034D",900: "#560248",}
             ,success: {
             DEFAULT: "#2B991D",100: "#E7FBD4",200: "#CAF7AB",300: "#A0E77C",400: "#77D058",500: "#42B229",600: "#2B991D",700: "#188014",800: "#0D6711",900: "#075511",}
             ,warning: {
