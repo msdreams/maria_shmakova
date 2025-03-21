@@ -12,7 +12,7 @@ export const frontendProjects = [
   },
   {
     id: "moneta", 
-    url: "https://my.budgetapp.space/" , 
+    url: "http://my.moneta-api.space/", 
     img: monetaImagesSet,
     title: "Finance Dashboard Web App",
     technologies: "React, TypeScript, Tailewindcss, React Router, Recharts library, Fetch, REST API.",
