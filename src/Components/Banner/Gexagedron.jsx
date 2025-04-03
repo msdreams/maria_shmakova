@@ -4,6 +4,7 @@ export const Gexagedron = (p) => {
 
   p.setup = () => {
     p.createCanvas(360, 360, p.WEBGL);
+    p.cursor('pointer');
     phi = 0.5 * (1 + Math.sqrt(2));
     verts = [
       [phi, 1, 0], [phi, -1, 0], [-phi, -1, 0], [-phi, 1, 0],
@@ -31,7 +32,7 @@ export const Gexagedron = (p) => {
     p.strokeWeight(1.5);
     p.background(255, 0);
     p.stroke("#D23E70");
-
+    p.orbitControl(1, 1, 0.1);
     const wave1 = p.map(p.sin(p.frameCount), -1, 1, 3, 0);
     p.translate(0, 0, 0);
 

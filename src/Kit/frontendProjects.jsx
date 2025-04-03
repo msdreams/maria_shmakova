@@ -4,7 +4,7 @@ import { kidtyImagesSet, monetaImagesSet, phonesImagesSet, potsImagesSet } from 
 export const frontendProjects = [
   {
     id: "kidty", 
-    url: "https://msdreams.github.io/kidty/#/account" , 
+    url: "https://kidty.com.ua/" , 
     img: kidtyImagesSet,
     title: "Data Visualization Web App",
     technologies: "React, TypeScript, React Router, D3 library, Fetch, REST API, Docker.",
