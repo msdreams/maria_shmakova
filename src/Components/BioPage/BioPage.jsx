@@ -138,13 +138,15 @@ export const BioPage = () => {
         <p className="mb-6 text-primary border-b-1 font-jura">EDUCATION</p>
           <ul>
               <li>2005 - 2012: Higher Education in the Faculty of Graphic Design</li>
-              <li>2019: Graphic Design course at the School of Visual Communication </li>
-              <li>2020: UX/UI Design course at Apollo Design Center </li>
+              <li>2019: Graphic Design at the School of Visual Communication </li>
+              <li>2020: UX/UI Design at Apollo Design Center </li>
               <li>2021: Domestika online course "Brand Strategy for Online Platforms" </li>
-              <li>2021: Motion Design course at Projector </li>
-              <li>2022: UX/UI Animation course at Projector </li>
-              <li>2023 - 2024: Front End Development course at Mate Academy</li>
-              <li>2024: Udemy course "Data Visualization in JavaScript with React and D3.js" </li>
+              <li>2021: Motion Design at Projector </li>
+              <li>2022: UX/UI Animation at Projector </li>
+              <li>2023 - 2025: Front End Development course at Mate Academy</li>
+          <li>2024: Udemy course "Data Visualization in JavaScript with React and D3.js" </li>
+          <li>2024: Udemy course "Tailwind CSS"</li>
+
           </ul>
       </section>
 
@@ -157,24 +159,18 @@ export const BioPage = () => {
               <p className="text-lg"> From 2023 Frontend Developer - Present
               </p>
               <ul>
-                  <li>Technologies: JavaScript, React, Redux Toolkit, Redux Persist, TypeScript, HTML, CSS, BEM, Docker </li>
+                  <li>Technologies: JavaScript, React, Redux Toolkit, TypeScript, HTML, CSS, Tailwind, Docker </li>
                 <li>
-                  Engineering and maintaining intuitive web applications using React,
-                  ensuring adaptability and visualizing and storing data, featuring a main page and a dashboard.
+                Develop and maintain web applications with a focus on adaptability, data visualisation, and storage.
+              </li>
+              <li>
+              Optimise performance, and building reusable components. Ensuring security, including two-factor authentication.
                 </li>
                 <li>
-                Work in a team with backend developers who code in Java, collaboratively developing the database interaction logic.
+                Collaborated with back-end developers, and other professionals to  translate data-driven requirements and business logic into functional UI solutions.
                 </li>
                 <li>
-                  Creating adaptive designs from Figma using technologies such as Grid, Flex, SCSS, and JS.
-                  See project under construction
-                  <a 
-                  className="text-blue-300"
-                    href="https://msdreams.github.io/kidty/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  > here
-                  </a>.
+                Build state management solutions using Context API and Redux Toolkit, collaborating on database interaction logic.
                 </li>
               </ul>
           </li>
@@ -184,7 +180,7 @@ export const BioPage = () => {
             </p>
         <ul>
             <li>Led the rebranding and restructuring of the company’s internal products related to a medical service platform used by American doctors and clinics.</li>
-          <li>Directed the development of commercial software from idea to implementation, resulting in over 100 new clients and simplifying processes within the Credentialing and Medical Billing department. Link to the product webpage with description and demo available 
+          <li>Link to the product webpage with description and demo available 
             <a 
               className="text-blue-300" 
               href="https://credyapp.com/"
