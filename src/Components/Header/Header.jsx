@@ -55,7 +55,7 @@ export const Header = () => {
 
         <div className='flex flex-col md:flex-row md:justify-between md:items-center text-xl font-jura text-gray-100'>
           <p className='text-xl font-jura'>
-            Web Designer / Frontend Developer
+             Frontend Developer / Creative Coder
           </p>
           {currentLocation.pathname !== "/bio" ? (
             <Button

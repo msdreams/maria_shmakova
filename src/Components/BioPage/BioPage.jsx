@@ -47,9 +47,11 @@ export const BioPage = () => {
             
           <p className="text-xl">I’m a Frontend Developer, Web Designer, Creative Coder and human-loving optimist.
           </p>
-          <p className="">I'm Frontend Developer with a strong background in Data Visualization, UX/UI Design and Animation.
+          <p className=""> I love working on projects that challenge conventions, whether it’s crafting fluid, dynamic interfaces or transforming raw data into something visually meaningful. 
+I believe that the most engaging digital experiences aren’t just seen—they are felt. 
+
             <br />
-            My design background enables me to work effectively on all project stages, from concept to deployment, addressing both design and technical challenges.
+            Let’s build something that makes people stop, explore, and remember.
           </p>
         </div>
       </div>
