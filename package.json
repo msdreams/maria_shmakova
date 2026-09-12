@@ -1,26 +1,20 @@
 {
   "name": "maria_shmakova",
   "homepage": "https://msdreams.github.io/maria_shmakova",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@heroui/react": "^2.7.4",
-    "@heroui/theme": "^2.4.11",
-    "@iconify/react": "^5.2.0",
-    "@nextui-org/react": "^2.6.11",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "classnames": "^2.5.1",
+    "framer-motion": "^12.4.7",
     "gh-pages": "^6.2.0",
     "p5": "^1.11.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-p5": "^1.4.1",
-    "react-p5-wrapper": "^3.4.0",
     "react-router-dom": "^6.27.0",
     "react-scripts": "5.0.1",
-    "tailwindcss-animate": "^1.0.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -29,8 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "sass": "sass --watch styles/main.scss:styles/main.css"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -52,7 +45,10 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "sass": "^1.80.5",
-    "tailwindcss": "^3.4.17"
+    "@types/p5": "^1.7.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^4.9.5"
   }
 }

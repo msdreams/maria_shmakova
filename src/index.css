@@ -1,16 +1,96 @@
-@import url('https://cdn.jsdelivr.net/npm/@nextui-org/react@2.6.8/dist/nextui.min.css');
-
 @font-face {
-  font-family: 'Jura';
-  src: url('fonts/Jura-VariableFont_wght.ttf') format('truetype');
-  font-weight: normal;
+  font-family: "Jura";
+  src: url("./assets/fonts/Jura-VariableFont_wght.ttf") format("truetype");
+  font-weight: 300 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
+@layer base {
+  :root {
+    --c-coral: #ff6b6b;
+    --c-violet: #a66cff;
+    --c-sky: #5dd3ff;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink-800 font-sans antialiased;
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--c-violet);
+    color: #fff;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  [id] {
+    scroll-margin-top: 24px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  .gradient-text {
+    @apply bg-accent bg-clip-text text-transparent;
+  }
+
+  .gradient-text-animated {
+    @apply bg-accent bg-clip-text text-transparent bg-200 animate-gradient-shift;
+  }
+
+  /* Gradient underline that draws in from the left on hover / active. */
+  .link-underline {
+    @apply relative;
+  }
+
+  .link-underline::after {
+    content: "";
+    @apply absolute left-0 -bottom-0.5 h-px w-full bg-accent origin-left scale-x-0 transition-transform duration-300 ease-out;
+  }
+
+  .link-underline:hover::after,
+  .link-underline:focus-visible::after,
+  .link-underline[aria-current="true"]::after,
+  .group:hover .link-underline::after {
+    @apply scale-x-100;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .eyebrow {
+    @apply font-label text-eyebrow font-medium uppercase text-ink-700;
+  }
 }
