@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { useState } from "react";
 import type { Project } from "../../data/projects";
+import { BrowserBar } from "../ui/BrowserBar";
 import { Lightbox } from "../ui/Lightbox";
 import { Modal } from "../ui/Modal";
 
@@ -91,30 +92,6 @@ const frame: Record<number, string> = {
 };
 
 type Tile = { kind: "image"; index: number } | { kind: "subtitle" };
-
-const hostname = (url?: string) => {
-  if (!url) return "";
-  try {
-    return new URL(url).hostname.replace(/^www\./, "");
-  } catch {
-    return url;
-  }
-};
-
-const BrowserBar = ({ url }: { url?: string }) => (
-  <div className="flex h-7 shrink-0 items-center gap-2 border-b border-ink/5 bg-white/90 px-3">
-    <span className="flex gap-1.5">
-      <i className="h-2 w-2 rounded-full bg-ink-200" />
-      <i className="h-2 w-2 rounded-full bg-ink-200" />
-      <i className="h-2 w-2 rounded-full bg-ink-200" />
-    </span>
-    {url && (
-      <span className="ml-1 truncate rounded-md bg-ink-50 px-2 py-0.5 font-label text-[10px] tracking-[0.06em] text-ink-500">
-        {hostname(url)}
-      </span>
-    )}
-  </div>
-);
 
 export const ScreenMosaic = ({ project }: { project: Project }) => {
   const [index, setIndex] = useState<number | null>(null);

@@ -4,7 +4,7 @@ import { Reveal } from "../ui/Reveal";
 import { Section } from "../ui/Section";
 
 export const Contact = () => (
-  <Section id="contact" eyebrow="04 — Contact" className="border-t border-line">
+  <Section id="contact" eyebrow="03 — Contact" className="border-t border-line">
     <Reveal>
       <h2 className="max-w-[18ch] font-heading text-display-lg font-semibold text-ink">
         Let's build something that makes people stop, explore, and remember.

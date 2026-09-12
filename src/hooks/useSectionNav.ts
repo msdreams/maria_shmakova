@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export type SectionId = "top" | "work" | "lab" | "about" | "contact";
+export type SectionId = "top" | "work" | "lab" | "contact";
 
 export const scrollToSection = (id: SectionId, behavior: ScrollBehavior = "smooth") => {
   if (id === "top") {

@@ -26,7 +26,6 @@ export interface Project {
   kind: ProjectKind;
   role: string;
   year: string;
-  timeline?: string;
   stack: string[];
   /** Up to three short pills shown on the card. */
   tags: string[];
@@ -56,7 +55,6 @@ export const projects: Project[] = [
     kind: "design+development",
     role: "UX/UI Design & Frontend",
     year: "2024",
-    timeline: "TODO: e.g. 3 months",
     stack: ["React", "TypeScript", "Tailwind CSS", "React Router", "Recharts", "REST API"],
     tags: ["Dashboard", "Data viz", "React"],
     url: "https://mariashmakova-frontend.moneta.adammudrak.pp.ua/",
@@ -89,7 +87,6 @@ export const projects: Project[] = [
     kind: "design+development",
     role: "Frontend & Data-viz Design",
     year: "2024 — present",
-    timeline: "TODO: ongoing",
     stack: ["React", "TypeScript", "React Router", "D3", "REST API", "Docker"],
     tags: ["Health", "D3", "Data viz"],
     url: "https://kidty.com.ua/",
@@ -122,7 +119,6 @@ export const projects: Project[] = [
     kind: "development",
     role: "Frontend Developer",
     year: "2023",
-    timeline: "TODO",
     stack: ["React", "TypeScript", "React Router", "Context API", "Custom hooks"],
     tags: ["E-commerce", "React", "TypeScript"],
     url: "https://msdreams.github.io/phone_catalog/#/",
@@ -154,7 +150,6 @@ export const projects: Project[] = [
     kind: "development",
     role: "Frontend Developer",
     year: "2023",
-    timeline: "TODO",
     stack: ["HTML", "SCSS", "BEM"],
     tags: ["Landing", "SCSS", "Responsive"],
     url: "https://msdreams.github.io/Potr_Pots_landing",
@@ -186,7 +181,6 @@ export const projects: Project[] = [
     kind: "design",
     role: "Product Designer",
     year: "2022 — 2023",
-    timeline: "TODO",
     stack: ["Figma", "Design system", "User research", "Prototyping"],
     tags: ["Product design", "Healthcare", "Design system"],
     url: "https://credyapp.com/",
@@ -212,7 +206,6 @@ export const projects: Project[] = [
     kind: "design",
     role: "UX/UI Designer",
     year: "2020 — 2021",
-    timeline: "TODO",
     stack: ["Figma", "Market & user analysis", "Design system", "Jira / Scrum"],
     tags: ["Brand", "UX research", "Design system"],
     url: "https://calaton.com",

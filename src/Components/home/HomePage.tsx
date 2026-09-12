@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { scrollToSection, type SectionId } from "../../hooks/useSectionNav";
-import { AboutShort } from "./AboutShort";
 import { Contact } from "./Contact";
 import { CreativeCoding } from "./CreativeCoding";
 import { Hero } from "./Hero";
@@ -29,7 +28,6 @@ export const HomePage = () => {
       <Hero />
       <SelectedWork />
       <CreativeCoding />
-      <AboutShort />
       <Contact />
     </>
   );

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import photo from "../../assets/images/Photo.png";
+import { facts } from "../../data/resume";
 import { site } from "../../data/site";
 import { scrollToSection } from "../../hooks/useSectionNav";
 import { heroGridBanner } from "../p5/gridBanner";
@@ -19,7 +20,7 @@ export const Hero = () => (
     {/* live, very light grid behind the hero */}
     <div className="pointer-events-none absolute inset-0 -z-10 opacity-60">
       <P5Canvas sketch={heroGridBanner} pauseWhenHidden />
-      {/* keep the grid out of the way of the headline */}
+      {/* keep the grid out of the way of the text */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_70%_at_28%_50%,#F8F8FA_0%,rgba(248,248,250,0.85)_45%,transparent_100%)]" />
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-paper" />
     </div>
@@ -30,12 +31,22 @@ export const Hero = () => (
           {site.roleLine}
         </motion.p>
         <motion.h1 className="font-heading text-display-xl font-semibold text-ink" {...fadeUp(0.15)}>
-          I design interfaces that feel <em className="gradient-text not-italic">alive</em> — and build them.
+          Interfaces that aren't just seen — they're <em className="gradient-text not-italic">felt</em>.
         </motion.h1>
-        <motion.p className="mt-5 max-w-[46ch] text-lg text-ink-600" {...fadeUp(0.3)}>
-          Product design, React development and a habit of turning data into something people actually
-          want to look at. Based in {site.location.split(",")[0]}.
-        </motion.p>
+
+        <motion.div className="mt-6 flex max-w-[56ch] flex-col gap-4 text-[17px] leading-relaxed text-ink-700" {...fadeUp(0.3)}>
+          <p>
+            I'm Maria — a UX/UI designer who writes the code, and a creative coder who thinks in
+            interfaces. Over ten years in design, and the last few shipping React products end-to-end:
+            research, design systems, and the frontend that makes them real.
+          </p>
+          <p>
+            I love projects that challenge conventions — fluid, dynamic interfaces and data turned into
+            something people actually want to look at. Let's build something that makes people stop,
+            explore, and remember.
+          </p>
+        </motion.div>
+
         <motion.div className="mt-8 flex flex-wrap items-center gap-6" {...fadeUp(0.42)}>
           <Button as="link" to="/resume" size="lg">
             Resume
@@ -46,6 +57,15 @@ export const Hero = () => (
             <IconArrowDown size={16} />
           </Button>
         </motion.div>
+
+        <motion.dl className="mt-10 grid max-w-[36rem] grid-cols-3 gap-6 border-t border-line pt-5" {...fadeUp(0.55)}>
+          {facts.map((f) => (
+            <div key={f.label}>
+              <dt className="font-label text-[11px] font-medium uppercase tracking-[0.14em] text-ink-700">{f.label}</dt>
+              <dd className="mt-1.5 font-heading text-lg font-semibold tracking-tight text-ink">{f.value}</dd>
+            </div>
+          ))}
+        </motion.dl>
       </div>
 
       <motion.div

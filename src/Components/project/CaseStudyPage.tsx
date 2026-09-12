@@ -42,14 +42,10 @@ export const CaseStudyPage = () => {
           </div>
 
           {/* one balanced facts row: three narrow cells + a wide one for the stack */}
-          <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 border-y border-line py-4 md:grid-cols-[1fr_1fr_1fr_2.6fr] md:gap-x-8">
+          <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 border-y border-line py-4 md:grid-cols-[1fr_1fr_2.4fr] md:gap-x-8">
             <div>
               <dt className={label}>Role</dt>
               <dd className="mt-1.5 text-sm text-ink">{project.role}</dd>
-            </div>
-            <div>
-              <dt className={label}>Timeline</dt>
-              <dd className="mt-1.5 text-sm text-ink">{project.timeline ?? project.year}</dd>
             </div>
             <div>
               <dt className={label}>Live</dt>
