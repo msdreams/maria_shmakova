@@ -25,7 +25,7 @@ export const Section = ({ id, eyebrow, title, intro, tone = "paper", className, 
       {(eyebrow || title) && (
         <Reveal className="mb-10 md:mb-14">
           {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-          {title && <h2 className="font-display text-display-lg font-normal text-ink">{title}</h2>}
+          {title && <h2 className="font-heading text-display-lg font-semibold text-ink">{title}</h2>}
           {intro && <div className="mt-4 max-w-prose text-lg text-ink-600">{intro}</div>}
         </Reveal>
       )}

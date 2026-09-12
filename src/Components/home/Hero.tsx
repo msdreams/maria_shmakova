@@ -29,7 +29,7 @@ export const Hero = () => (
         <motion.p className="eyebrow mb-5" {...fadeUp(0.05)}>
           {site.roleLine}
         </motion.p>
-        <motion.h1 className="font-display text-display-xl font-normal text-ink" {...fadeUp(0.15)}>
+        <motion.h1 className="font-heading text-display-xl font-semibold text-ink" {...fadeUp(0.15)}>
           I design interfaces that feel <em className="gradient-text not-italic">alive</em> — and build them.
         </motion.h1>
         <motion.p className="mt-5 max-w-[46ch] text-lg text-ink-600" {...fadeUp(0.3)}>
@@ -41,8 +41,8 @@ export const Hero = () => (
             Resume
             <IconArrowRight size={16} />
           </Button>
-          <Button variant="link" onClick={() => scrollToSection("work")}>
-            Selected work
+          <Button variant="ghost" onClick={() => scrollToSection("work")}>
+            Explore projects
             <IconArrowDown size={16} />
           </Button>
         </motion.div>

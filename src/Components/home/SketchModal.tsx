@@ -21,7 +21,7 @@ export const SketchModal = ({ sketch, onClose, onPrev, onNext }: SketchModalProp
         <div className="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-center justify-between px-5 py-4 md:px-8">
           <div className="pointer-events-auto">
             <p className="font-label text-[11px] uppercase tracking-[0.14em] text-paper/60">p5.js sketch</p>
-            <p className="font-display text-2xl text-paper">{sketch.title}</p>
+            <p className="font-heading text-xl font-semibold text-paper">{sketch.title}</p>
             {sketch.hint && <p className="mt-1 text-xs text-paper/50">{sketch.hint}</p>}
           </div>
           <div className="pointer-events-auto flex items-center gap-2">

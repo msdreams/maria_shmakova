@@ -64,21 +64,25 @@
     @apply bg-accent bg-clip-text text-transparent bg-200 animate-gradient-shift;
   }
 
-  /* Gradient underline that draws in from the left on hover / active. */
+  /* Gradient underline, always visible; on hover / active the gradient slides. */
   .link-underline {
     @apply relative;
   }
 
   .link-underline::after {
     content: "";
-    @apply absolute left-0 -bottom-0.5 h-px w-full bg-accent origin-left scale-x-0 transition-transform duration-300 ease-out;
+    @apply absolute left-0 -bottom-0.5 h-px w-full;
+    background-image: linear-gradient(90deg, var(--c-coral), var(--c-violet), var(--c-sky), var(--c-coral));
+    background-size: 300% 100%;
+    background-position: 0% 50%;
+    transition: background-position 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
   .link-underline:hover::after,
   .link-underline:focus-visible::after,
   .link-underline[aria-current="true"]::after,
   .group:hover .link-underline::after {
-    @apply scale-x-100;
+    background-position: 100% 50%;
   }
 
   .scrollbar-hide {

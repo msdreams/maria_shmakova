@@ -42,7 +42,7 @@ export const LoadingScreen = () => {
         >
           <div className="overflow-hidden">
             <motion.p
-              className="font-display text-display-lg text-ink"
+              className="font-heading text-[clamp(2.25rem,4.5vw,3.5rem)] font-semibold leading-none tracking-tight text-ink"
               initial={{ y: "110%" }}
               animate={{ y: 0 }}
               transition={{ duration: 0.7, ease: [0.2, 0.7, 0.2, 1], delay: 0.1 }}

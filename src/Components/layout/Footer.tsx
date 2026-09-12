@@ -10,7 +10,7 @@ export const Footer = () => {
     <footer className="border-t border-line">
       <div className="mx-auto flex w-full max-w-wrap flex-col gap-8 px-5 py-10 md:flex-row md:items-end md:justify-between md:px-8">
         <div>
-          <p className="font-display text-2xl text-ink">{site.name}</p>
+          <p className="font-heading text-xl font-semibold tracking-tight text-ink">{site.name}</p>
           <p className="mt-1 text-sm text-ink-500">{site.roleLine}</p>
         </div>
 

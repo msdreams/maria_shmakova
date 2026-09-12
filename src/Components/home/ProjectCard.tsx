@@ -29,7 +29,7 @@ export const ProjectCard = ({ project, index }: ProjectCardProps) => (
         <p className="font-label text-[11px] font-medium uppercase tracking-[0.14em] text-ink-700">
           {String(index).padStart(2, "0")} · {project.year}
         </p>
-        <h3 className="mt-2 font-display text-3xl text-ink">
+        <h3 className="mt-2 font-heading text-2xl font-semibold tracking-tight text-ink">
           <span className="link-underline">{project.title}</span>
         </h3>
         <p className="mt-2 max-w-[48ch] text-ink-600">{project.subtitle}</p>

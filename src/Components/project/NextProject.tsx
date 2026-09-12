@@ -11,7 +11,7 @@ export const NextProject = ({ project }: { project: Project }) => (
     >
       <div>
         <p className="font-label text-[11px] font-medium uppercase tracking-[0.14em] text-ink-700">Next project</p>
-        <p className="mt-3 font-display text-display-lg text-ink">
+        <p className="mt-3 font-heading font-semibold text-display-lg text-ink">
           <span className="link-underline">{project.title}</span>
         </p>
         <p className="mt-3 inline-flex items-center gap-2 text-ink-600">

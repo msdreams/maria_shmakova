@@ -14,7 +14,7 @@ const label = "font-label text-[11px] font-medium uppercase tracking-[0.14em] te
 const Block = ({ title, children }: { title: string; children: ReactNode }) => (
   <Reveal>
     <section className="grid grid-cols-1 gap-6 border-t border-line py-12 md:grid-cols-[220px_1fr] md:gap-12 md:py-16">
-      <h2 className="font-display text-display-md text-ink">{title}</h2>
+      <h2 className="font-heading font-semibold text-display-md text-ink">{title}</h2>
       <div>{children}</div>
     </section>
   </Reveal>
@@ -39,14 +39,14 @@ const Stack = ({ groups }: { groups: StackGroup[] }) => (
 
 export const ResumePage = () => (
   <article>
-    <Container className="pt-10 md:pt-14">
+    <Container className="pt-5 md:pt-6">
       <Link to="/" className="link-underline inline-flex items-center gap-1 text-sm text-ink-600 hover:text-ink">
         <IconChevronLeft size={16} />
         Home
       </Link>
-      <motion.header className="mt-10 md:mt-14" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }}>
+      <motion.header className="mt-6 md:mt-8" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }}>
         <p className="eyebrow">Resume</p>
-        <h1 className="mt-5 max-w-[20ch] font-display text-display-lg font-normal text-ink">{intro.headline}</h1>
+        <h1 className="mt-5 max-w-[20ch] font-heading text-display-lg font-semibold text-ink">{intro.headline}</h1>
         <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-ink-600">
           <a href={`mailto:${site.email}`} className="link-underline">
             {site.email}

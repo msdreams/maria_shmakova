@@ -23,14 +23,14 @@ module.exports = {
         accent: { coral: "#FF6B6B", violet: "#A66CFF", sky: "#5DD3FF" },
       },
       fontFamily: {
-        display: ['"Instrument Serif"', "Georgia", "serif"],
+        heading: ["Manrope", "Inter", "system-ui", "sans-serif"],
         sans: ["Inter", "system-ui", "sans-serif"],
         label: ["Jura", "ui-monospace", "monospace"],
       },
       fontSize: {
-        "display-xl": ["clamp(2.75rem, 5.5vw, 5.25rem)", { lineHeight: "0.98", letterSpacing: "-0.02em" }],
-        "display-lg": ["clamp(2.25rem, 4.5vw, 3.75rem)", { lineHeight: "1.05", letterSpacing: "-0.01em" }],
-        "display-md": ["clamp(1.75rem, 3vw, 2.5rem)", { lineHeight: "1.1", letterSpacing: "-0.01em" }],
+        "display-xl": ["clamp(2.25rem, 4vw, 3.75rem)", { lineHeight: "1.08", letterSpacing: "-0.025em" }],
+        "display-lg": ["clamp(1.9rem, 3.4vw, 2.75rem)", { lineHeight: "1.12", letterSpacing: "-0.02em" }],
+        "display-md": ["clamp(1.4rem, 2.2vw, 1.75rem)", { lineHeight: "1.2", letterSpacing: "-0.015em" }],
         eyebrow: ["0.75rem", { lineHeight: "1", letterSpacing: "0.14em" }],
       },
       backgroundImage: {

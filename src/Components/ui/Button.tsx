@@ -2,7 +2,7 @@ import classNames from "classnames";
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
 import { Link, type LinkProps } from "react-router-dom";
 
-type Variant = "solid" | "outline" | "link";
+type Variant = "solid" | "outline" | "link" | "ghost";
 type Size = "md" | "lg";
 
 const variants: Record<Variant, string> = {
@@ -11,6 +11,7 @@ const variants: Record<Variant, string> = {
   outline:
     "rounded-full border border-ink text-ink hover:bg-ink hover:text-paper active:scale-[0.98]",
   link: "link-underline text-ink px-0 py-0 gap-1.5",
+  ghost: "text-ink px-0 py-0 gap-1.5 hover:text-ink-600 [&>svg]:transition-transform [&>svg]:duration-300 hover:[&>svg]:translate-y-0.5",
 };
 
 const sizes: Record<Size, string> = {
@@ -23,7 +24,7 @@ const classes = (variant: Variant, size: Size, className?: string) =>
     "inline-flex items-center justify-center gap-2 font-medium transition-all duration-300 ease-smooth",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30 focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
     variants[variant],
-    variant !== "link" && sizes[size],
+    variant !== "link" && variant !== "ghost" && sizes[size],
     className
   );
 

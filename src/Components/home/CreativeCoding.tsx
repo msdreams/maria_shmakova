@@ -29,7 +29,7 @@ const Thumb = ({ img, title, onClick, className, eager }: { img: string; title: 
       className="aspect-[7/5] w-full object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.05]"
     />
     <span className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-ink/70 to-transparent px-4 pb-3 pt-8 text-paper opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-      <span className="font-display text-lg">{title}</span>
+      <span className="font-heading text-base font-semibold">{title}</span>
       <IconArrowUpRight size={16} />
     </span>
   </button>

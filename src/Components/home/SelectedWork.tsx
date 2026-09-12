@@ -6,7 +6,7 @@ import { ProjectCard } from "./ProjectCard";
 export const SelectedWork = () => (
   <Section
     id="work"
-    eyebrow="01 — Selected work"
+    eyebrow="01 — Explore projects"
     title="Projects where design and code met"
     intro="A few things I've designed, built, or both. Each one opens into a short case study."
   >

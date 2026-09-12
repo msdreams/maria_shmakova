@@ -4,12 +4,12 @@ import { getNextProject, getProject, projectIndex } from "../../data/projects";
 import { Container } from "../ui/Section";
 import { IconArrowUpRight, IconChevronLeft } from "../ui/Icons";
 import { Reveal } from "../ui/Reveal";
-import { Tag } from "../ui/Tag";
 import { CaseSection } from "./CaseSection";
-import { Gallery } from "./Gallery";
 import { NextProject } from "./NextProject";
+import { ScreenMosaic } from "./ScreenMosaic";
 
 const ease = [0.2, 0.7, 0.2, 1] as const;
+const label = "font-label text-[11px] font-medium uppercase tracking-[0.14em] text-ink-700";
 
 export const CaseStudyPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -22,66 +22,38 @@ export const CaseStudyPage = () => {
 
   return (
     <article>
-      <Container className="pt-10 md:pt-14">
+      <Container className="pt-5 md:pt-6">
         <Link to="/" className="link-underline inline-flex items-center gap-1 text-sm text-ink-600 hover:text-ink">
           <IconChevronLeft size={16} />
           Home
         </Link>
 
         <motion.header
-          className="mt-10 md:mt-14"
+          className="mt-5"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease }}
         >
-          <p className="eyebrow">
-            Case {number} · {project.year}
-          </p>
-          <h1 className="mt-5 max-w-[16ch] font-display text-display-xl font-normal text-ink">{project.title}</h1>
-          <p className="mt-5 max-w-[52ch] text-xl text-ink-600 md:text-2xl">{project.subtitle}</p>
-        </motion.header>
+          <div className="flex flex-col-reverse gap-3 md:flex-row md:items-start md:justify-between md:gap-8">
+            <h1 className="font-heading text-display-lg font-semibold text-ink">{project.title}</h1>
+            <p className="eyebrow md:pt-2">
+              Case {number} · {project.year}
+            </p>
+          </div>
 
-        <motion.div
-          className="mt-12 overflow-hidden rounded-2xl border border-line bg-paper-2 md:mt-16"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease, delay: 0.15 }}
-        >
-          {project.cover ? (
-            <img
-              src={project.cover.src}
-              alt={project.cover.alt}
-              className="aspect-[4/3] w-full object-cover object-top md:aspect-[16/9]"
-              decoding="async"
-            />
-          ) : (
-            <div className="flex aspect-[4/3] w-full items-center justify-center bg-accent-diag opacity-30 md:aspect-[16/9]">
-              <span className="font-label text-xs uppercase tracking-[0.14em] text-ink">cover image — TODO</span>
-            </div>
-          )}
-        </motion.div>
-
-        <Reveal className="mt-10 md:mt-14">
-          <dl className="grid grid-cols-2 gap-x-6 gap-y-8 border-y border-line py-8 md:grid-cols-4">
+          {/* one balanced facts row: three narrow cells + a wide one for the stack */}
+          <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 border-y border-line py-4 md:grid-cols-[1fr_1fr_1fr_2.6fr] md:gap-x-8">
             <div>
-              <dt className="font-label text-[11px] font-medium uppercase tracking-[0.14em] text-ink-700">Role</dt>
-              <dd className="mt-2 text-ink">{project.role}</dd>
+              <dt className={label}>Role</dt>
+              <dd className="mt-1.5 text-sm text-ink">{project.role}</dd>
             </div>
             <div>
-              <dt className="font-label text-[11px] font-medium uppercase tracking-[0.14em] text-ink-700">Timeline</dt>
-              <dd className="mt-2 text-ink">{project.timeline ?? project.year}</dd>
+              <dt className={label}>Timeline</dt>
+              <dd className="mt-1.5 text-sm text-ink">{project.timeline ?? project.year}</dd>
             </div>
             <div>
-              <dt className="font-label text-[11px] font-medium uppercase tracking-[0.14em] text-ink-700">Stack</dt>
-              <dd className="mt-2 flex flex-wrap gap-1.5">
-                {project.stack.map((s) => (
-                  <Tag key={s}>{s}</Tag>
-                ))}
-              </dd>
-            </div>
-            <div>
-              <dt className="font-label text-[11px] font-medium uppercase tracking-[0.14em] text-ink-700">Live</dt>
-              <dd className="mt-2">
+              <dt className={label}>Live</dt>
+              <dd className="mt-1.5 text-sm">
                 {project.url ? (
                   <a
                     href={project.url}
@@ -90,53 +62,71 @@ export const CaseStudyPage = () => {
                     className="link-underline inline-flex items-center gap-1 text-ink"
                   >
                     {project.urlLabel ?? "Open project"}
-                    <IconArrowUpRight size={16} />
+                    <IconArrowUpRight size={14} />
                   </a>
                 ) : (
                   <span className="text-ink-400">—</span>
                 )}
               </dd>
             </div>
+            <div className="col-span-2 md:col-span-1">
+              <dt className={label}>Stack</dt>
+              <dd className="mt-1.5 text-sm leading-relaxed text-ink">{project.stack.join(" · ")}</dd>
+            </div>
           </dl>
-        </Reveal>
+        </motion.header>
 
-        <div className="mt-4">
-          <CaseSection number="01" title="Overview">
-            <p>{project.overview}</p>
-          </CaseSection>
+        <motion.div
+          className="mt-6"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease, delay: 0.15 }}
+        >
+          {project.images.length > 0 ? (
+            <ScreenMosaic images={project.images} title={project.title} />
+          ) : (
+            <div className="flex aspect-[4/3] w-full items-center justify-center rounded-2xl border border-line bg-accent-diag opacity-30 md:aspect-[16/7]">
+              <span className="font-label text-xs uppercase tracking-[0.14em] text-ink">screens — TODO</span>
+            </div>
+          )}
+        </motion.div>
 
-          <CaseSection number="02" title="Challenge">
-            <p>{project.challenge}</p>
-          </CaseSection>
-
-          <CaseSection number="03" title="Process">
-            <ol className="flex flex-col gap-5">
-              {project.process.map((step, i) => (
-                <li key={i} className="grid grid-cols-[2.5rem_1fr] gap-3">
-                  <span className="pt-1 font-label text-xs text-ink-400">{String(i + 1).padStart(2, "0")}</span>
-                  <p>{step}</p>
-                </li>
-              ))}
-            </ol>
-          </CaseSection>
-
-          <CaseSection number="04" title="Solution">
-            <p>{project.solution}</p>
-          </CaseSection>
-        </div>
-
-        {project.images.length > 0 && (
+        <div className="mt-10 md:mt-14">
           <Reveal>
-            <section className="border-t border-line py-12 md:py-16">
-              <p className="font-label text-[11px] font-medium uppercase tracking-[0.14em] text-ink-700">Screens</p>
-              <Gallery images={project.images} title={project.title} />
-            </section>
+            <div className="grid grid-cols-1 border-t border-line md:grid-cols-2 md:gap-x-12">
+              <CaseSection number="01" title="Overview">
+                <p>{project.overview}</p>
+              </CaseSection>
+              <CaseSection number="02" title="Challenge">
+                <p>{project.challenge}</p>
+              </CaseSection>
+            </div>
           </Reveal>
-        )}
 
-        <CaseSection number="05" title="Result">
-          <p>{project.result}</p>
-        </CaseSection>
+          <Reveal>
+            <CaseSection number="03" title="Process" className="border-t border-line">
+              <ol className="grid grid-cols-1 gap-x-12 gap-y-5 md:grid-cols-2">
+                {project.process.map((step, i) => (
+                  <li key={i} className="grid grid-cols-[2rem_1fr] gap-3">
+                    <span className="pt-1 font-label text-xs text-ink-500">{String(i + 1).padStart(2, "0")}</span>
+                    <p>{step}</p>
+                  </li>
+                ))}
+              </ol>
+            </CaseSection>
+          </Reveal>
+
+          <Reveal>
+            <div className="grid grid-cols-1 border-t border-line md:grid-cols-2 md:gap-x-12">
+              <CaseSection number="04" title="Solution">
+                <p>{project.solution}</p>
+              </CaseSection>
+              <CaseSection number="05" title="Result">
+                <p>{project.result}</p>
+              </CaseSection>
+            </div>
+          </Reveal>
+        </div>
 
         {next && next.id !== project.id && <NextProject project={next} />}
       </Container>

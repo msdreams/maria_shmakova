@@ -6,7 +6,7 @@ import { Section } from "../ui/Section";
 export const Contact = () => (
   <Section id="contact" eyebrow="04 — Contact" className="border-t border-line">
     <Reveal>
-      <h2 className="max-w-[18ch] font-display text-display-lg font-normal text-ink">
+      <h2 className="max-w-[18ch] font-heading text-display-lg font-semibold text-ink">
         Let's build something that makes people stop, explore, and remember.
       </h2>
     </Reveal>
@@ -14,7 +14,7 @@ export const Contact = () => (
     <Reveal delay={0.1} className="mt-12">
       <a
         href={`mailto:${site.email}`}
-        className="group inline-block break-all font-display text-display-md text-ink md:text-display-lg"
+        className="group inline-block break-all font-heading font-semibold text-display-md text-ink md:text-display-lg"
       >
         <span className="gradient-text transition-opacity duration-300 group-hover:opacity-80">{site.email}</span>
       </a>
