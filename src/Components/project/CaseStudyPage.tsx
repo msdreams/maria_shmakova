@@ -83,7 +83,7 @@ export const CaseStudyPage = () => {
           transition={{ duration: 0.7, ease, delay: 0.15 }}
         >
           {project.images.length > 0 ? (
-            <ScreenMosaic images={project.images} title={project.title} />
+            <ScreenMosaic project={project} />
           ) : (
             <div className="flex aspect-[4/3] w-full items-center justify-center rounded-2xl border border-line bg-accent-diag opacity-30 md:aspect-[16/7]">
               <span className="font-label text-xs uppercase tracking-[0.14em] text-ink">screens — TODO</span>

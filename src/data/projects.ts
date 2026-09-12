@@ -34,6 +34,8 @@ export interface Project {
   urlLabel?: string;
   cover?: ProjectImage;
   images: ProjectImage[];
+  /** Project's own brand colour — tints the screenshot mosaic and the subtitle tile. */
+  accent: string;
   overview: string;
   challenge: string;
   process: string[];
@@ -61,6 +63,7 @@ export const projects: Project[] = [
     urlLabel: "Open Moneta",
     cover: monetaCover,
     images: monetaImages,
+    accent: "#2F6B4F",
     overview:
       "Moneta is an expense-tracking web app for people who want to understand where their money goes without a spreadsheet. Users log transactions, group them into categories and explore their habits through interactive charts.",
     challenge:
@@ -93,6 +96,7 @@ export const projects: Project[] = [
     urlLabel: "kidty.com.ua",
     cover: kidtyCoverImage,
     images: kidtyImages,
+    accent: "#6A5AE0",
     overview:
       "Kidty is a web app that helps parents track a child's health indicators over time and see them in context — growth curves, percentiles and custom measurements — instead of reading raw numbers from a notebook.",
     challenge:
@@ -125,6 +129,7 @@ export const projects: Project[] = [
     urlLabel: "Live demo",
     cover: phonesCoverImage,
     images: phonesImages,
+    accent: "#2E3352",
     overview:
       "An online store front-end: product catalogue by category, filtering and sorting, product pages, favourites and a shopping cart that survive a page reload.",
     challenge:
@@ -156,6 +161,7 @@ export const projects: Project[] = [
     urlLabel: "Live demo",
     cover: potsCoverImage,
     images: potsImages,
+    accent: "#C9A227",
     overview:
       "A landing page for a ceramics brand, built from a Figma layout as an exercise in clean, maintainable CSS and fluid responsive behaviour.",
     challenge:
@@ -186,6 +192,7 @@ export const projects: Project[] = [
     url: "https://credyapp.com/",
     urlLabel: "credyapp.com",
     images: [],
+    accent: "#3A6EA5",
     overview:
       "Led the rebranding and restructuring of WCH Service Bureau's internal products — a medical-services platform used by American doctors and clinics. TODO: add a one-paragraph description of the product.",
     challenge: "TODO: what was broken in the old product, who the users were, what the business wanted.",
@@ -211,6 +218,7 @@ export const projects: Project[] = [
     url: "https://calaton.com",
     urlLabel: "calaton.com",
     images: [],
+    accent: "#1F6F8B",
     overview:
       "Worked directly with the company founder on structural market and user analysis, then developed a visual system flexible enough to support every direction the company planned to grow in. TODO: expand.",
     challenge: "TODO: what the agency needed, constraints, timeline.",
