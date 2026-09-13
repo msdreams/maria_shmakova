@@ -59,7 +59,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     period: "Jul 2024 — Mar 2025",
-    title: "Frontend Developer · team lead",
+    title: "Frontend Developer",
     company: "Kidty",
     companyUrl: "https://kidty.com.ua/",
     location: "Kyiv, Ukraine",
@@ -81,7 +81,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     period: "Apr 2023 — Mar 2025",
-    title: "Frontend Developer (professional program)",
+    title: "Frontend Developer",
     company: "Mate academy",
     bullets: ["Two-year front-end program: JavaScript, TypeScript, React, Redux, testing, team projects."],
   },
@@ -106,7 +106,7 @@ export const experience: ExperienceItem[] = [
   {
     period: "Dec 2020 — Oct 2021",
     title: "UX Designer",
-    company: "Calaton Studio · Calaton Systems",
+    company: "Calaton",
     companyUrl: "https://calaton.com",
     location: "Software development agency",
     bullets: [
@@ -167,6 +167,10 @@ export const engineeringStack: StackGroup[] = [
   {
     label: "Workflow",
     items: ["Git / GitHub", "Scrum · Kanban", "Jira", "VS Code", "Chrome DevTools"],
+  },
+  {
+    label: "AI tooling",
+    items: ["Cursor", "Claude Code CLI", "AI-assisted development"],
   },
 ];
 

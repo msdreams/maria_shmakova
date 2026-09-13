@@ -137,7 +137,7 @@ export const projects: Project[] = [
     title: "Kidty",
     subtitle: "Customisable health data visualisation for parents",
     kind: "design+development",
-    role: "Frontend Developer · team lead",
+    role: "Frontend Developer",
     year: "2024 — 2025",
     stack: ["React", "TypeScript", "React Router", "D3", "REST API", "Docker"],
     tags: ["Health", "D3", "Data viz"],

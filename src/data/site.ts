@@ -1,6 +1,6 @@
 export const site = {
   name: "Maria Shmakova",
-  roleLine: "UX/UI Designer & Frontend Developer",
+  roleLine: "Product UX/UI Engineer",
   /** ROT13'd halves of the address, joined only when someone clicks. Neither
    *  the address nor an "@" is present in the markup or the bundle, so the
    *  patterns scrapers grep for never appear. */

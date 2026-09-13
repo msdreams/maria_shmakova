@@ -1,8 +1,11 @@
 import classNames from "classnames";
+import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import { certifications, designStack, education, engineeringStack, experience, type StackGroup } from "../../data/resume";
+import { certifications, designStack, education, engineeringStack, experience, intro, type StackGroup } from "../../data/resume";
+import { site } from "../../data/site";
 import { IconArrowUpRight } from "../ui/Icons";
 import { Container } from "../ui/Section";
+import { SweepTitle } from "../ui/SweepTitle";
 import { Tag } from "../ui/Tag";
 
 const label = "font-label text-[11px] font-medium uppercase tracking-[0.14em] text-ink-700";
@@ -47,20 +50,31 @@ const Stack = ({ groups }: { groups: StackGroup[] }) => (
 
 export const ResumePage = () => (
   <article>
-    {/* No page header: the site header carries the nav, and Experience's own
-        padding opens the page. */}
-    <Container className="pt-4 md:pt-6">
+    <Container className="pt-10 md:pt-16">
+      {/* same voice and scale as the landing headline */}
+      <motion.header
+        className="mb-7 md:mb-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+      >
+        <p className="eyebrow mb-5">Curriculum Vitae</p>
+        <SweepTitle className="font-heading text-display-xl font-semibold text-ink">{site.roleLine}</SweepTitle>
+        <p className="mt-5 max-w-[56ch] text-[17px] leading-relaxed text-ink-700">{intro.headline}</p>
+      </motion.header>
+
       <Block title="Experience" divider={false}>
         {/* timeline: a hairline with a dot per entry keeps the left edge anchored */}
         <ol className="relative flex flex-col gap-10 border-l border-line pl-7 md:pl-9">
           {experience.map((job) => (
-            <li key={job.period + job.title} className="relative">
-              <span
-                aria-hidden="true"
-                className="absolute -left-7 top-[5px] h-[7px] w-[7px] -translate-x-1/2 rounded-full bg-ink ring-4 ring-paper md:-left-9"
-              />
+            <li key={job.period + job.title}>
               <p className={label}>{job.period}</p>
-              <div className="mt-2">
+              <div className="relative mt-2">
+                {/* dot centred on the title line (text-xl / 28px) */}
+                <span
+                  aria-hidden="true"
+                  className="absolute -left-7 top-[10px] h-[7px] w-[7px] -translate-x-1/2 rounded-full bg-ink-400 ring-4 ring-paper md:-left-9"
+                />
                 <h3 className="text-xl text-ink">
                   {job.title}
                   {job.company && (
@@ -86,7 +100,7 @@ export const ResumePage = () => (
                 <ul className="mt-4 flex flex-col gap-2 text-ink-600">
                   {job.bullets.map((b) => (
                     <li key={b} className="grid grid-cols-[1rem_1fr] gap-2">
-                      <span className="mt-[0.7em] h-[2px] w-3.5 rounded-full bg-accent" />
+                      <span className="mt-[0.75em] h-px w-3 bg-ink-300" />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -134,13 +148,13 @@ export const ResumePage = () => (
       <Block title="Education">
         <ol className="relative flex flex-col gap-6 border-l border-line pl-7 md:pl-9">
           {education.map((e) => (
-            <li key={e.period + e.title} className="relative">
-              <span
-                aria-hidden="true"
-                className="absolute -left-7 top-[5px] h-[7px] w-[7px] -translate-x-1/2 rounded-full bg-ink ring-4 ring-paper md:-left-9"
-              />
+            <li key={e.period + e.title}>
               <p className={label}>{e.period}</p>
-              <p className="mt-1.5 text-ink">
+              <p className="relative mt-1.5 text-ink">
+                <span
+                  aria-hidden="true"
+                  className="absolute -left-7 top-[8px] h-[7px] w-[7px] -translate-x-1/2 rounded-full bg-ink-400 ring-4 ring-paper md:-left-9"
+                />
                 {e.title}
                 {e.place && <span className="text-ink-500"> · {e.place}</span>}
               </p>

@@ -192,7 +192,7 @@ export const Hero = () => {
           <Button as="link" to="/projects" size="lg">
             Projects
           </Button>
-          <Button as="link" to="/resume" variant="ghost">
+          <Button as="link" to="/cv" variant="ghost">
             Curriculum Vitae
           </Button>
         </motion.div>

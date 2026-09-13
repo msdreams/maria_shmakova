@@ -21,8 +21,10 @@ export const Root = () => (
         <Route path="projects" element={<ProjectsPage />} />
         <Route path="projects/:id" element={<CaseStudyPage />} />
         <Route path="project/:id" element={<LegacyProjectRedirect />} />
-        <Route path="resume" element={<ResumePage />} />
-        <Route path="bio" element={<Navigate to="/resume" replace />} />
+        <Route path="cv" element={<ResumePage />} />
+        {/* old addresses keep working */}
+        <Route path="resume" element={<Navigate to="/cv" replace />} />
+        <Route path="bio" element={<Navigate to="/cv" replace />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
