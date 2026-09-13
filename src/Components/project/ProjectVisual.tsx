@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { Fragment } from "react";
 import type { Project } from "../../data/projects";
 import { BrowserBar } from "../ui/BrowserBar";
@@ -27,7 +28,15 @@ export const ProjectVisual = ({ project, wide = false }: ProjectVisualProps) => 
       <LightRing />
     {/* tinted board in the project's colour; screenshots rise out of its bottom edge */}
     <div
-      className={wide ? "relative aspect-[5/3] overflow-hidden rounded-3xl md:aspect-[12/5]" : "relative aspect-[5/3] overflow-hidden rounded-3xl"}
+      className={classNames(
+        "relative aspect-[5/3] overflow-hidden rounded-3xl",
+        wide && "md:aspect-[12/5]",
+        // previews rest in black & white and come to colour on hover; the current card
+        // ([data-active] — the snapped slide, or the first in a grid) stays in colour
+        // and greys out only while a sibling is hovered
+        "grayscale transition-[filter] duration-700 ease-smooth group-hover:grayscale-0",
+        "[[data-active]_&]:grayscale-0 [.cards:has(.group:hover)_[data-active]:not(:hover)_&]:grayscale"
+      )}
       style={{ backgroundColor: `${project.accent}38` }}
     >
       {project.mockup ? (

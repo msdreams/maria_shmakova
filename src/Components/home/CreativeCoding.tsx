@@ -58,7 +58,6 @@ export const CreativeCoding = () => {
         </Reveal>
 
         <Reveal delay={0.1} className="relative isolate mx-auto h-[300px] w-[300px] md:h-[360px] md:w-[360px]">
-          <div className="absolute inset-6 -z-10 rounded-full bg-accent-diag bg-200 opacity-35 blur-3xl animate-gradient-shift" />
           <P5Canvas sketch={sectionIcosahedron} pauseWhenHidden className="[&>canvas]:!h-full [&>canvas]:!w-full" />
         </Reveal>
       </div>

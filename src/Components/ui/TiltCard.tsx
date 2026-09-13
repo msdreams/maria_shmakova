@@ -17,14 +17,15 @@ type TiltCardProps = {
   className?: string;
 };
 
-const spring = { stiffness: 150, damping: 20, mass: 0.6 };
+// softer spring: the highlight and tilt lag behind the pointer instead of chasing it
+const spring = { stiffness: 80, damping: 22, mass: 0.9 };
 
 /**
  * Turns its child towards the pointer in 3D, with a highlight that tracks the
  * cursor so the surface reads as tilting rather than just skewing. Falls back
  * to a plain wrapper without a hover-capable pointer or with reduced motion.
  */
-export const TiltCard = ({ children, tilt = 9, className }: TiltCardProps) => {
+export const TiltCard = ({ children, tilt = 6, className }: TiltCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
   const canHover = useMediaQuery("(hover: hover) and (pointer: fine)");
@@ -41,10 +42,11 @@ export const TiltCard = ({ children, tilt = 9, className }: TiltCardProps) => {
   const rotateY = useTransform(sx, [-0.5, 0.5], [-tilt, tilt]);
   const rotateX = useTransform(sy, [-0.5, 0.5], [tilt, -tilt]);
   const scale = useTransform(sLift, [0, 1], [1, 1.03]);
-  const glareOpacity = useTransform(sLift, [0, 1], [0, 0.5]);
+  const glareOpacity = useTransform(sLift, [0, 1], [0, 0.38]);
   const glareX = useTransform(sx, [-0.5, 0.5], ["12%", "88%"]);
   const glareY = useTransform(sy, [-0.5, 0.5], ["12%", "88%"]);
-  const glare = useMotionTemplate`radial-gradient(40% 40% at ${glareX} ${glareY}, rgba(255,255,255,.9), transparent 70%)`;
+  // wide, faint pool of light rather than a spot
+  const glare = useMotionTemplate`radial-gradient(50% 50% at ${glareX} ${glareY}, rgba(255,255,255,.85), transparent 72%)`;
 
   const onPointerMove = useCallback(
     (e: PointerEvent<HTMLDivElement>) => {

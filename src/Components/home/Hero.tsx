@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import photo from "../../assets/images/Photo.png";
+import photo from "../../assets/images/Photo.jpg";
 import { site } from "../../data/site";
 import { Button } from "../ui/Button";
 import { LightRing } from "../ui/LightRing";
@@ -63,8 +63,8 @@ export const Hero = () => (
                 src={photo}
                 alt={`${site.name}, portrait`}
                 className="relative aspect-square w-full rounded-3xl border border-line object-cover object-top shadow-[0_24px_60px_-30px_rgba(17,17,17,0.35)]"
-                width={891}
-                height={891}
+                width={1100}
+                height={1063}
               />
             </div>
           </TiltCard>

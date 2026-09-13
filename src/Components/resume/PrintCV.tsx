@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import photo from "../../assets/images/Photo.png";
+import photo from "../../assets/images/Photo.jpg";
 import {
   aiNote,
   certifications,

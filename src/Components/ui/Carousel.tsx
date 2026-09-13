@@ -52,6 +52,23 @@ export const Carousel = ({ children, label, className, renderControls, tone = "p
     if (!el) return;
     const max = el.scrollWidth - el.clientWidth - 1;
     setCan({ prev: el.scrollLeft > 1, next: el.scrollLeft < max });
+    // flag the slide whose left edge sits closest to the rail's scroll position
+    // (cards use it for their "current" look); works at the end of the rail too
+    const slides = Array.from(el.querySelectorAll<HTMLElement>("[data-slide]"));
+    const padLeft = parseFloat(getComputedStyle(el).paddingLeft) || 0;
+    let active = 0;
+    let best = Infinity;
+    slides.forEach((s, i) => {
+      const d = Math.abs(s.offsetLeft - padLeft - el.scrollLeft);
+      if (d < best) {
+        best = d;
+        active = i;
+      }
+    });
+    slides.forEach((s, i) => {
+      if (i === active) s.setAttribute("data-active", "");
+      else s.removeAttribute("data-active");
+    });
   }, []);
 
   useEffect(() => {
@@ -148,12 +165,21 @@ export const Carousel = ({ children, label, className, renderControls, tone = "p
           onClickCapture={onClickCapture}
           onDragStart={(e) => e.preventDefault()}
           className={classNames(
-            "no-scrollbar -mx-1 flex cursor-grab gap-6 overflow-x-auto px-1 py-1 pb-2 scroll-px-1 select-none",
+            "cards no-scrollbar -mx-1 flex cursor-grab gap-6 overflow-x-auto px-1 py-1 pb-2 scroll-px-1 select-none",
             dragging ? "snap-none cursor-grabbing" : "snap-x snap-mandatory"
           )}
         >
           {children}
         </div>
+        <div
+          aria-hidden
+          className={classNames(
+            "pointer-events-none absolute inset-y-0 -left-1 w-24 bg-gradient-to-r to-transparent transition-opacity duration-300 md:w-40",
+            tone === "paper-2" ? "from-paper-2 via-paper-2/55" : "from-paper via-paper/55",
+            "from-15% via-55%",
+            prev ? "opacity-100" : "opacity-0"
+          )}
+        />
         <div
           aria-hidden
           className={classNames(

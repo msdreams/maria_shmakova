@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 import type { Project } from "../../data/projects";
 import { ProjectVisual } from "../project/ProjectVisual";
 
-type ProjectCardProps = { project: Project; wide?: boolean };
+type ProjectCardProps = { project: Project; wide?: boolean; lead?: boolean };
 
-export const ProjectCard = ({ project, wide = false }: ProjectCardProps) => (
-  <Link to={`/projects/${project.id}`} className="group block" aria-label={`${project.title} — open case study`}>
+export const ProjectCard = ({ project, wide = false, lead = false }: ProjectCardProps) => (
+  <Link to={`/projects/${project.id}`} className="group block" data-active={lead ? "" : undefined} aria-label={`${project.title} — open case study`}>
     <ProjectVisual project={project} wide={wide} />
 
     <div className="mt-5">
