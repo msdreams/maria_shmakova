@@ -26,6 +26,7 @@ export const Header = () => {
 
   return (
     <header
+      data-print-hide
       className={classNames(
         "sticky top-0 z-40 border-b transition-colors duration-300 ease-smooth",
         scrolled ? "border-line bg-paper/80 backdrop-blur-md" : "border-transparent bg-transparent"
@@ -68,7 +69,7 @@ export const Header = () => {
             CV
           </NavLink>
           <a
-            href={site.socials.find((s) => s.id === "linkedin")?.href ?? "https://www.linkedin.com/in/mariashmakova/"}
+            href={site.socials.find((s) => s.id === "linkedin")?.href ?? "https://www.linkedin.com/in/mashashmakova/"}
             target="_blank"
             rel="noopener noreferrer"
             className={`${navClass} inline-flex items-center gap-1`}

@@ -9,7 +9,7 @@ export const site = {
   locationUrl: "https://www.google.com/maps/place/Gdynia",
   socials: [
     { id: "github", label: "GitHub", href: "https://github.com/msdreams" },
-    { id: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/mariashmakova/" },
+    { id: "linkedin", label: "LinkedIn", href: "https://www.linkedin.com/in/mashashmakova/" },
     { id: "instagram", label: "Instagram", href: "https://www.instagram.com/maria_mariash_" },
   ],
 } as const;

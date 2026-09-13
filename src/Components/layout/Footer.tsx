@@ -5,7 +5,7 @@ import { Container } from "../ui/Section";
 /** Contact row shared by every page. The home page shows the email CTA above
  *  it in the Contact section, so this row must not repeat the address. */
 export const Footer = () => (
-  <footer className="border-t border-line">
+  <footer data-print-hide className="border-t border-line">
     <Container className="flex flex-col gap-6 py-8 md:flex-row md:items-center md:justify-between">
       <ul className="flex flex-wrap items-center gap-6">
         {site.socials.map((s) => (

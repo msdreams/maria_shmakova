@@ -6,6 +6,12 @@ export interface ExperienceItem {
   location?: string;
   bullets: string[];
   links?: { label: string; href: string }[];
+  /** One-paragraph version for the printed CV (bullets are used when absent). */
+  summary?: string;
+  /** Printed as a single line — for early roles. */
+  compact?: boolean;
+  /** Web page only (e.g. mentoring listed separately on paper). */
+  webOnly?: boolean;
 }
 
 export interface EducationItem {
@@ -18,6 +24,40 @@ export interface StackGroup {
   label: string;
   items: string[];
 }
+
+/** Printed CV: headline and summary paragraphs. */
+export const printSummary = {
+  headline: "Design Engineer bridging design and development",
+  paragraphs: [
+    "8 years in design and 3.5 years in development — a combination that shapes how I approach product today.",
+    "I solve UX problems at the architectural level, not the cosmetic one: turning 10 tabs into one, a long confusing user flow into something fast and intuitive. UX and data structure are always linked for me — one can require rethinking the other.",
+  ],
+};
+
+export const languages = "English — Advanced · Ukrainian · Russian";
+
+/** Printed CV: contact line. The phone is stored reversed and assembled at print time. */
+export const printContact = {
+  locationLine: "Gdynia, Pomorskie, Poland · Remote",
+  phoneReversed: "592 470 496 84+",
+  linkedin: "linkedin.com/in/mashashmakova",
+};
+
+/** Printed CV: skill groups for the sidebar. */
+export const printSkills: StackGroup[] = [
+  {
+    label: "Development",
+    items: ["TypeScript", "JavaScript", "React", "Next.js", "Redux Toolkit", "React Native", "HTML5 / SCSS", "Tailwind", "REST API", "PostgreSQL", "Docker", "Git / GitHub"],
+  },
+  { label: "AI tooling", items: ["Claude", "Claude Design", "Cursor"] },
+  {
+    label: "Design & Data viz",
+    items: ["D3.js", "Recharts", "P5.js", "Figma", "After Effects", "Design systems"],
+  },
+];
+
+export const aiNote =
+  "AI-assisted prototyping as a daily workflow — I design and prototype interfaces with Claude, then carry them into production code.";
 
 export const intro = {
   headline: "I'm a UX/UI designer who ships her own code — and a creative coder who thinks in interfaces.",
@@ -34,6 +74,8 @@ export const experience: ExperienceItem[] = [
     company: "SportyLabs Digital",
     companyUrl: "https://www.sportylabs.io/",
     location: "Gdańsk, Poland",
+    summary:
+      "Working at the intersection of design and engineering — I own a design system spanning CRM, client-facing, and mobile platforms.",
     bullets: [
       "Work at the intersection of design and engineering — I own a design system spanning CRM, client-facing and mobile platforms.",
       "Design interfaces alongside the data models they run on: I see the product from schema to pixel.",
@@ -52,6 +94,8 @@ export const experience: ExperienceItem[] = [
     company: "PetHelsi",
     companyUrl: "https://pet-helsi-front.vercel.app/",
     location: "Kyiv, Ukraine",
+    summary:
+      "Migrated the project from React to Next.js — server-side rendering, routing system, and project structure. Translated data-driven requirements into functional UI with the back-end team.",
     bullets: [
       "Migrated the product from React to Next.js: server-side rendering, routing and project structure.",
       "Collaborated with back-end developers to translate data-driven requirements and business logic into functional UI.",
@@ -63,6 +107,8 @@ export const experience: ExperienceItem[] = [
     company: "Kidty",
     companyUrl: "https://kidty.com.ua/",
     location: "Kyiv, Ukraine",
+    summary:
+      "HealthTech app for tracking a child's development. Built from scratch — Context API, interactive data visualisation with D3. Led the team and owned the business logic and client-server architecture.",
     bullets: [
       "HealthTech web app that helps parents and paediatricians track a child's development — built from scratch with a focus on adaptability, data visualisation and storage.",
       "Interactive data visualisation with D3; state management with Context API; performance optimisation.",
@@ -74,6 +120,8 @@ export const experience: ExperienceItem[] = [
     title: "Frontend Developer",
     company: "Moneta",
     companyUrl: "https://mariashmakova-frontend.moneta.adammudrak.pp.ua/",
+    summary:
+      "Expense-tracking finance dashboard. React, Redux Toolkit, REST API, two-factor authentication, data visualisation with Recharts, reusable component library.",
     bullets: [
       "Finance dashboard for expense tracking: React, Redux Toolkit, REST API, two-factor authentication.",
       "Data visualisation with Recharts; reusable components on top of UI libraries, with consistency and usability in mind.",
@@ -83,6 +131,7 @@ export const experience: ExperienceItem[] = [
     period: "Apr 2023 — Mar 2025",
     title: "Frontend Developer",
     company: "Mate academy",
+    summary: "Building and maintaining web applications — performance, reusable components, data visualisation, and security.",
     bullets: ["Two-year front-end program: JavaScript, TypeScript, React, Redux, testing, team projects."],
   },
   {
@@ -91,6 +140,8 @@ export const experience: ExperienceItem[] = [
     company: "WCH Service Bureau",
     companyUrl: "https://wchsb.com/",
     location: "American product company, Kyiv office",
+    summary:
+      "Led the rebranding and restructuring of internal products for a medical service platform used by American clinics. Graphic Web Designer at the company through 2022.",
     bullets: [
       "Graphic web designer (2022), then product designer (Aug 2022 — Dec 2023): responsible for the design and development of the company's products.",
       "Led the rebranding and restructuring of internal products — a medical-services platform used by American doctors and clinics.",
@@ -98,15 +149,24 @@ export const experience: ExperienceItem[] = [
     links: [{ label: "Product page & demo", href: "https://credyapp.com/" }],
   },
   {
+    period: "From 2021",
+    title: "Creative Coding Mentor",
+    company: "School of Visual Communication",
+    summary: 'Lead instructor of the course "Generative Design" — creating graphics through code with JS.',
+    bullets: ['Lead instructor of the course "Generative Design" — creating graphics through code with JS.'],
+  },
+  {
     period: "Oct — Dec 2021",
     title: "Motion Graphic Designer",
     company: "Freelance",
+    compact: true,
     bullets: ["Motion graphics and animation for brands."],
   },
   {
     period: "Dec 2020 — Oct 2021",
     title: "UX Designer",
     company: "Calaton",
+    compact: true,
     companyUrl: "https://calaton.com",
     location: "Software development agency",
     bullets: [
@@ -115,9 +175,10 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    period: "2015 — 2019",
+    period: "Feb 2015 — May 2019",
     title: "Graphic Designer",
     company: "Honey Shmoney",
+    compact: true,
     location: "Kyiv, Ukraine",
     bullets: ["Graphic design, web design and marketing for the Honey Shmoney and Мед-шмед brands."],
   },

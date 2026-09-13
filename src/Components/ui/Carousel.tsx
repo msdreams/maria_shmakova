@@ -29,8 +29,8 @@ type CarouselProps = {
 };
 
 export const carouselArrowClass =
-  // solid ink discs: the outlined version disappeared against the paper background
-  "btn-gradient inline-flex h-11 w-11 items-center justify-center rounded-full bg-ink text-paper shadow-sm transition-all duration-300 ease-smooth hover:-translate-y-0.5 active:translate-y-0 disabled:pointer-events-none disabled:bg-ink-200 disabled:text-ink-500 disabled:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30 focus-visible:ring-offset-2 focus-visible:ring-offset-paper";
+  // outlined like the Print / PDF button; the gradient fills in on hover
+  "btn-gradient inline-flex h-11 w-11 items-center justify-center rounded-full border border-ink text-ink transition-all duration-300 ease-smooth hover:-translate-y-0.5 hover:border-transparent hover:text-paper active:translate-y-0 disabled:pointer-events-none disabled:border-ink-200 disabled:text-ink-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30 focus-visible:ring-offset-2 focus-visible:ring-offset-paper";
 
 const DRAG_THRESHOLD = 6;
 

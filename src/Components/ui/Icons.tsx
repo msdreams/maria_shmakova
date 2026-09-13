@@ -51,6 +51,13 @@ export const IconArrowDown = ({ size = 20, ...props }: IconProps) => (
   </svg>
 );
 
+export const IconPrint = ({ size = 20, ...props }: IconProps) => (
+  <svg {...base(size, props)}>
+    <path d="M6 9V4h12v5M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+    <rect x="6" y="14" width="12" height="7" rx="1" />
+  </svg>
+);
+
 export const IconMenu = ({ size = 22, ...props }: IconProps) => (
   <svg {...base(size, props)}>
     <path d="M4 7h16M4 12h16M4 17h16" />
