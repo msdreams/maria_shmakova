@@ -16,6 +16,28 @@
       rel="stylesheet"
     />
     <title>Maria Shmakova — UX/UI Designer & Frontend Developer</title>
+    <script>
+      // Must run before the bundle: React Router reads window.location on boot.
+      (function (l) {
+        // Restore a path that 404.html encoded as "/?/project/loop".
+        if (l.search.charAt(1) === "/") {
+          var path = l.search
+            .slice(1)
+            .split("&")
+            .map(function (part) {
+              return part.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(null, "", path + l.hash);
+          return;
+        }
+        // Send links shared before the switch to BrowserRouter ("/#/project/loop")
+        // to their new clean equivalent.
+        if (l.hash.slice(0, 2) === "#/") {
+          window.history.replaceState(null, "", l.hash.slice(1));
+        }
+      })(window.location);
+    </script>
   </head>
   <body>
     <div id="root"></div>

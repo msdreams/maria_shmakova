@@ -12,9 +12,9 @@ export const scrollToSection = (id: SectionId, behavior: ScrollBehavior = "smoot
 };
 
 /**
- * Anchor navigation that is safe with HashRouter: never uses `href="#id"`
- * (that would change the route). On the home page it scrolls; elsewhere it
- * navigates home and lets HomePage pick up `state.scrollTo`.
+ * Section navigation without `href="#id"`, so the URL stays clean and the
+ * scroll stays smooth. On the home page it scrolls; elsewhere it navigates
+ * home and lets HomePage pick up `state.scrollTo`.
  */
 export const useSectionNav = () => {
   const navigate = useNavigate();

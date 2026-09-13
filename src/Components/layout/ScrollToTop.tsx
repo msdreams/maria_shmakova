@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
-/** HashRouter doesn't reset scroll on navigation — do it here on every
+/** React Router doesn't reset scroll on navigation — do it here on every
  *  pathname change, unless the target page is going to scroll to a section
  *  itself (it says so via `state.scrollTo`). */
 export const ScrollToTop = () => {
