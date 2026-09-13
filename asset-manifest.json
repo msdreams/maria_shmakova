@@ -1,8 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ec67c140.css",
-    "main.js": "/static/js/main.50922c50.js",
-    "static/media/Photo.png": "/static/media/Photo.c2d39b9658d0578893bc.png",
+    "main.css": "/static/css/main.2d1855c3.css",
+    "main.js": "/static/js/main.b02d756a.js",
     "static/media/kidty1.jpg": "/static/media/kidty1.5c0b8b26d9e3e4c32413.jpg",
     "static/media/kidty7.jpg": "/static/media/kidty7.cacbe8d6acf117d299a1.jpg",
     "static/media/pots2.jpg": "/static/media/pots2.044ff59dfb8b5e95c960.jpg",
@@ -35,6 +34,7 @@
     "static/media/loop8-booking-modal.jpg": "/static/media/loop8-booking-modal.6e014f07d700a6c0638c.jpg",
     "static/media/moneta10.jpg": "/static/media/moneta10.a9d86393f85df8610567.jpg",
     "static/media/phones1.jpg": "/static/media/phones1.1dccab6235ed59d04991.jpg",
+    "static/media/Photo.jpg": "/static/media/Photo.c55402bf3311ed1841cb.jpg",
     "static/media/moneta5.jpg": "/static/media/moneta5.5919446e93fe9cbaf383.jpg",
     "static/media/Jura-VariableFont_wght.ttf": "/static/media/Jura-VariableFont_wght.8b9338810a4d628fd950.ttf",
     "static/media/loop4-schedule-prices.jpg": "/static/media/loop4-schedule-prices.2e9ec5fdff7c541f68fe.jpg",
@@ -53,17 +53,16 @@
     "static/media/loop5-price-timeline.jpg": "/static/media/loop5-price-timeline.65d9efc017d90442d993.jpg",
     "static/media/loop-mockup-card.png": "/static/media/loop-mockup-card.8ef794ec118e20df2586.png",
     "static/media/breathing.jpg": "/static/media/breathing.953a27df0c774cd8896f.jpg",
-    "static/media/3.jpg": "/static/media/3.87fdddec14c637b8916b.jpg",
     "static/media/dotWave.jpg": "/static/media/dotWave.4eda0ea8776b77e8fad6.jpg",
     "static/media/Random_triangles.jpg": "/static/media/Random_triangles.ae46a7d91f7fcb7c7ae4.jpg",
     "static/media/movementOfDots.jpg": "/static/media/movementOfDots.36bd0206086c3006e8ee.jpg",
     "static/media/mandrian.jpg": "/static/media/mandrian.3206d606916fc9a1e25d.jpg",
     "index.html": "/index.html",
-    "main.ec67c140.css.map": "/static/css/main.ec67c140.css.map",
-    "main.50922c50.js.map": "/static/js/main.50922c50.js.map"
+    "main.2d1855c3.css.map": "/static/css/main.2d1855c3.css.map",
+    "main.b02d756a.js.map": "/static/js/main.b02d756a.js.map"
   },
   "entrypoints": [
-    "static/css/main.ec67c140.css",
-    "static/js/main.50922c50.js"
+    "static/css/main.2d1855c3.css",
+    "static/js/main.b02d756a.js"
   ]
 }
