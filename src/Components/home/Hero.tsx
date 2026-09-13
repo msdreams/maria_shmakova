@@ -5,13 +5,14 @@ import photo from "../../assets/images/Photo.png";
 import { site } from "../../data/site";
 import { INTRO_MS, introSeen } from "../layout/LoadingScreen";
 import { Button } from "../ui/Button";
+import { LightRing } from "../ui/LightRing";
 import { TiltCard } from "../ui/TiltCard";
 
-const ease = [0.2, 0.7, 0.2, 1] as const;
+const ease = [0.16, 1, 0.3, 1] as const; // expo-style ease-out: quick start, very soft landing
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, ease, delay },
+  transition: { duration: 1, ease, delay },
 });
 
 const titleCopy = (
@@ -92,7 +93,8 @@ export const Hero = () => {
       range.selectNodeContents(text);
       const next = lineBoxes(h1.getBoundingClientRect(), range.getClientRects());
       setLines(next);
-      setTitleWidth(text.offsetWidth);
+      // the copy must wrap exactly like the real text: use the block width, not the inline box
+      setTitleWidth(h1.clientWidth);
       const felt = feltRef.current;
       const last = next[next.length - 1];
       if (felt && last) {
@@ -207,13 +209,18 @@ export const Hero = () => {
           {/* outside the tilt, so the glow stays put and adds depth */}
           <div className="absolute -inset-3 -z-10 rounded-[2rem] bg-accent-diag opacity-[0.12] blur-2xl" />
           <TiltCard className="rounded-3xl">
-            <img
-              src={photo}
-              alt={`${site.name}, portrait`}
-              className="aspect-square w-full rounded-3xl border border-line object-cover object-top shadow-[0_24px_60px_-30px_rgba(17,17,17,0.35)]"
-              width={891}
-              height={891}
-            />
+            <div className="group relative rounded-3xl">
+              {/* gradient light running along the frame: one lap after the photo appears,
+                  a pass every ~10s, continuous while hovered */}
+              <LightRing mode="auto" />
+              <img
+                src={photo}
+                alt={`${site.name}, portrait`}
+                className="relative aspect-square w-full rounded-3xl border border-line object-cover object-top shadow-[0_24px_60px_-30px_rgba(17,17,17,0.35)]"
+                width={891}
+                height={891}
+              />
+            </div>
           </TiltCard>
         </div>
       </motion.div>

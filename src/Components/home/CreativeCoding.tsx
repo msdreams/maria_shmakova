@@ -7,6 +7,7 @@ import { P5Canvas } from "../p5/P5Canvas";
 import { Button } from "../ui/Button";
 import { Carousel, carouselArrowClass } from "../ui/Carousel";
 import { IconArrowUpRight, IconChevronLeft, IconChevronRight } from "../ui/Icons";
+import { LightRing } from "../ui/LightRing";
 import { Reveal } from "../ui/Reveal";
 import { Section } from "../ui/Section";
 import { SketchModal } from "./SketchModal";
@@ -17,18 +18,21 @@ const Thumb = ({ img, title, onClick, className, eager }: { img: string; title: 
     onClick={onClick}
     data-slide
     className={classNames(
-      "group relative block overflow-hidden rounded-2xl border border-line bg-ink text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30",
+      "group relative block rounded-3xl text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30",
       className
     )}
     aria-label={`Open sketch: ${title}`}
   >
-    <img
-      src={img}
-      alt={title}
-      loading={eager ? "eager" : "lazy"}
-      decoding="async"
-      className="aspect-[7/5] w-full object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.05]"
-    />
+    <LightRing />
+    <span className="relative block overflow-hidden rounded-3xl bg-ink">
+      <img
+        src={img}
+        alt={title}
+        loading={eager ? "eager" : "lazy"}
+        decoding="async"
+        className="aspect-[7/5] w-full object-cover transition-transform duration-700 ease-smooth group-hover:scale-[1.05]"
+      />
+    </span>
   </button>
 );
 
@@ -46,7 +50,7 @@ export const CreativeCoding = () => {
       <div className="grid grid-cols-1 items-center gap-10 md:grid-cols-2 md:gap-16">
         <Reveal>
           <p className="eyebrow mb-5">Creative coding</p>
-          <h2 className="font-heading text-display-lg font-semibold text-ink">Sketches in p5.js</h2>
+          <h2 className="font-heading text-display-lg font-semibold text-ink">Procedural animations</h2>
           <p className="mt-6 max-w-[56ch] text-[17px] leading-relaxed text-ink-700">
             Interactive visualisations, generative patterns and small JavaScript experiments — a place to
             research ideas before they become interfaces. Everything here runs live in the browser.
@@ -54,7 +58,7 @@ export const CreativeCoding = () => {
         </Reveal>
 
         <Reveal delay={0.1} className="relative isolate mx-auto h-[300px] w-[300px] md:h-[360px] md:w-[360px]">
-          <div className="absolute inset-6 -z-10 rounded-full bg-accent-radial opacity-30 blur-3xl" />
+          <div className="absolute inset-6 -z-10 rounded-full bg-accent-diag bg-200 opacity-35 blur-3xl animate-gradient-shift" />
           <P5Canvas sketch={sectionIcosahedron} pauseWhenHidden className="[&>canvas]:!h-full [&>canvas]:!w-full" />
         </Reveal>
       </div>

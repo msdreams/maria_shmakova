@@ -34,21 +34,15 @@ const Block = ({
   </section>
 );
 
+// one flat cloud of pills; the groups only order them
 const Stack = ({ groups }: { groups: StackGroup[] }) => (
-  <div className="flex flex-col gap-6">
-    {groups.map((g) => (
-      <div key={g.label}>
-        <p className={label}>{g.label}</p>
-        <ul className="mt-3 flex flex-wrap gap-2">
-          {g.items.map((item) => (
-            <li key={item}>
-              <Tag>{item}</Tag>
-            </li>
-          ))}
-        </ul>
-      </div>
+  <ul className="flex flex-wrap gap-2">
+    {groups.flatMap((g) => g.items).map((item) => (
+      <li key={item}>
+        <Tag>{item}</Tag>
+      </li>
     ))}
-  </div>
+  </ul>
 );
 
 export const ResumePage = () => (
@@ -57,11 +51,16 @@ export const ResumePage = () => (
         padding opens the page. */}
     <Container className="pt-4 md:pt-6">
       <Block title="Experience" divider={false}>
-        <ol className="flex flex-col gap-10">
+        {/* timeline: a hairline with a dot per entry keeps the left edge anchored */}
+        <ol className="relative flex flex-col gap-10 border-l border-line pl-7 md:pl-9">
           {experience.map((job) => (
-            <li key={job.period + job.title} className="grid grid-cols-1 gap-3 md:grid-cols-[160px_1fr] md:gap-8">
+            <li key={job.period + job.title} className="relative">
+              <span
+                aria-hidden="true"
+                className="absolute -left-7 top-[5px] h-[7px] w-[7px] -translate-x-1/2 rounded-full bg-ink ring-4 ring-paper md:-left-9"
+              />
               <p className={label}>{job.period}</p>
-              <div>
+              <div className="mt-2">
                 <h3 className="text-xl text-ink">
                   {job.title}
                   {job.company && (
@@ -87,7 +86,7 @@ export const ResumePage = () => (
                 <ul className="mt-4 flex flex-col gap-2 text-ink-600">
                   {job.bullets.map((b) => (
                     <li key={b} className="grid grid-cols-[1rem_1fr] gap-2">
-                      <span className="mt-[0.7em] h-px w-3 bg-accent" />
+                      <span className="mt-[0.7em] h-[2px] w-3.5 rounded-full bg-accent" />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -133,11 +132,15 @@ export const ResumePage = () => (
       </Block>
 
       <Block title="Education">
-        <ol className="flex flex-col divide-y divide-line">
+        <ol className="relative flex flex-col gap-6 border-l border-line pl-7 md:pl-9">
           {education.map((e) => (
-            <li key={e.period + e.title} className="grid grid-cols-1 gap-1 py-4 md:grid-cols-[160px_1fr] md:gap-8">
+            <li key={e.period + e.title} className="relative">
+              <span
+                aria-hidden="true"
+                className="absolute -left-7 top-[5px] h-[7px] w-[7px] -translate-x-1/2 rounded-full bg-ink ring-4 ring-paper md:-left-9"
+              />
               <p className={label}>{e.period}</p>
-              <p className="text-ink">
+              <p className="mt-1.5 text-ink">
                 {e.title}
                 {e.place && <span className="text-ink-500"> · {e.place}</span>}
               </p>

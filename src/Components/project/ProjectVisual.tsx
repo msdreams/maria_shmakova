@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import type { Project } from "../../data/projects";
 import { BrowserBar } from "../ui/BrowserBar";
-import { IconArrowUpRight } from "../ui/Icons";
+import { LightRing } from "../ui/LightRing";
 
 type ProjectVisualProps = {
   project: Project;
@@ -22,10 +22,13 @@ export const ProjectVisual = ({ project, wide = false }: ProjectVisualProps) => 
   const cover = project.cover ?? front;
 
   return (
-    // tinted board in the project's colour; screenshots rise out of its bottom edge
+    <div className="relative rounded-3xl">
+      {/* same light as the hero photo, while the card is hovered */}
+      <LightRing />
+    {/* tinted board in the project's colour; screenshots rise out of its bottom edge */}
     <div
-      className={wide ? "relative aspect-[5/3] overflow-hidden rounded-2xl md:aspect-[12/5]" : "relative aspect-[5/3] overflow-hidden rounded-2xl"}
-      style={{ backgroundColor: `${project.accent}38`, boxShadow: `inset 0 0 0 1px ${project.accent}55` }}
+      className={wide ? "relative aspect-[5/3] overflow-hidden rounded-3xl md:aspect-[12/5]" : "relative aspect-[5/3] overflow-hidden rounded-3xl"}
+      style={{ backgroundColor: `${project.accent}38` }}
     >
       {project.mockup ? (
         // "scene": the laptop is the hero, a smaller phone overlaps its corner in front,
@@ -126,9 +129,7 @@ export const ProjectVisual = ({ project, wide = false }: ProjectVisualProps) => 
           )}
         </>
       )}
-      <span className="absolute right-4 top-4 inline-flex h-10 w-10 translate-y-1 items-center justify-center rounded-full bg-paper/90 text-ink opacity-0 shadow-sm backdrop-blur transition-all duration-300 ease-smooth group-hover:translate-y-0 group-hover:opacity-100">
-        <IconArrowUpRight />
-      </span>
+    </div>
     </div>
   );
 };

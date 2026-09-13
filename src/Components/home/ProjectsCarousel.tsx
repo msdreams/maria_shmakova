@@ -17,10 +17,10 @@ export const ProjectsCarousel = () => (
       tone="paper-2"
       renderControls={({ prev, next, step }) => (
         <Reveal className="mb-10 md:mb-14">
-          <h2 className="mb-6 font-heading text-display-lg font-semibold text-ink">Projects</h2>
+          <h2 className="mb-6 font-heading text-display-lg font-semibold text-ink">Selected projects</h2>
           <div className="flex items-center justify-between gap-6">
             <Button as="link" to="/projects" variant="link">
-              All Projects
+              More projects
             </Button>
             <div className="flex shrink-0 items-center gap-3">
               <button

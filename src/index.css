@@ -77,18 +77,20 @@
     @apply bg-accent bg-clip-text text-transparent bg-200 animate-gradient-shift;
   }
 
-  /* Same sweep as `.btn-gradient`, clipped to the glyphs. Idle it sits on
-     the coral stop; hover runs the colours through like a filled button. */
+  /* Same sweep as `.btn-gradient`, clipped to the glyphs. Idle it shows the
+     canonical coral → violet → sky; hover runs the colours through. */
   .gradient-text-sweep {
     background-image: linear-gradient(
       90deg,
       var(--c-coral),
       var(--c-violet),
       var(--c-sky),
-      var(--c-coral)
+      var(--c-coral),
+      var(--c-violet),
+      var(--c-sky)
     );
-    background-size: 300% 100%;
-    background-position: 100% 50%;
+    background-size: 250% 100%;
+    background-position: 0% 50%;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -97,7 +99,7 @@
 
   .group:hover .gradient-text-sweep,
   .group:focus-visible .gradient-text-sweep {
-    background-position: 0% 50%;
+    background-position: 100% 50%;
   }
 
   /* Same grow-from-left underline as the header nav. `link-underline` and
@@ -137,15 +139,11 @@
     content: "";
     @apply absolute inset-0 -z-10 opacity-0;
     border-radius: inherit;
-    background-image: linear-gradient(
-      90deg,
-      var(--c-coral-deep),
-      var(--c-violet-deep),
-      var(--c-sky-deep),
-      var(--c-coral-deep)
-    );
-    background-size: 300% 100%;
-    background-position: 100% 50%;
+    /* the site's accent trio, with a light ink veil so paper-coloured labels stay readable */
+    background-image: linear-gradient(rgba(17, 17, 17, 0.22), rgba(17, 17, 17, 0.22)),
+      linear-gradient(90deg, var(--c-coral), var(--c-violet), var(--c-sky), var(--c-coral));
+    background-size: 100% 100%, 300% 100%;
+    background-position: 0 0, 100% 50%;
     transition: opacity 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
       background-position 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
@@ -153,7 +151,7 @@
   .btn-gradient:hover::before,
   .btn-gradient:focus-visible::before {
     @apply opacity-100;
-    background-position: 0% 50%;
+    background-position: 0 0, 0% 50%;
   }
 
   /* Scroll rails keep their own arrows, so the native bar is redundant. */
@@ -180,6 +178,107 @@
 
   /* Tight travelling highlight: letters stay ink until the band arrives.
      The last row parks a window on "felt." and leaves the rest ink. */
+  /* Tags: a whisper of the accent gradient on a light pill, with a hairline edge. */
+  .tag-accent {
+    background-image: linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--c-coral) 16%, #fff),
+      color-mix(in srgb, var(--c-violet) 16%, #fff),
+      color-mix(in srgb, var(--c-sky) 16%, #fff)
+    );
+    box-shadow: inset 0 0 0 1px rgba(17, 17, 17, 0.08);
+    transition: box-shadow 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .group:hover .tag-accent,
+  .tag-accent:hover {
+    box-shadow: inset 0 0 0 1px rgba(17, 17, 17, 0.18);
+  }
+
+  /* Frame light: a short conic beam spinning behind the framed element; only
+     the 3px ring around it is visible. `--auto` runs a lap on its own now and
+     then; otherwise it only shows while the `.group` is hovered. */
+  .light-ring {
+    opacity: 0;
+    transition: opacity 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+    /* keep only the 3px band: everything inside the padding box is masked out,
+       so the beam never shows through translucent content on top */
+    padding: 3px;
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+  }
+
+  .light-ring--auto {
+    animation: photo-ring-pass 10s linear 1.6s infinite;
+  }
+
+  .light-ring--auto .light-ring-beam {
+    animation: photo-ring-spin 10s linear 1.6s infinite;
+  }
+
+  .light-ring-beam {
+    position: absolute;
+    inset: -50%;
+    background: conic-gradient(
+      from 0deg,
+      transparent 0 58%,
+      var(--c-coral) 70%,
+      var(--c-violet) 82%,
+      var(--c-sky) 94%,
+      transparent 100%
+    );
+  }
+
+  .group:hover .light-ring {
+    opacity: 1;
+    animation: none;
+  }
+
+  .group:hover .light-ring-beam {
+    animation: photo-ring-spin-hover 2.4s linear infinite;
+  }
+
+  /* one lap in the first 30% of the cycle, then rest */
+  @keyframes photo-ring-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    30%,
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes photo-ring-pass {
+    0% {
+      opacity: 0;
+    }
+    4%,
+    24% {
+      opacity: 1;
+    }
+    30%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes photo-ring-spin-hover {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .light-ring,
+    .group:hover .light-ring {
+      opacity: 0;
+      animation: none;
+    }
+  }
+
   .hero-title-sweep {
     background-image: linear-gradient(90deg, var(--c-coral), var(--c-violet), var(--c-sky));
     -webkit-background-clip: text;
@@ -212,7 +311,6 @@
     -webkit-mask-position: calc(-1 * var(--spread-w)) 0;
     mask-position: calc(-1 * var(--spread-w)) 0;
     animation-name: hero-title-sweep-end;
-    animation-timing-function: cubic-bezier(0.2, 0.75, 0.15, 1);
     animation-fill-mode: both;
   }
 
@@ -227,6 +325,9 @@
     }
   }
 
+  /* Travel (0→64%) is linear like the other rows; the settle (64→100%) uses a long
+     ease-out. The final mask is wider than "felt." so its soft 12% edges fall outside
+     the glyphs and the whole word — period included — ends fully coloured. */
   @keyframes hero-title-sweep-end {
     0% {
       -webkit-mask-size: var(--spread-w) 100%;
@@ -235,6 +336,7 @@
       mask-position: calc(-1 * var(--spread-w)) 0;
       background-size: 100% 100%;
       background-position: 0 0;
+      animation-timing-function: linear;
     }
     64% {
       -webkit-mask-size: var(--spread-w) 100%;
@@ -243,14 +345,15 @@
       mask-position: calc(var(--felt-x) + (var(--felt-w) - var(--spread-w)) / 2) 0;
       background-size: 100% 100%;
       background-position: 0 0;
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
     }
     100% {
-      -webkit-mask-size: var(--felt-w) 100%;
-      mask-size: var(--felt-w) 100%;
-      -webkit-mask-position: var(--felt-x) 0;
-      mask-position: var(--felt-x) 0;
-      background-size: var(--felt-w) 100%;
-      background-position: var(--felt-x) 0;
+      -webkit-mask-size: calc(var(--felt-w) * 1.32) 100%;
+      mask-size: calc(var(--felt-w) * 1.32) 100%;
+      -webkit-mask-position: calc(var(--felt-x) - var(--felt-w) * 0.16) 0;
+      mask-position: calc(var(--felt-x) - var(--felt-w) * 0.16) 0;
+      background-size: calc(var(--felt-w) + 8px) 100%;
+      background-position: calc(var(--felt-x) - 4px) 0;
       background-repeat: no-repeat;
     }
   }

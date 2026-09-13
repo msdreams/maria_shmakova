@@ -29,7 +29,8 @@ type CarouselProps = {
 };
 
 export const carouselArrowClass =
-  "inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-ink transition-all duration-300 ease-smooth hover:border-ink disabled:pointer-events-none disabled:opacity-30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30 focus-visible:ring-offset-2 focus-visible:ring-offset-paper";
+  // solid ink discs: the outlined version disappeared against the paper background
+  "btn-gradient inline-flex h-11 w-11 items-center justify-center rounded-full bg-ink text-paper shadow-sm transition-all duration-300 ease-smooth hover:-translate-y-0.5 active:translate-y-0 disabled:pointer-events-none disabled:bg-ink-200 disabled:text-ink-500 disabled:shadow-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30 focus-visible:ring-offset-2 focus-visible:ring-offset-paper";
 
 const DRAG_THRESHOLD = 6;
 
@@ -147,7 +148,7 @@ export const Carousel = ({ children, label, className, renderControls, tone = "p
           onClickCapture={onClickCapture}
           onDragStart={(e) => e.preventDefault()}
           className={classNames(
-            "no-scrollbar flex cursor-grab gap-6 overflow-x-auto pb-2 select-none",
+            "no-scrollbar -mx-1 flex cursor-grab gap-6 overflow-x-auto px-1 py-1 pb-2 scroll-px-1 select-none",
             dragging ? "snap-none cursor-grabbing" : "snap-x snap-mandatory"
           )}
         >
@@ -156,8 +157,10 @@ export const Carousel = ({ children, label, className, renderControls, tone = "p
         <div
           aria-hidden
           className={classNames(
-            "pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-15% to-transparent transition-opacity duration-300 md:w-28",
-            tone === "paper-2" ? "from-paper-2" : "from-paper",
+            // covers the rail's 4px overhang (-mx-1) and fades out over a wider, softer ramp
+            "pointer-events-none absolute inset-y-0 -right-1 w-24 bg-gradient-to-l to-transparent transition-opacity duration-300 md:w-40",
+            tone === "paper-2" ? "from-paper-2 via-paper-2/55" : "from-paper via-paper/55",
+            "from-15% via-55%",
             next ? "opacity-100" : "opacity-0"
           )}
         />

@@ -6,7 +6,7 @@ export const Contact = () => (
   <Section
     id="contact"
     eyebrow="Contact"
-    title="Let's build something that makes people stop, explore, and remember."
+    title="Let's make something people feel, not just use."
     titleClassName="max-w-[18ch]"
     tone="paper-2"
   >

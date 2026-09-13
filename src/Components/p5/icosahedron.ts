@@ -4,6 +4,10 @@ export type IcosahedronOptions = {
   stroke?: string;
   size?: number;
   strokeWeight?: number;
+  /** When set, a band of these colours sweeps over the wireframe on click / idle spins. */
+  palette?: string[];
+  /** Length of one colour sweep in ms. */
+  sweepMs?: number;
 };
 
 const easeInOut = (t: number) => (t < 0.5 ? 2 * t * t : 1 - (2 * (1 - t)) ** 2 / 2);
@@ -19,7 +23,7 @@ const IDLE_MAX = 6200;
  * seconds — eases to a random pose; a drag orbits freely. Transparent
  * background so a CSS glow can sit behind it.
  */
-export const createIcosahedron = ({ stroke = "#111111", size = 360, strokeWeight = 1.2 }: IcosahedronOptions = {}) =>
+export const createIcosahedron = ({ stroke = "#111111", size = 360, strokeWeight = 1.2, palette, sweepMs = 1500 }: IcosahedronOptions = {}) =>
   (p: p5) => {
     const scaleFactor = size / 3.6;
     let verts: number[][] = [];
@@ -36,6 +40,18 @@ export const createIcosahedron = ({ stroke = "#111111", size = 360, strokeWeight
     let lastY = 0;
 
     let tween: { from: [number, number, number]; to: [number, number, number]; t: number } | null = null;
+    let ramp: p5.Color[] = [];
+    let ink: p5.Color;
+    // 0..1 while a colour band travels across the shape; -1 when idle
+    let sweep = -1;
+
+    // colour at position t (0..1) along the open palette ramp
+    const rampColor = (t: number) => {
+      const n = ramp.length - 1;
+      const x = Math.min(Math.max(t, 0), 1) * n;
+      const i = Math.min(Math.floor(x), n - 1);
+      return p.lerpColor(ramp[i], ramp[i + 1], x - i);
+    };
     let idleIn = IDLE_MIN + Math.random() * (IDLE_MAX - IDLE_MIN);
 
     const resetIdle = () => {
@@ -43,6 +59,7 @@ export const createIcosahedron = ({ stroke = "#111111", size = 360, strokeWeight
     };
 
     const spinToRandom = () => {
+      if (ramp.length) sweep = 0;
       tween = {
         from: [rotX, rotY, rotZ],
         to: [rotX + randAngle(), rotY + randAngle(), rotZ + randAngle() * 0.5],
@@ -55,6 +72,8 @@ export const createIcosahedron = ({ stroke = "#111111", size = 360, strokeWeight
       p.createCanvas(size, size, p.WEBGL);
       p.cursor("pointer");
       p.angleMode(p.DEGREES);
+      if (palette && palette.length > 1) ramp = palette.map((c) => p.color(c));
+      ink = p.color(stroke);
       const phi = 0.5 * (1 + Math.sqrt(2));
       verts = [
         [phi, 1, 0], [phi, -1, 0], [-phi, -1, 0], [-phi, 1, 0],
@@ -139,7 +158,25 @@ export const createIcosahedron = ({ stroke = "#111111", size = 360, strokeWeight
       p.rotateZ(rotZ);
 
       const wave = p.map(p.sin(p.frameCount), -1, 1, 3, 0);
-      for (const f of faces) {
+
+      // colour band: a soft window that moves top → bottom over the faces, like the title sweep
+      const BAND = 0.45;
+      if (sweep >= 0) {
+        sweep += p.deltaTime / sweepMs;
+        if (sweep > 1) sweep = -1;
+      }
+      const center = sweep >= 0 ? sweep * (1 + 2 * BAND) - BAND : -10;
+
+      for (let fi = 0; fi < faces.length; fi++) {
+        const f = faces[fi];
+        if (sweep >= 0) {
+          // faces are listed roughly top → bottom
+          const t = fi / (faces.length - 1);
+          const w = Math.max(0, 1 - Math.abs(t - center) / BAND);
+          const k = w * w * (3 - 2 * w); // smoothstep
+          p.stroke(p.lerpColor(ink, rampColor(t), k));
+          p.strokeWeight(strokeWeight + k * 0.8);
+        }
         p.push();
         p.rotateX(wave);
         p.beginShape();
@@ -150,5 +187,7 @@ export const createIcosahedron = ({ stroke = "#111111", size = 360, strokeWeight
     };
   };
 
-export const sectionIcosahedron = createIcosahedron();
-export const sectionIcosahedronSmall = createIcosahedron({ size: 280 });
+const accentPalette = ["#FF6B6B", "#A66CFF", "#5DD3FF"];
+
+export const sectionIcosahedron = createIcosahedron({ palette: accentPalette });
+export const sectionIcosahedronSmall = createIcosahedron({ size: 280, palette: accentPalette });
