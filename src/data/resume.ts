@@ -170,9 +170,30 @@ export const engineeringStack: StackGroup[] = [
   },
 ];
 
-/** Short facts for the hero. */
+/** When each track started. Set a real month if you want the count to tick
+ *  over mid-year; a bare January means "since <year>". */
+const DESIGN_START = "2015-01-01";
+const CODE_START = "2023-01-01";
+
+/** Whole years elapsed, so a birthday that hasn't happened yet doesn't count. */
+const yearsSince = (iso: string) => {
+  const start = new Date(iso);
+  const now = new Date();
+  const beforeAnniversary =
+    now.getMonth() < start.getMonth() ||
+    (now.getMonth() === start.getMonth() && now.getDate() < start.getDate());
+  return now.getFullYear() - start.getFullYear() - (beforeAnniversary ? 1 : 0);
+};
+
+const inYears = (iso: string) => {
+  const n = yearsSince(iso);
+  return `${n} ${n === 1 ? "year" : "years"}`;
+};
+
+/** Short facts for the hero. The experience counts derive from the dates above
+ *  so they stay right without anyone editing them. */
 export const facts = [
   { label: "Based in", value: "Gdynia, Poland" },
-  { label: "Designing since", value: "2015" },
-  { label: "Shipping code since", value: "2023" },
+  { label: "Designing for", value: inYears(DESIGN_START) },
+  { label: "Shipping code for", value: inYears(CODE_START) },
 ];

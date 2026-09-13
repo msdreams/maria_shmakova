@@ -5,7 +5,12 @@ import { site } from "../../data/site";
 const SEEN_KEY = "ms-intro-seen";
 const ease = [0.76, 0, 0.24, 1] as const;
 
-const alreadySeen = () => {
+/** How long the curtain holds before it slides away. */
+export const INTRO_MS = 1400;
+
+/** True once the intro has played in this browser session. Lets the header
+ *  wait for the curtain instead of revealing itself behind it. */
+export const introSeen = () => {
   try {
     return sessionStorage.getItem(SEEN_KEY) === "1";
   } catch {
@@ -16,7 +21,7 @@ const alreadySeen = () => {
 /** First-visit intro: the name is revealed, a gradient rule draws in, then the
  *  curtain slides up. Runs once per browser session. */
 export const LoadingScreen = () => {
-  const [visible, setVisible] = useState(() => !alreadySeen());
+  const [visible, setVisible] = useState(() => !introSeen());
 
   useEffect(() => {
     if (!visible) return;
@@ -27,7 +32,7 @@ export const LoadingScreen = () => {
       } catch {
         /* private mode */
       }
-    }, 1400);
+    }, INTRO_MS);
     return () => window.clearTimeout(t);
   }, [visible]);
 

@@ -4,7 +4,7 @@ import { scrollToSection, type SectionId } from "../../hooks/useSectionNav";
 import { Contact } from "./Contact";
 import { CreativeCoding } from "./CreativeCoding";
 import { Hero } from "./Hero";
-import { SelectedWork } from "./SelectedWork";
+import { ProjectsCarousel } from "./ProjectsCarousel";
 
 export const HomePage = () => {
   const location = useLocation();
@@ -23,13 +23,15 @@ export const HomePage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const homeTick = (location.state as { homeTick?: number } | null)?.homeTick ?? 0;
+
   return (
-    <>
+    <div key={homeTick}>
       <Hero />
-      <SelectedWork />
+      <ProjectsCarousel />
       <CreativeCoding />
       <Contact />
-    </>
+    </div>
   );
 };
 

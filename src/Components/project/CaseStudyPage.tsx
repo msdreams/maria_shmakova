@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link, Navigate, useParams } from "react-router-dom";
-import { getNextProject, getProject, projectIndex } from "../../data/projects";
+import { getNextProject, getProject } from "../../data/projects";
 import { Container } from "../ui/Section";
 import { IconArrowUpRight, IconChevronLeft } from "../ui/Icons";
 import { Reveal } from "../ui/Reveal";
@@ -15,17 +15,16 @@ export const CaseStudyPage = () => {
   const { id } = useParams<{ id: string }>();
   const project = getProject(id);
 
-  if (!project) return <Navigate to="/" replace />;
+  if (!project) return <Navigate to="/projects" replace />;
 
-  const number = project.status === "published" ? String(projectIndex(project.id)).padStart(2, "0") : "draft";
   const next = project.status === "published" ? getNextProject(project.id) : undefined;
 
   return (
     <article>
       <Container className="pt-5 md:pt-6">
-        <Link to="/" className="inline-flex items-center gap-1 text-sm text-ink-600 transition-colors hover:text-ink [&>svg]:transition-transform [&>svg]:duration-300 hover:[&>svg]:-translate-x-0.5">
+        <Link to="/projects" className="link-underline inline-flex items-center gap-1 text-sm text-ink-600 transition-colors hover:text-ink [&>svg]:transition-transform [&>svg]:duration-300 hover:[&>svg]:-translate-x-0.5">
           <IconChevronLeft size={16} />
-          Home
+          Projects
         </Link>
 
         <motion.header
@@ -37,7 +36,7 @@ export const CaseStudyPage = () => {
           <div className="flex flex-col-reverse gap-3 md:flex-row md:items-start md:justify-between md:gap-8">
             <h1 className="font-heading text-display-lg font-semibold text-ink">{project.title}</h1>
             <p className="eyebrow md:pt-2">
-              Case {number} · {project.year}
+              {project.status === "draft" ? `Draft · ${project.year}` : project.year}
             </p>
           </div>
 
@@ -102,17 +101,17 @@ export const CaseStudyPage = () => {
         <div className="mt-10 md:mt-14">
           <Reveal>
             <div className="grid grid-cols-1 border-t border-line md:grid-cols-2 md:gap-x-12">
-              <CaseSection number="01" title="Overview">
+              <CaseSection title="Overview">
                 <p>{project.overview}</p>
               </CaseSection>
-              <CaseSection number="02" title="Challenge">
+              <CaseSection title="Challenge">
                 <p>{project.challenge}</p>
               </CaseSection>
             </div>
           </Reveal>
 
           <Reveal>
-            <CaseSection number="03" title="Process" className="border-t border-line">
+            <CaseSection title="Process" className="border-t border-line">
               <ol className="grid grid-cols-1 gap-x-12 gap-y-5 md:grid-cols-2">
                 {project.process.map((step, i) => (
                   <li key={i} className="grid grid-cols-[2rem_1fr] gap-3">
@@ -126,10 +125,10 @@ export const CaseStudyPage = () => {
 
           <Reveal>
             <div className="grid grid-cols-1 border-t border-line md:grid-cols-2 md:gap-x-12">
-              <CaseSection number="04" title="Solution">
+              <CaseSection title="Solution">
                 <p>{project.solution}</p>
               </CaseSection>
-              <CaseSection number="05" title="Result">
+              <CaseSection title="Result">
                 <p>{project.result}</p>
               </CaseSection>
             </div>

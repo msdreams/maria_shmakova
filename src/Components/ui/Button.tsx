@@ -6,12 +6,12 @@ type Variant = "solid" | "outline" | "link" | "ghost";
 type Size = "md" | "lg";
 
 const variants: Record<Variant, string> = {
-  solid:
-    "rounded-full bg-ink text-paper hover:bg-ink-700 active:scale-[0.98] shadow-sm",
+  solid: "btn-gradient rounded-full bg-ink text-paper active:scale-[0.98] shadow-sm",
   outline:
-    "rounded-full border border-ink text-ink hover:bg-ink hover:text-paper active:scale-[0.98]",
+    "btn-gradient rounded-full border border-ink text-ink hover:border-transparent hover:text-paper active:scale-[0.98]",
   link: "link-underline text-ink px-0 py-0 gap-1.5",
-  ghost: "text-ink px-0 py-0 gap-1.5 hover:text-ink-600 [&>svg]:transition-transform [&>svg]:duration-300 hover:[&>svg]:translate-y-0.5",
+  ghost:
+    "btn-underline text-ink px-0 py-0 gap-1.5 [&>svg]:transition-transform [&>svg]:duration-300 hover:[&>svg]:translate-y-0.5",
 };
 
 const sizes: Record<Size, string> = {

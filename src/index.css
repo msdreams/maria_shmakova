@@ -15,6 +15,11 @@
     --c-coral: #ff6b6b;
     --c-violet: #a66cff;
     --c-sky: #5dd3ff;
+    /* Same hues at full saturation, deep enough to carry a white label.
+       Mixing the pastels with black instead would desaturate them to mud. */
+    --c-coral-deep: #d10000;
+    --c-violet-deep: #5400d1;
+    --c-sky-deep: #0099d1;
   }
 
   html {
@@ -24,12 +29,19 @@
   body {
     @apply bg-paper text-ink-800 font-sans antialiased;
     margin: 0;
-    overflow-x: hidden;
+    /* `clip` rather than `hidden`: `hidden` would turn the body into a scroll
+       container, which stops the sticky header from sticking. */
+    overflow-x: clip;
   }
 
   ::selection {
-    background: var(--c-violet);
-    color: #fff;
+    /* Translucent so descenders survive: display line-height (1.12) is tighter
+       than the font's content box, so adjacent lines' highlight rects overlap.
+       An opaque fill would clip the tails of g/p/y on every line but the last.
+       Kept light enough that the doubled alpha in the overlap barely reads.
+       No colour override, so text keeps its own weight. */
+    background: rgba(166, 108, 255, 0.12);
+    background: color-mix(in srgb, var(--c-violet) 12%, transparent);
   }
 
   a {
@@ -38,7 +50,8 @@
   }
 
   [id] {
-    scroll-margin-top: 24px;
+    /* clears the sticky header */
+    scroll-margin-top: 5.5rem;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -64,25 +77,92 @@
     @apply bg-accent bg-clip-text text-transparent bg-200 animate-gradient-shift;
   }
 
-  /* Gradient underline, always visible; on hover / active the gradient slides. */
-  .link-underline {
+  /* Same sweep as `.btn-gradient`, clipped to the glyphs. Idle it sits on
+     the coral stop; hover runs the colours through like a filled button. */
+  .gradient-text-sweep {
+    background-image: linear-gradient(
+      90deg,
+      var(--c-coral),
+      var(--c-violet),
+      var(--c-sky),
+      var(--c-coral)
+    );
+    background-size: 300% 100%;
+    background-position: 100% 50%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    transition: background-position 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .group:hover .gradient-text-sweep,
+  .group:focus-visible .gradient-text-sweep {
+    background-position: 0% 50%;
+  }
+
+  /* Same grow-from-left underline as the header nav. `link-underline` and
+     `btn-underline` are one effect so every text link matches CV / Projects. */
+  .link-underline,
+  .btn-underline {
     @apply relative;
   }
 
-  .link-underline::after {
+  .link-underline::after,
+  .btn-underline::after {
     content: "";
-    @apply absolute left-0 -bottom-0.5 h-px w-full;
-    background-image: linear-gradient(90deg, var(--c-coral), var(--c-violet), var(--c-sky), var(--c-coral));
-    background-size: 300% 100%;
-    background-position: 0% 50%;
-    transition: background-position 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+    @apply absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0;
+    background-image: linear-gradient(90deg, var(--c-coral), var(--c-violet), var(--c-sky));
+    transition: transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
   }
 
   .link-underline:hover::after,
   .link-underline:focus-visible::after,
   .link-underline[aria-current="true"]::after,
-  .group:hover .link-underline::after {
+  .link-underline[aria-current="page"]::after,
+  .group:hover .link-underline::after,
+  .btn-underline:hover::after,
+  .btn-underline:focus-visible::after,
+  .btn-underline[aria-current="page"]::after {
+    @apply scale-x-100;
+  }
+
+  /* Accent gradient that fades in and sweeps across a button on hover. The
+     negative z-index inside `isolate` puts it above the button's own
+     background but below its label. */
+  .btn-gradient {
+    @apply relative isolate overflow-hidden;
+  }
+
+  .btn-gradient::before {
+    content: "";
+    @apply absolute inset-0 -z-10 opacity-0;
+    border-radius: inherit;
+    background-image: linear-gradient(
+      90deg,
+      var(--c-coral-deep),
+      var(--c-violet-deep),
+      var(--c-sky-deep),
+      var(--c-coral-deep)
+    );
+    background-size: 300% 100%;
     background-position: 100% 50%;
+    transition: opacity 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+      background-position 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .btn-gradient:hover::before,
+  .btn-gradient:focus-visible::before {
+    @apply opacity-100;
+    background-position: 0% 50%;
+  }
+
+  /* Scroll rails keep their own arrows, so the native bar is redundant. */
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 
   .scrollbar-hide {
@@ -96,5 +176,82 @@
 
   .eyebrow {
     @apply font-label text-eyebrow font-medium uppercase text-ink-700;
+  }
+
+  /* Tight travelling highlight: letters stay ink until the band arrives.
+     The last row parks a window on "felt." and leaves the rest ink. */
+  .hero-title-sweep {
+    background-image: linear-gradient(90deg, var(--c-coral), var(--c-violet), var(--c-sky));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-mask-image: linear-gradient(
+      90deg,
+      transparent 0%,
+      #000 46%,
+      #000 50%,
+      transparent 56%
+    );
+    mask-image: linear-gradient(90deg, transparent 0%, #000 46%, #000 50%, transparent 56%);
+    -webkit-mask-size: 220% 100%;
+    mask-size: 220% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+    animation: hero-title-sweep linear both;
+  }
+
+  /* One mask the whole way — size and colour ease onto "felt.", no snap. */
+  .hero-title-sweep-end {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    -webkit-mask-size: var(--spread-w) 100%;
+    mask-size: var(--spread-w) 100%;
+    -webkit-mask-position: calc(-1 * var(--spread-w)) 0;
+    mask-position: calc(-1 * var(--spread-w)) 0;
+    animation-name: hero-title-sweep-end;
+    animation-timing-function: cubic-bezier(0.2, 0.75, 0.15, 1);
+    animation-fill-mode: both;
+  }
+
+  @keyframes hero-title-sweep {
+    from {
+      -webkit-mask-position: 100% 0;
+      mask-position: 100% 0;
+    }
+    to {
+      -webkit-mask-position: -120% 0;
+      mask-position: -120% 0;
+    }
+  }
+
+  @keyframes hero-title-sweep-end {
+    0% {
+      -webkit-mask-size: var(--spread-w) 100%;
+      mask-size: var(--spread-w) 100%;
+      -webkit-mask-position: calc(-1 * var(--spread-w)) 0;
+      mask-position: calc(-1 * var(--spread-w)) 0;
+      background-size: 100% 100%;
+      background-position: 0 0;
+    }
+    64% {
+      -webkit-mask-size: var(--spread-w) 100%;
+      mask-size: var(--spread-w) 100%;
+      -webkit-mask-position: calc(var(--felt-x) + (var(--felt-w) - var(--spread-w)) / 2) 0;
+      mask-position: calc(var(--felt-x) + (var(--felt-w) - var(--spread-w)) / 2) 0;
+      background-size: 100% 100%;
+      background-position: 0 0;
+    }
+    100% {
+      -webkit-mask-size: var(--felt-w) 100%;
+      mask-size: var(--felt-w) 100%;
+      -webkit-mask-position: var(--felt-x) 0;
+      mask-position: var(--felt-x) 0;
+      background-size: var(--felt-w) 100%;
+      background-position: var(--felt-x) 0;
+      background-repeat: no-repeat;
+    }
   }
 }

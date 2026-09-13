@@ -6,6 +6,8 @@ type SectionProps = {
   id?: string;
   eyebrow?: string;
   title?: ReactNode;
+  /** For capping the measure of a long headline. */
+  titleClassName?: string;
   intro?: ReactNode;
   tone?: "paper" | "paper-2";
   className?: string;
@@ -16,7 +18,16 @@ export const Container = ({ className, children }: { className?: string; childre
   <div className={classNames("mx-auto w-full max-w-wrap px-5 md:px-8", className)}>{children}</div>
 );
 
-export const Section = ({ id, eyebrow, title, intro, tone = "paper", className, children }: SectionProps) => (
+export const Section = ({
+  id,
+  eyebrow,
+  title,
+  titleClassName,
+  intro,
+  tone = "paper",
+  className,
+  children,
+}: SectionProps) => (
   <section
     id={id}
     className={classNames("py-20 md:py-28", tone === "paper-2" && "bg-paper-2", className)}
@@ -25,7 +36,11 @@ export const Section = ({ id, eyebrow, title, intro, tone = "paper", className, 
       {(eyebrow || title) && (
         <Reveal className="mb-10 md:mb-14">
           {eyebrow && <p className="eyebrow mb-4">{eyebrow}</p>}
-          {title && <h2 className="font-heading text-display-lg font-semibold text-ink">{title}</h2>}
+          {title && (
+            <h2 className={classNames("font-heading text-display-lg font-semibold text-ink", titleClassName)}>
+              {title}
+            </h2>
+          )}
           {intro && <div className="mt-4 max-w-prose text-lg text-ink-600">{intro}</div>}
         </Reveal>
       )}

@@ -18,7 +18,7 @@ export type { ProjectImage } from "./imageSets";
 export type ProjectKind = "development" | "design" | "design+development";
 
 export interface Project {
-  /** URL slug → /project/:id */
+  /** URL slug → /projects/:id */
   id: string;
   order: number;
   /** Drafts are hidden from the home page and only render in development. */

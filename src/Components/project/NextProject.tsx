@@ -6,7 +6,7 @@ import { Reveal } from "../ui/Reveal";
 export const NextProject = ({ project }: { project: Project }) => (
   <Reveal>
     <Link
-      to={`/project/${project.id}`}
+      to={`/projects/${project.id}`}
       className="group grid grid-cols-1 items-center gap-6 border-t border-line py-12 md:grid-cols-[1fr_280px] md:py-16"
     >
       <div>
