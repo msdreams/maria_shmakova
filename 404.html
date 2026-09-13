@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Maria Shmakova — UX/UI Designer &amp; Frontend Developer</title>
+    <script>
+      // GitHub Pages serves this file for any path it has no file for, which is
+      // every client-side route (/project/loop, /resume, ...). Stash the path in
+      // a query string and bounce to index.html, which puts the real URL back
+      // before React Router boots. Keep in sync with the decoder in index.html.
+      (function (l) {
+        l.replace(
+          l.protocol +
+            "//" +
+            l.hostname +
+            (l.port ? ":" + l.port : "") +
+            "/?/" +
+            l.pathname.slice(1).replace(/&/g, "~and~") +
+            (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+            l.hash
+        );
+      })(window.location);
+    </script>
+  </head>
+  <body></body>
+</html>
