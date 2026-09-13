@@ -36,14 +36,14 @@ export const Hero = () => (
 
         <motion.div className="mt-6 flex max-w-[56ch] flex-col gap-4 text-[17px] leading-relaxed text-ink-700" {...fadeUp(0.3)}>
           <p>
-            I'm Maria — a UX/UI designer who writes the code, and a creative coder who thinks in
-            interfaces. Over ten years in design, and the last few shipping React products end-to-end:
-            research, design systems, and the frontend that makes them real.
+            I'm Maria — a UX/UI designer who ships her own code. Right now I own a design system that
+            spans a CRM, a client app and a mobile app, and I design interfaces alongside the data
+            models they run on — from schema to pixel, in React, Next.js and TypeScript.
           </p>
           <p>
-            I love projects that challenge conventions — fluid, dynamic interfaces and data turned into
-            something people actually want to look at. Let's build something that makes people stop,
-            explore, and remember.
+            Before code there were ten years of graphic, motion and product design — which is probably
+            why I care as much about how a screen feels as about how it's built. Give me a challenging
+            project: fluid interfaces, data turned into something people actually want to look at.
           </p>
         </motion.div>
 

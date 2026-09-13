@@ -20,60 +20,124 @@ export interface StackGroup {
 }
 
 export const intro = {
-  headline: "I'm a UX/UI designer who writes the code — and a creative coder who thinks in interfaces.",
+  headline: "I'm a UX/UI designer who ships her own code — and a creative coder who thinks in interfaces.",
   body: [
-    "I love working on projects that challenge conventions, whether it's crafting fluid, dynamic interfaces or transforming raw data into something visually meaningful.",
-    "I believe the most engaging digital experiences aren't just seen — they are felt. Let's build something that makes people stop, explore, and remember.",
+    "I work on projects that are challenging — whether it's crafting fluid, dynamic interfaces or turning raw data into something visually meaningful.",
+    "I believe the most engaging digital experiences aren't just seen — they're felt.",
   ],
 };
 
 export const experience: ExperienceItem[] = [
   {
-    period: "2023 — present",
+    period: "May 2025 — present",
     title: "Frontend Developer",
+    company: "SportyLabs Digital",
+    companyUrl: "https://www.sportylabs.io/",
+    location: "Gdańsk, Poland",
     bullets: [
-      "Develop and maintain web applications with a focus on adaptability, data visualisation and storage.",
-      "Optimise performance and build reusable components; ensure security, including two-factor authentication.",
-      "Collaborate with back-end developers and other professionals to translate data-driven requirements and business logic into functional UI.",
-      "Build state management with Context API and Redux Toolkit; collaborate on database interaction logic.",
-      "Stack: JavaScript, React, Redux Toolkit, TypeScript, HTML, CSS, Tailwind, Docker.",
+      "Work at the intersection of design and engineering — I own a design system spanning CRM, client-facing and mobile platforms.",
+      "Design interfaces alongside the data models they run on: I see the product from schema to pixel.",
+      "Build and maintain a unified design system across multiple platforms.",
+      "Ship my own work to production — React, TypeScript, Next.js, Tailwind, PostgreSQL.",
+      "Bridge design taste with engineering judgment, closing the gap between what's intended and what actually ships.",
+    ],
+    links: [
+      { label: "loopsport.io", href: "https://loopsport.io/en-US" },
+      { label: "crm.loopsport.io", href: "https://crm.loopsport.io/en-US" },
     ],
   },
   {
-    period: "2022 — 2023",
+    period: "Apr — Jul 2025",
+    title: "Frontend Developer",
+    company: "PetHelsi",
+    companyUrl: "https://pet-helsi-front.vercel.app/",
+    location: "Kyiv, Ukraine",
+    bullets: [
+      "Migrated the product from React to Next.js: server-side rendering, routing and project structure.",
+      "Collaborated with back-end developers to translate data-driven requirements and business logic into functional UI.",
+    ],
+  },
+  {
+    period: "Jul 2024 — Mar 2025",
+    title: "Frontend Developer · team lead",
+    company: "Kidty",
+    companyUrl: "https://kidty.com.ua/",
+    location: "Kyiv, Ukraine",
+    bullets: [
+      "HealthTech web app that helps parents and paediatricians track a child's development — built from scratch with a focus on adaptability, data visualisation and storage.",
+      "Interactive data visualisation with D3; state management with Context API; performance optimisation.",
+      "Led the team: business logic and the architecture of client–server interactions.",
+    ],
+  },
+  {
+    period: "Oct 2024 — Mar 2025",
+    title: "Frontend Developer",
+    company: "Moneta",
+    companyUrl: "https://mariashmakova-frontend.moneta.adammudrak.pp.ua/",
+    bullets: [
+      "Finance dashboard for expense tracking: React, Redux Toolkit, REST API, two-factor authentication.",
+      "Data visualisation with Recharts; reusable components on top of UI libraries, with consistency and usability in mind.",
+    ],
+  },
+  {
+    period: "Apr 2023 — Mar 2025",
+    title: "Frontend Developer (professional program)",
+    company: "Mate academy",
+    bullets: ["Two-year front-end program: JavaScript, TypeScript, React, Redux, testing, team projects."],
+  },
+  {
+    period: "Jan 2022 — Dec 2023",
     title: "Product Designer",
     company: "WCH Service Bureau",
     companyUrl: "https://wchsb.com/",
     location: "American product company, Kyiv office",
     bullets: [
-      "Led the rebranding and restructuring of the company's internal products — a medical-services platform used by American doctors and clinics.",
+      "Graphic web designer (2022), then product designer (Aug 2022 — Dec 2023): responsible for the design and development of the company's products.",
+      "Led the rebranding and restructuring of internal products — a medical-services platform used by American doctors and clinics.",
     ],
     links: [{ label: "Product page & demo", href: "https://credyapp.com/" }],
   },
   {
-    period: "2020 — 2021",
-    title: "UX/UI Designer",
-    company: "Calaton Systems",
+    period: "Oct — Dec 2021",
+    title: "Motion Graphic Designer",
+    company: "Freelance",
+    bullets: ["Motion graphics and animation for brands."],
+  },
+  {
+    period: "Dec 2020 — Oct 2021",
+    title: "UX Designer",
+    company: "Calaton Studio · Calaton Systems",
     companyUrl: "https://calaton.com",
     location: "Software development agency",
     bullets: [
       "Worked directly with the founder: structural market and user analysis, then a visual system that lets the company grow in every planned direction.",
-      "Designed in sequence with frontend developers — reviewing and refining parts of the project together.",
-      "Scrum with Jira.",
+      "Designed in sequence with frontend developers — reviewing and refining parts of the project together. Scrum with Jira.",
     ],
+  },
+  {
+    period: "2015 — 2019",
+    title: "Graphic Designer",
+    company: "Honey Shmoney",
+    location: "Kyiv, Ukraine",
+    bullets: ["Graphic design, web design and marketing for the Honey Shmoney and Мед-шмед brands."],
   },
 ];
 
 export const education: EducationItem[] = [
-  { period: "2023 — 2025", title: "Front End Development", place: "Mate Academy" },
-  { period: "2024", title: "Data Visualization in JavaScript with React and D3.js", place: "Udemy" },
-  { period: "2024", title: "Tailwind CSS", place: "Udemy" },
-  { period: "2022", title: "UX/UI Animation", place: "Projector" },
-  { period: "2021", title: "Motion Design", place: "Projector" },
-  { period: "2021", title: "Brand Strategy for Online Platforms", place: "Domestika" },
+  { period: "2023 — 2025", title: "Frontend Developer program", place: "Mate academy" },
+  { period: "2022", title: "UX/UI Animation & Motion Design", place: "Projector Institute" },
+  { period: "2021", title: "Motion Graphics in After Effects", place: "Projector Institute" },
+  { period: "2021", title: "Typography", place: "School of Visual Communication" },
   { period: "2020", title: "UX/UI Design", place: "Apollo Design Center" },
-  { period: "2019", title: "Graphic Design", place: "School of Visual Communication" },
   { period: "2005 — 2012", title: "Higher education, Faculty of Graphic Design" },
+];
+
+export const certifications: string[] = [
+  "Next.js & React — The Complete Guide",
+  "Professional Program in Front-End Web Development",
+  "Data Visualisation in JavaScript with React and D3",
+  "Next.js — The Beginner Guide",
+  "React Native — The Beginner Guide",
 ];
 
 export const designStack: StackGroup[] = [
@@ -83,7 +147,7 @@ export const designStack: StackGroup[] = [
   },
   {
     label: "Craft",
-    items: ["Typography", "Color theory", "Iconography", "Animation & motion"],
+    items: ["Typography", "Color theory", "Iconography", "Motion & animation"],
   },
   {
     label: "Tools",
@@ -94,21 +158,21 @@ export const designStack: StackGroup[] = [
 export const engineeringStack: StackGroup[] = [
   {
     label: "Languages & frameworks",
-    items: ["HTML5", "CSS & SCSS", "JavaScript", "TypeScript", "React", "Redux Toolkit", "Tailwind"],
+    items: ["TypeScript", "JavaScript", "React", "Next.js", "React Native", "Redux Toolkit", "Tailwind", "HTML5", "CSS & SCSS"],
   },
   {
     label: "Data & APIs",
-    items: ["REST API", "D3", "Recharts", "Docker"],
+    items: ["REST API", "PostgreSQL", "D3", "Recharts", "Docker"],
   },
   {
     label: "Workflow",
-    items: ["Git / GitHub", "VS Code", "Chrome DevTools", "NPM", "OOP", "SDLC · Agile · Scrum · Kanban"],
+    items: ["Git / GitHub", "Scrum · Kanban", "Jira", "VS Code", "Chrome DevTools"],
   },
 ];
 
-/** Short facts for the About block on the home page. */
+/** Short facts for the hero. */
 export const facts = [
-  { label: "Based in", value: "Kyiv, Ukraine" },
-  { label: "Designing since", value: "2012" },
-  { label: "Coding since", value: "2023" },
+  { label: "Based in", value: "Gdynia, Poland" },
+  { label: "Designing since", value: "2015" },
+  { label: "Shipping code since", value: "2023" },
 ];

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import type { ReactNode } from "react";
-import { designStack, education, engineeringStack, experience, intro, type StackGroup } from "../../data/resume";
+import { certifications, designStack, education, engineeringStack, experience, intro, type StackGroup } from "../../data/resume";
 import { site } from "../../data/site";
 import { Link } from "react-router-dom";
 import { IconArrowUpRight, IconChevronLeft, SocialIcon } from "../ui/Icons";
@@ -40,7 +40,7 @@ const Stack = ({ groups }: { groups: StackGroup[] }) => (
 export const ResumePage = () => (
   <article>
     <Container className="pt-5 md:pt-6">
-      <Link to="/" className="link-underline inline-flex items-center gap-1 text-sm text-ink-600 hover:text-ink">
+      <Link to="/" className="inline-flex items-center gap-1 text-sm text-ink-600 transition-colors hover:text-ink [&>svg]:transition-transform [&>svg]:duration-300 hover:[&>svg]:-translate-x-0.5">
         <IconChevronLeft size={16} />
         Home
       </Link>
@@ -138,6 +138,16 @@ export const ResumePage = () => (
 
         <Block title="Engineering">
           <Stack groups={engineeringStack} />
+        </Block>
+
+        <Block title="Certifications">
+          <ul className="flex flex-col divide-y divide-line">
+            {certifications.map((c) => (
+              <li key={c} className="py-3 text-ink">
+                {c}
+              </li>
+            ))}
+          </ul>
         </Block>
 
         <Block title="Education">

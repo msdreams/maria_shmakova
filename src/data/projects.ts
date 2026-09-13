@@ -1,4 +1,7 @@
 import {
+  loopCover,
+  loopImages,
+  loopMockup,
   kidtyCoverImage,
   kidtyImages,
   monetaCover,
@@ -31,7 +34,21 @@ export interface Project {
   tags: string[];
   url?: string;
   urlLabel?: string;
+  /** Extra live links (e.g. a second product surface) shown next to `url`. */
+  links?: { label: string; href: string }[];
   cover?: ProjectImage;
+  /** Optional transparent-background mockups composed on the home card instead of a browser window. */
+  mockup?: {
+    device: ProjectImage;
+    phone?: ProjectImage;
+    card?: ProjectImage;
+    /** A screen shown in a window behind the devices (something with photos/colour works best). */
+    backdrop?: ProjectImage;
+    /** Two glow colours behind the scene; defaults to the accent. */
+    glow?: [string, string];
+    /** Labels for the rail under the scene, left → right (e.g. platforms). */
+    labels?: string[];
+  };
   images: ProjectImage[];
   /** Project's own brand colour — tints the screenshot mosaic and the subtitle tile. */
   accent: string;
@@ -46,6 +63,40 @@ export interface Project {
 // site — replace with real facts (numbers, team size, timelines) when available.
 export const projects: Project[] = [
   {
+    id: "loop",
+    order: 0,
+    status: "published",
+    featured: true,
+    title: "Loop",
+    subtitle: "Sports booking platform and CRM — one design system across web, CRM and mobile",
+    kind: "design+development",
+    role: "Product Designer & Frontend Developer",
+    year: "2025 — present",
+    stack: ["Next.js", "React", "React Native", "TypeScript", "Tailwind CSS", "PostgreSQL", "Design system"],
+    tags: ["Web", "CRM", "Mobile app", "Design system"],
+    url: "https://loopsport.io/en-US",
+    urlLabel: "loopsport.io",
+    links: [{ label: "crm.loopsport.io", href: "https://crm.loopsport.io/en-US" }],
+    cover: loopCover,
+    mockup: loopMockup,
+    images: loopImages,
+    accent: "#3E5A97",
+    overview:
+      "Loop is a platform for sport. Players find and book fields, classes, trainers and competitions near them; clubs and trainers run their business in a CRM — bookings, schedules, pricing, staff and payments. A client web app, a CRM and a mobile app share one design system.",
+    challenge:
+      "Three products, one small team and no design system to start with. The client app, the CRM and the mobile app had to feel like one Loop while solving very different jobs: a player booking a court in three taps versus a club owner planning a year of prices per court, weekday and season. TODO: add team size and what existed when you joined.",
+    process: [
+      "Mapped the product together with the data models it runs on — courts, classes, bookings, price cards — so the interfaces were designed alongside the schema, not after it.",
+      "Built the design system as tokens and components that live both in Figma and in code, and rolled it out across the CRM, the client app and the business landing.",
+      "Designed the hard CRM widgets from scratch: a booking plan with occupancy per court, a schedule-and-prices editor, and a year-long price timeline where cards are dragged onto a calendar.",
+      "Shipped it myself to production in Next.js, TypeScript and Tailwind on PostgreSQL, iterating on real usage with clubs.",
+    ],
+    solution:
+      "One calm, structured visual language across every surface: a consumer search built around Where / Sport type / When, a CRM where a week of bookings across all courts reads at a glance, and pricing tools that turn a spreadsheet job into a timeline you can see.",
+    result:
+      "In production at loopsport.io and crm.loopsport.io, used by real clubs. TODO: add numbers — clubs onboarded, bookings, time saved on scheduling.",
+  },
+  {
     id: "moneta",
     order: 1,
     status: "published",
@@ -53,9 +104,9 @@ export const projects: Project[] = [
     title: "Moneta",
     subtitle: "Personal finance dashboard that turns spending into a story",
     kind: "design+development",
-    role: "UX/UI Design & Frontend",
-    year: "2024",
-    stack: ["React", "TypeScript", "Tailwind CSS", "React Router", "Recharts", "REST API"],
+    role: "Frontend Developer",
+    year: "2024 — 2025",
+    stack: ["React", "TypeScript", "Redux Toolkit", "Tailwind CSS", "Recharts", "REST API", "2FA"],
     tags: ["Dashboard", "Data viz", "React"],
     url: "https://mariashmakova-frontend.moneta.adammudrak.pp.ua/",
     urlLabel: "Open Moneta",
@@ -69,7 +120,8 @@ export const projects: Project[] = [
     process: [
       "Mapped the core loop — add a transaction, see the effect, adjust a budget — and cut everything that didn't serve it.",
       "Designed the information hierarchy in Figma: a summary layer (balance, month trend), an exploration layer (charts by category and time) and a detail layer (transaction list).",
-      "Built the UI in React + TypeScript with Tailwind, using Recharts for charts and a REST API for persistence; iterated on chart interactions (hover, filtering by legend, empty states) directly in code.",
+      "Built the UI in React + TypeScript with Tailwind; state in Redux Toolkit, persistence through a REST API, two-factor authentication for sign-in.",
+      "Charts with Recharts; iterated on interactions (hover, filtering by legend, empty states) directly in code, on top of reusable components from UI libraries.",
       "TODO: describe testing / feedback rounds if any.",
     ],
     solution:
@@ -85,8 +137,8 @@ export const projects: Project[] = [
     title: "Kidty",
     subtitle: "Customisable health data visualisation for parents",
     kind: "design+development",
-    role: "Frontend & Data-viz Design",
-    year: "2024 — present",
+    role: "Frontend Developer · team lead",
+    year: "2024 — 2025",
     stack: ["React", "TypeScript", "React Router", "D3", "REST API", "Docker"],
     tags: ["Health", "D3", "Data viz"],
     url: "https://kidty.com.ua/",
@@ -95,19 +147,19 @@ export const projects: Project[] = [
     images: kidtyImages,
     accent: "#6A5AE0",
     overview:
-      "Kidty is a web app that helps parents track a child's health indicators over time and see them in context — growth curves, percentiles and custom measurements — instead of reading raw numbers from a notebook.",
+      "Kidty is a HealthTech web app that helps parents and paediatricians track a child's development over time and see it in context — growth curves, percentiles and custom measurements — instead of reading raw numbers from a notebook.",
     challenge:
       "Medical data is stressful to look at. The visualisations had to be accurate enough for a doctor and gentle enough for a worried parent at 2 a.m., on a phone. TODO: add the project's origin and audience details.",
     process: [
       "Researched how paediatric growth charts are read and which comparisons parents actually care about.",
       "Prototyped chart types in D3 to find a balance between precision (percentile bands, exact points) and calm visual language.",
-      "Built configurable chart components in React + TypeScript so each family can choose what to track; containerised the app with Docker for deployment.",
-      "TODO: describe collaboration with backend / medical advisors.",
+      "Built the app from scratch in React + TypeScript with Context API for state; configurable chart components so each family can choose what to track; Docker for deployment.",
+      "Led the team: defined the business logic and the architecture of client–server interactions with the backend developers.",
     ],
     solution:
       "A set of reusable D3 chart components with a soft, monochrome base and a single accent for the child's own line, responsive down to phone width, with clear empty and loading states.",
     result:
-      "Project under active development. TODO: add current status, user feedback or metrics.",
+      "Shipped and live at kidty.com.ua. TODO: add user feedback or metrics.",
   },
   {
     id: "phone-catalog",

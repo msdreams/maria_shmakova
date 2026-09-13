@@ -31,11 +31,10 @@ const layouts: Record<number, { rows: number; areas: string[] }> = {
     ],
   },
   6: {
-    rows: 3,
+    rows: 4,
     areas: [
-      "md:[grid-area:1/1/3/5]", "md:[grid-area:1/5/3/7]",
-      "md:[grid-area:1/7/2/9]", "md:[grid-area:2/7/3/9]",
-      "md:[grid-area:3/1/4/5]", "md:[grid-area:3/5/4/9]",
+      "md:[grid-area:1/1/3/5]", "md:[grid-area:1/5/3/7]", "md:[grid-area:1/7/3/9]",
+      "md:[grid-area:3/1/5/5]", "md:[grid-area:3/5/5/7]", "md:[grid-area:3/7/5/9]",
     ],
   },
   7: {

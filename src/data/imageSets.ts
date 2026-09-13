@@ -1,3 +1,14 @@
+import loop1 from "../assets/images/loop/loop1-landing.jpg";
+import loop2 from "../assets/images/loop/loop2-business.jpg";
+import loop3 from "../assets/images/loop/loop3-crm-booking.png";
+import loop4 from "../assets/images/loop/loop4-schedule-prices.jpg";
+import loop5 from "../assets/images/loop/loop5-price-timeline.jpg";
+import loop6 from "../assets/images/loop/loop6-mobile-booking.jpg";
+import loop7 from "../assets/images/loop/loop7-mobile-classes.jpg";
+import loop8 from "../assets/images/loop/loop8-booking-modal.jpg";
+import loop9 from "../assets/images/loop/loop9-trainer-profile.jpg";
+import loopPhone from "../assets/images/loop/loop-mockup-phone.png";
+import loopCard from "../assets/images/loop/loop-mockup-card.png";
 import moneta1 from "../assets/images/moneta/moneta1.jpg";
 import moneta2 from "../assets/images/moneta/moneta2.jpg";
 import moneta3 from "../assets/images/moneta/moneta3.jpg";
@@ -40,6 +51,29 @@ export type ProjectImage = { src: string; alt: string };
 
 const set = (name: string, srcs: string[]): ProjectImage[] =>
   srcs.map((src, i) => ({ src, alt: `${name} — screen ${i + 1}` }));
+
+// Order matters: it maps onto the mosaic slots (wide / square tiles).
+export const loopImages: ProjectImage[] = [
+  { src: loop1, alt: "Loop — book your favourite sport: search by place, sport type and date" },
+  { src: loop9, alt: "Loop — trainer profile with sports, stats and gallery" },
+  { src: loop2, alt: "Loop for business — landing page for clubs and trainers" },
+  { src: loop7, alt: "Loop mobile — classes for the day, reserved and paid states" },
+  { src: loop3, alt: "Loop CRM — booking plan with occupancy per court" },
+  { src: loop8, alt: "Loop — class booking: who it's for, price, trainer, cancellation" },
+  { src: loop6, alt: "Loop mobile — booking sheet for a class" },
+  { src: loop4, alt: "Loop CRM — schedule and prices editor" },
+  { src: loop5, alt: "Loop CRM — yearly price timeline per court" },
+];
+export const loopCover: ProjectImage = loopImages[0];
+/** Transparent-background mockups composed on the home card. */
+export const loopMockup = {
+  device: { src: loop3, alt: "Loop CRM booking plan on a laptop" } as ProjectImage,
+  phone: { src: loopPhone, alt: "Loop CRM mobile — classes schedule" } as ProjectImage,
+  card: { src: loopCard, alt: "Loop CRM — class details panel" } as ProjectImage,
+  backdrop: { src: loop9, alt: "" } as ProjectImage,
+  glow: ["#3E5A97", "#5FB5A6"] as [string, string],
+  labels: ["Web", "CRM", "Mobile app"],
+};
 
 export const monetaImages = set("Moneta", [
   moneta1, moneta2, moneta3, moneta4, moneta5, moneta6, moneta7, moneta8, moneta9, moneta10,

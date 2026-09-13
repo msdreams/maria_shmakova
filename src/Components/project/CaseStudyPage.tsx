@@ -23,7 +23,7 @@ export const CaseStudyPage = () => {
   return (
     <article>
       <Container className="pt-5 md:pt-6">
-        <Link to="/" className="link-underline inline-flex items-center gap-1 text-sm text-ink-600 hover:text-ink">
+        <Link to="/" className="inline-flex items-center gap-1 text-sm text-ink-600 transition-colors hover:text-ink [&>svg]:transition-transform [&>svg]:duration-300 hover:[&>svg]:-translate-x-0.5">
           <IconChevronLeft size={16} />
           Home
         </Link>
@@ -49,13 +49,13 @@ export const CaseStudyPage = () => {
             </div>
             <div>
               <dt className={label}>Live</dt>
-              <dd className="mt-1.5 text-sm">
+              <dd className="mt-1.5 flex flex-col gap-1.5 text-sm">
                 {project.url ? (
                   <a
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="link-underline inline-flex items-center gap-1 text-ink"
+                    className="link-underline inline-flex items-center gap-1 self-start text-ink"
                   >
                     {project.urlLabel ?? "Open project"}
                     <IconArrowUpRight size={14} />
@@ -63,6 +63,18 @@ export const CaseStudyPage = () => {
                 ) : (
                   <span className="text-ink-400">—</span>
                 )}
+                {project.links?.map((l) => (
+                  <a
+                    key={l.href}
+                    href={l.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link-underline inline-flex items-center gap-1 self-start text-ink"
+                  >
+                    {l.label}
+                    <IconArrowUpRight size={14} />
+                  </a>
+                ))}
               </dd>
             </div>
             <div className="col-span-2 md:col-span-1">
