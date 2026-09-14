@@ -58,7 +58,7 @@ export const Hero = () => (
             <div className="group relative rounded-3xl">
               {/* gradient light running along the frame: one lap after the photo appears,
                   a pass every ~10s, continuous while hovered */}
-              <LightRing mode="auto" />
+              <LightRing mode="auto" width={1.5} />
               <img
                 src={photo}
                 alt={`${site.name}, portrait`}

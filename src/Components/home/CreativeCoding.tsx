@@ -23,7 +23,7 @@ const Thumb = ({ img, title, onClick, className, eager }: { img: string; title: 
     )}
     aria-label={`Open sketch: ${title}`}
   >
-    <LightRing />
+    <LightRing width={1.5} />
     <span className="relative block overflow-hidden rounded-3xl bg-ink">
       <img
         src={img}

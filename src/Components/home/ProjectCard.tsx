@@ -2,8 +2,6 @@ import classNames from "classnames";
 import { Link } from "react-router-dom";
 import type { Project } from "../../data/projects";
 import { ProjectVisual } from "../project/ProjectVisual";
-import { buttonClasses } from "../ui/Button";
-import { IconArrowRight } from "../ui/Icons";
 
 type ProjectCardProps = {
   project: Project;
@@ -29,10 +27,9 @@ export const ProjectCard = ({ project, wide = false, lead = false, textFirst = f
         <h3 className="font-heading text-2xl font-semibold tracking-tight text-ink">
           <span className="link-underline">{project.title}</span>
         </h3>
-        {/* affordance only — the whole card is the link */}
-        <span className={buttonClasses("outline", "md", "shrink-0 [&>svg]:transition-transform [&>svg]:duration-300 group-hover:[&>svg]:translate-x-0.5")}>
+        {/* affordance only — the whole card is the link; same text link as the home cards */}
+        <span className="link-underline mb-1 shrink-0 self-end text-xs font-medium text-ink-700 transition-colors group-hover:text-ink">
           View case study
-          <IconArrowRight size={15} />
         </span>
       </div>
       <p className="mt-2 max-w-[60ch] text-[15px] leading-relaxed text-ink-700">{project.subtitle}</p>

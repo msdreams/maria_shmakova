@@ -25,7 +25,7 @@ export const ProjectVisual = ({ project, wide = false }: ProjectVisualProps) => 
   return (
     <div className="relative rounded-3xl">
       {/* same light as the hero photo, while the card is hovered */}
-      <LightRing />
+      <LightRing width={1.5} />
     {/* tinted board in the project's colour; screenshots rise out of its bottom edge */}
     <div
       className={classNames(

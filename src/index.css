@@ -203,7 +203,6 @@
     transition: opacity 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
     /* keep only the 3px band: everything inside the padding box is masked out,
        so the beam never shows through translucent content on top */
-    padding: 3px;
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
     mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
