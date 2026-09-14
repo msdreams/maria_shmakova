@@ -355,10 +355,21 @@
     text-decoration: none !important;
   }
 
-  /* sidebar + main column filling the page; the sidebar tint runs full height */
+  /* the app shell is min-h-screen; in print that would be a page height on
+     its own and could push a blank second page */
+  #root > div {
+    min-height: 0 !important;
+  }
+
+  /* sidebar + main column filling the page; the sidebar tint runs full height.
+     Fixed height + overflow hidden: with min-height a sub-pixel of rounding
+     spills the sidebar tint onto a second, otherwise empty page. */
   .print-cv {
     width: 210mm;
-    min-height: 297mm;
+    height: 297mm;
+    overflow: hidden;
+    break-after: avoid;
+    page-break-after: avoid;
     grid-template-columns: 62mm 1fr;
     font-family: Inter, system-ui, sans-serif;
   }
