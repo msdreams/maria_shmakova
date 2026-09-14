@@ -51,17 +51,21 @@ const Stack = ({ groups }: { groups: StackGroup[] }) => (
   </ul>
 );
 
+const PrintButton = () => (
+  <Button variant="outline" onClick={() => window.print()} className="bg-paper" aria-label="Print or save as PDF">
+    <IconPrint size={16} />
+    Print PDF
+  </Button>
+);
+
 export const ResumePage = () => (
   <article>
     <PrintCV />
     <Container className="pt-10 print:hidden md:pt-16">
-      {/* zero-height sticky rail: starts beside the eyebrow, then rides along at the
-          same level as the section headings */}
-      <div className="sticky top-16 z-20 flex h-0 items-start justify-end print:hidden md:top-24">
-        <Button variant="outline" onClick={() => window.print()} className="bg-paper" aria-label="Print or save as PDF">
-          <IconPrint size={16} />
-          Print PDF
-        </Button>
+      {/* on a phone the button gets its own row above the eyebrow; from md the row
+          collapses to zero height so the button sits beside the eyebrow instead */}
+      <div className="mb-6 flex items-start justify-end md:mb-0 md:h-0">
+        <PrintButton />
       </div>
 
       {/* same voice and scale as the landing headline */}
@@ -175,6 +179,11 @@ export const ResumePage = () => (
           ))}
         </ol>
       </Block>
+
+      {/* on a phone the top button is long gone by the end of the page */}
+      <div className="flex justify-end border-t border-line py-10 md:hidden">
+        <PrintButton />
+      </div>
     </Container>
   </article>
 );

@@ -35,17 +35,11 @@ export const SelectedWork = () => {
             >
               <ProjectVisual project={project} />
               {/* text above the visual, like the cards on /projects */}
-              <div className="mb-4 flex items-end justify-between gap-4">
-                <div>
-                  <p className="eyebrow mb-2">{project.year}</p>
-                  <h3 className="font-heading text-xl font-semibold tracking-tight text-ink">
-                    <span className="link-underline">{project.title}</span>
-                  </h3>
-                </div>
-                {/* text affordance only — the whole card is the link */}
-                <span className="link-underline mb-1 shrink-0 text-xs font-medium text-ink-700 transition-colors group-hover:text-ink">
-                  View case study
-                </span>
+              <div className="mb-4">
+                <p className="eyebrow mb-2">{project.year}</p>
+                <h3 className="font-heading text-xl font-semibold tracking-tight text-ink">
+                  <span className="link-underline">{project.title}</span>
+                </h3>
               </div>
             </Link>
           </Reveal>
