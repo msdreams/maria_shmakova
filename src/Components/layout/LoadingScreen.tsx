@@ -40,6 +40,7 @@ export const LoadingScreen = () => {
     <AnimatePresence>
       {visible && (
         <motion.div
+          data-print-hide
           className="fixed inset-0 z-[60] flex flex-col items-center justify-center bg-paper"
           exit={{ y: "-100%" }}
           transition={{ duration: 0.7, ease }}

@@ -51,11 +51,33 @@ const Stack = ({ groups }: { groups: StackGroup[] }) => (
   </ul>
 );
 
+/** Desktop prints the page (the print stylesheet lays out the one-page CV);
+ *  phones open the pre-rendered file instead — iOS Safari and in-app browsers
+ *  don't reliably show a print preview. `npm run cv:pdf` regenerates it. */
 const PrintButton = () => (
-  <Button variant="outline" onClick={() => window.print()} className="bg-paper" aria-label="Print or save as PDF">
-    <IconPrint size={16} />
-    Print PDF
-  </Button>
+  <>
+    <Button
+      as="a"
+      href="/cv.pdf"
+      target="_blank"
+      rel="noopener noreferrer"
+      variant="outline"
+      className="bg-paper md:hidden"
+      aria-label="Open CV as PDF"
+    >
+      <IconPrint size={16} />
+      Open PDF
+    </Button>
+    <Button
+      variant="outline"
+      onClick={() => window.print()}
+      className="hidden bg-paper md:inline-flex"
+      aria-label="Print or save as PDF"
+    >
+      <IconPrint size={16} />
+      Print PDF
+    </Button>
+  </>
 );
 
 export const ResumePage = () => (
