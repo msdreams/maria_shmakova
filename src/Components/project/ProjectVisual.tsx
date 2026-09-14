@@ -30,12 +30,7 @@ export const ProjectVisual = ({ project, wide = false }: ProjectVisualProps) => 
     <div
       className={classNames(
         "relative aspect-[5/3] overflow-hidden rounded-3xl",
-        wide && "md:aspect-[12/5]",
-        // previews rest in black & white and come to colour on hover; the current card
-        // ([data-active] — the snapped slide, or the first in a grid) stays in colour
-        // and greys out only while a sibling is hovered
-        "grayscale transition-[filter] duration-700 ease-smooth group-hover:grayscale-0",
-        "[[data-active]_&]:grayscale-0 [.cards:has(.group:hover)_[data-active]:not(:hover)_&]:grayscale"
+        wide && "md:aspect-[12/5]"
       )}
       style={{ backgroundColor: `${project.accent}38` }}
     >

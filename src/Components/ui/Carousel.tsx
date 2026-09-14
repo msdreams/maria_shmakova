@@ -174,9 +174,9 @@ export const Carousel = ({ children, label, className, renderControls, tone = "p
         <div
           aria-hidden
           className={classNames(
-            "pointer-events-none absolute inset-y-0 -left-1 w-24 bg-gradient-to-r to-transparent transition-opacity duration-300 md:w-40",
+            "pointer-events-none absolute inset-y-0 -left-1 w-10 bg-gradient-to-r to-transparent transition-opacity duration-300 md:w-14",
             tone === "paper-2" ? "from-paper-2 via-paper-2/55" : "from-paper via-paper/55",
-            "from-15% via-55%",
+            "from-10% via-50%",
             prev ? "opacity-100" : "opacity-0"
           )}
         />
@@ -184,9 +184,9 @@ export const Carousel = ({ children, label, className, renderControls, tone = "p
           aria-hidden
           className={classNames(
             // covers the rail's 4px overhang (-mx-1) and fades out over a wider, softer ramp
-            "pointer-events-none absolute inset-y-0 -right-1 w-24 bg-gradient-to-l to-transparent transition-opacity duration-300 md:w-40",
+            "pointer-events-none absolute inset-y-0 -right-1 w-10 bg-gradient-to-l to-transparent transition-opacity duration-300 md:w-14",
             tone === "paper-2" ? "from-paper-2 via-paper-2/55" : "from-paper via-paper/55",
-            "from-15% via-55%",
+            "from-10% via-50%",
             next ? "opacity-100" : "opacity-0"
           )}
         />
