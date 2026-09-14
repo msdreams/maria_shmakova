@@ -62,6 +62,10 @@ export const Header = () => {
         </Link>
 
         <nav className="flex items-center gap-6">
+          {/* desktop only: on phones the wordmark already leads home */}
+          <NavLink to="/" end className={`${navClass} hidden md:inline-block`}>
+            Home
+          </NavLink>
           <NavLink to="/projects" className={navClass}>
             Projects
           </NavLink>

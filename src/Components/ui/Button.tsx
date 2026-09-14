@@ -19,7 +19,8 @@ const sizes: Record<Size, string> = {
   lg: "px-6 py-3 text-base",
 };
 
-const classes = (variant: Variant, size: Size, className?: string) =>
+/** Class string of a button — for elements that must look like one but can't be one (e.g. inside a link). */
+export const buttonClasses = (variant: Variant, size: Size, className?: string) =>
   classNames(
     "inline-flex items-center justify-center gap-2 font-medium transition-all duration-300 ease-smooth",
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink/30 focus-visible:ring-offset-2 focus-visible:ring-offset-paper",
@@ -38,7 +39,7 @@ export type ButtonProps = ButtonAsButton | ButtonAsAnchor | ButtonAsLink;
 
 export const Button = (props: ButtonProps) => {
   const { variant = "solid", size = "md", className, children } = props;
-  const cls = classes(variant, size, className);
+  const cls = buttonClasses(variant, size, className);
 
   if (props.as === "a") {
     const { as, variant: _v, size: _s, className: _c, ...rest } = props;

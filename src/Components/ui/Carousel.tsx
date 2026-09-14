@@ -115,9 +115,9 @@ export const Carousel = ({ children, label, className, renderControls, tone = "p
     if (e.pointerType === "touch" || e.button !== 0) return;
     const el = ref.current;
     if (!el) return;
+    // No pointer capture yet: capturing on every press would retarget the
+    // resulting `click` to the rail and swallow link clicks on the cards.
     drag.current = { active: true, startX: e.clientX, startScroll: el.scrollLeft, moved: false };
-    setDragging(true);
-    el.setPointerCapture(e.pointerId);
   };
 
   const onPointerMove = (e: ReactPointerEvent<HTMLDivElement>) => {
@@ -125,8 +125,13 @@ export const Carousel = ({ children, label, className, renderControls, tone = "p
     const el = ref.current;
     if (!el) return;
     const dx = e.clientX - drag.current.startX;
-    if (Math.abs(dx) > DRAG_THRESHOLD) drag.current.moved = true;
-    el.scrollLeft = drag.current.startScroll - dx;
+    if (!drag.current.moved && Math.abs(dx) > DRAG_THRESHOLD) {
+      // it's a drag now: take the pointer so the scroll keeps following outside the rail
+      drag.current.moved = true;
+      setDragging(true);
+      el.setPointerCapture(e.pointerId);
+    }
+    if (drag.current.moved) el.scrollLeft = drag.current.startScroll - dx;
   };
 
   const endDrag = () => {

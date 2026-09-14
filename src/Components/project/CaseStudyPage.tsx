@@ -1,15 +1,16 @@
 import { motion } from "framer-motion";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { getNextProject, getProject } from "../../data/projects";
+import { Button } from "../ui/Button";
 import { Container } from "../ui/Section";
 import { IconArrowUpRight, IconChevronLeft } from "../ui/Icons";
 import { Reveal } from "../ui/Reveal";
+import { Tag } from "../ui/Tag";
 import { CaseSection } from "./CaseSection";
 import { NextProject } from "./NextProject";
 import { ScreenMosaic } from "./ScreenMosaic";
 
 const ease = [0.2, 0.7, 0.2, 1] as const;
-const label = "font-label text-[11px] font-medium uppercase tracking-[0.14em] text-ink-700";
 
 export const CaseStudyPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -33,58 +34,38 @@ export const CaseStudyPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease }}
         >
-          <div className="flex flex-col-reverse gap-3 md:flex-row md:items-start md:justify-between md:gap-8">
+          {/* one block: title with the live links beside it, role · year, then the stack */}
+          <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between md:gap-8">
             <h1 className="font-heading text-display-lg font-semibold text-ink">{project.title}</h1>
-            <p className="eyebrow md:pt-2">
-              {project.status === "draft" ? `Draft · ${project.year}` : project.year}
-            </p>
-          </div>
-
-          {/* one balanced facts row: three narrow cells + a wide one for the stack */}
-          <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-5 border-y border-line py-4 md:grid-cols-[1fr_1fr_2.4fr] md:gap-x-8">
-            <div>
-              <dt className={label}>Role</dt>
-              <dd className="mt-1.5 text-sm text-ink">{project.role}</dd>
-            </div>
-            <div>
-              <dt className={label}>Live</dt>
-              <dd className="mt-1.5 flex flex-col gap-1.5 text-sm">
-                {project.url ? (
-                  <a
-                    href={project.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="link-underline inline-flex items-center gap-1 self-start text-ink"
-                  >
+            {(project.url || project.links) && (
+              <div className="flex flex-wrap gap-3 md:pt-2">
+                {project.url && (
+                  <Button as="a" href={project.url} target="_blank" rel="noopener noreferrer" variant="outline">
                     {project.urlLabel ?? "Open project"}
-                    <IconArrowUpRight size={14} />
-                  </a>
-                ) : (
-                  <span className="text-ink-400">—</span>
+                    <IconArrowUpRight size={15} />
+                  </Button>
                 )}
                 {project.links?.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="link-underline inline-flex items-center gap-1 self-start text-ink"
-                  >
+                  <Button key={l.href} as="a" href={l.href} target="_blank" rel="noopener noreferrer" variant="outline">
                     {l.label}
-                    <IconArrowUpRight size={14} />
-                  </a>
+                    <IconArrowUpRight size={15} />
+                  </Button>
                 ))}
-              </dd>
-            </div>
-            <div className="col-span-2 md:col-span-1">
-              <dt className={label}>Stack</dt>
-              <dd className="mt-1.5 text-sm leading-relaxed text-ink">{project.stack.join(" · ")}</dd>
-            </div>
-          </dl>
+              </div>
+            )}
+          </div>
+          <p className="mt-3 max-w-[60ch] text-[15px] leading-relaxed text-ink-600">{project.tagline ?? project.subtitle}</p>
+          <ul className="mt-5 flex flex-wrap gap-1.5">
+            {project.stack.map((item) => (
+              <li key={item}>
+                <Tag>{item}</Tag>
+              </li>
+            ))}
+          </ul>
         </motion.header>
 
         <motion.div
-          className="mt-6"
+          className="mt-10"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease, delay: 0.15 }}

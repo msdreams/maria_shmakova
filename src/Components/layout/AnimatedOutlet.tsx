@@ -13,7 +13,13 @@ export const AnimatedOutlet = () => {
   const { pathname } = useLocation();
 
   return (
-    <AnimatePresence mode="wait" initial={false}>
+    <AnimatePresence
+      mode="wait"
+      initial={false}
+      // reset scroll only after the old page has faded out — doing it on route
+      // change would show the old page jumping to its top (the hero) mid-fade
+      onExitComplete={() => window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior })}
+    >
       {/* Opacity only: a leftover `transform` on this wrapper would turn it
           into a containing block and kill position:sticky on every page. */}
       <motion.div

@@ -1,7 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes, useParams } from "react-router-dom";
 import App from "./App";
 import { HomePage } from "./Components/home/HomePage";
-import { ScrollToTop } from "./Components/layout/ScrollToTop";
 import { CaseStudyPage } from "./Components/project/CaseStudyPage";
 import { ProjectsPage } from "./Components/projects/ProjectsPage";
 import { ResumePage } from "./Components/resume/ResumePage";
@@ -14,7 +13,6 @@ const LegacyProjectRedirect = () => {
 
 export const Root = () => (
   <BrowserRouter>
-    <ScrollToTop />
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<HomePage />} />

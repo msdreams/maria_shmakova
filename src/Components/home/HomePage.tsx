@@ -4,7 +4,7 @@ import { scrollToSection, type SectionId } from "../../hooks/useSectionNav";
 import { Contact } from "./Contact";
 import { CreativeCoding } from "./CreativeCoding";
 import { Hero } from "./Hero";
-import { ProjectsCarousel } from "./ProjectsCarousel";
+import { SelectedWork } from "./SelectedWork";
 
 export const HomePage = () => {
   const location = useLocation();
@@ -28,7 +28,7 @@ export const HomePage = () => {
   return (
     <div key={homeTick}>
       <Hero />
-      <ProjectsCarousel />
+      <SelectedWork />
       <CreativeCoding />
       <Contact />
     </div>

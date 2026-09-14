@@ -26,6 +26,8 @@ export interface Project {
   featured: boolean;
   title: string;
   subtitle: string;
+  /** One short line under the title on the case page (subtitle is used when absent). */
+  tagline?: string;
   kind: ProjectKind;
   role: string;
   year: string;
@@ -69,6 +71,7 @@ export const projects: Project[] = [
     featured: true,
     title: "Loop",
     subtitle: "Sports booking platform and CRM — one design system across web, CRM and mobile",
+    tagline: "Sports booking platform and CRM for clubs, trainers and players.",
     kind: "design+development",
     role: "Product Designer & Frontend Developer",
     year: "2025 — present",
@@ -103,6 +106,7 @@ export const projects: Project[] = [
     featured: true,
     title: "Moneta",
     subtitle: "Personal finance dashboard that turns spending into a story",
+    tagline: "Expense-tracking dashboard with interactive charts.",
     kind: "design+development",
     role: "Frontend Developer",
     year: "2024 — 2025",
@@ -136,6 +140,7 @@ export const projects: Project[] = [
     featured: true,
     title: "Kidty",
     subtitle: "Customisable health data visualisation for parents",
+    tagline: "HealthTech app for tracking a child's development.",
     kind: "design+development",
     role: "Frontend Developer",
     year: "2024 — 2025",
@@ -168,6 +173,7 @@ export const projects: Project[] = [
     featured: true,
     title: "Phone Catalog",
     subtitle: "E-commerce catalogue with filtering, favourites and cart",
+    tagline: "E-commerce catalogue front-end with cart and favourites.",
     kind: "development",
     role: "Frontend Developer",
     year: "2023",
@@ -199,6 +205,7 @@ export const projects: Project[] = [
     featured: true,
     title: "Potr Pots",
     subtitle: "Responsive landing page with a scalable CSS architecture",
+    tagline: "Landing page for a ceramics brand.",
     kind: "development",
     role: "Frontend Developer",
     year: "2023",
@@ -230,6 +237,7 @@ export const projects: Project[] = [
     featured: false,
     title: "WCH Service Bureau",
     subtitle: "Rebranding and restructuring an internal medical-services platform",
+    tagline: "Rebranding of a medical-services platform.",
     kind: "design",
     role: "Product Designer",
     year: "2022 — 2023",
@@ -255,6 +263,7 @@ export const projects: Project[] = [
     featured: false,
     title: "Calaton Systems",
     subtitle: "Visual system for a growing software development agency",
+    tagline: "Visual system for a software development agency.",
     kind: "design",
     role: "UX/UI Designer",
     year: "2020 — 2021",
