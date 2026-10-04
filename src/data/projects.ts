@@ -150,7 +150,7 @@ export const projects: Project[] = [
     urlLabel: "kidty.com.ua",
     cover: kidtyCoverImage,
     images: kidtyImages,
-    accent: "#6A5AE0",
+    accent: "#3A6DB3",
     overview:
       "Kidty is a HealthTech web app that helps parents and paediatricians track a child's development over time and see it in context — growth curves, percentiles and custom measurements — instead of reading raw numbers from a notebook.",
     challenge:
