@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.d9ac9750.css",
-    "main.js": "/static/js/main.c92fd2f4.js",
+    "main.css": "/static/css/main.7b28ad8e.css",
+    "main.js": "/static/js/main.674f546e.js",
     "static/media/pots2.jpg": "/static/media/pots2.044ff59dfb8b5e95c960.jpg",
     "static/media/moneta7.jpg": "/static/media/moneta7.5b51ebefefa3f9b923bb.jpg",
     "static/media/moneta1.jpg": "/static/media/moneta1.06ec0a9acc515fcbe7e8.jpg",
@@ -43,7 +43,7 @@
     "static/media/loop1-landing.jpg": "/static/media/loop1-landing.58d2a316ae71bcf4ebbf.jpg",
     "static/media/loop6-mobile-booking.jpg": "/static/media/loop6-mobile-booking.7c5d1ea9a93c9d030a0d.jpg",
     "static/media/loop5-price-timeline.jpg": "/static/media/loop5-price-timeline.65d9efc017d90442d993.jpg",
-    "static/media/kidty5.jpg": "/static/media/kidty5.3b204600d666159a1efd.jpg",
+    "static/media/kidty5.jpg": "/static/media/kidty5.820ffb5edad265c2208c.jpg",
     "static/media/kidty7.jpg": "/static/media/kidty7.5a2ad70ded02a356a8a8.jpg",
     "static/media/kidty6.jpg": "/static/media/kidty6.fd690b45e02318295c98.jpg",
     "static/media/loop-mockup-card.png": "/static/media/loop-mockup-card.8ef794ec118e20df2586.png",
@@ -58,11 +58,11 @@
     "static/media/movementOfDots.jpg": "/static/media/movementOfDots.36bd0206086c3006e8ee.jpg",
     "static/media/mandrian.jpg": "/static/media/mandrian.3206d606916fc9a1e25d.jpg",
     "index.html": "/index.html",
-    "main.d9ac9750.css.map": "/static/css/main.d9ac9750.css.map",
-    "main.c92fd2f4.js.map": "/static/js/main.c92fd2f4.js.map"
+    "main.7b28ad8e.css.map": "/static/css/main.7b28ad8e.css.map",
+    "main.674f546e.js.map": "/static/js/main.674f546e.js.map"
   },
   "entrypoints": [
-    "static/css/main.d9ac9750.css",
-    "static/js/main.c92fd2f4.js"
+    "static/css/main.7b28ad8e.css",
+    "static/js/main.674f546e.js"
   ]
 }
