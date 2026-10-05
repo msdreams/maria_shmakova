@@ -3,6 +3,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState, type MouseEvent } from "react";
 import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { site } from "../../data/site";
+import { useSectionNav } from "../../hooks/useSectionNav";
 import { IconArrowUpRight } from "../ui/Icons";
 import { INTRO_MS, introSeen } from "./LoadingScreen";
 
@@ -12,6 +13,7 @@ export const Header = () => {
   const reduceMotion = useReducedMotion();
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const goToSection = useSectionNav();
   const [scrolled, setScrolled] = useState(false);
 
   // On a first visit the curtain owns the screen, so let it finish first.
@@ -66,9 +68,9 @@ export const Header = () => {
           <NavLink to="/" end className={`${navClass} hidden md:inline-block`}>
             Home
           </NavLink>
-          <NavLink to="/projects" className={navClass}>
+          <button type="button" className={navClass} onClick={() => goToSection("work")}>
             Projects
-          </NavLink>
+          </button>
           <NavLink to="/cv" className={navClass}>
             CV
           </NavLink>

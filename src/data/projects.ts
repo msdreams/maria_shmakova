@@ -6,10 +6,6 @@ import {
   kidtyImages,
   monetaCover,
   monetaImages,
-  phonesCoverImage,
-  phonesImages,
-  potsCoverImage,
-  potsImages,
   ProjectImage,
 } from "./imageSets";
 
@@ -166,70 +162,6 @@ export const projects: Project[] = [
       "Each child has a calm dashboard with growth cards (year and all-time views), an eyesight scale and a vaccination timeline. Every screen is built from reusable D3 components on a design system documented in the repository, and the layout works down to phone width.",
     result:
       "Live at kidty.com.ua, free, in English and Ukrainian, with its own backend and email. The design system, logo and link preview are documented, so new screens stay consistent.",
-  },
-  {
-    id: "phone-catalog",
-    order: 3,
-    status: "published",
-    featured: true,
-    title: "Phone Catalog",
-    subtitle: "E-commerce catalogue with filtering, favourites and cart",
-    tagline: "E-commerce catalogue front-end with cart and favourites.",
-    kind: "development",
-    role: "Frontend Developer",
-    year: "2023",
-    stack: ["React", "TypeScript", "React Router", "Context API", "Custom hooks"],
-    tags: ["E-commerce", "React", "TypeScript"],
-    url: "https://msdreams.github.io/phone_catalog/#/",
-    urlLabel: "Live demo",
-    cover: phonesCoverImage,
-    images: phonesImages,
-    accent: "#2E3352",
-    overview:
-      "An online store front-end: product catalogue by category, filtering and sorting, product pages, favourites and a shopping cart that survive a page reload.",
-    challenge:
-      "Implement a complete shopping flow from a static design with no backend — state, persistence and routing all live on the client — while keeping the UI fast and pixel-accurate to the layout.",
-    process: [
-      "Broke the design into a component system (cards, sliders, filters, cart rows) before writing any page.",
-      "Modelled global state with the Context API and a custom useLocalStorage hook so favourites and cart persist without a server.",
-      "Implemented category, search and sort as URL parameters so every state is shareable and the back button works.",
-    ],
-    solution:
-      "A responsive catalogue with hash-based routing, client-side persistence and consistent interaction patterns across product lists, product pages and the cart.",
-    result:
-      "Deployed on GitHub Pages as a portfolio piece. TODO: add anything measurable (Lighthouse score, review feedback).",
-  },
-  {
-    id: "potr-pots",
-    order: 4,
-    status: "published",
-    featured: true,
-    title: "Potr Pots",
-    subtitle: "Responsive landing page with a scalable CSS architecture",
-    tagline: "Landing page for a ceramics brand.",
-    kind: "development",
-    role: "Frontend Developer",
-    year: "2023",
-    stack: ["HTML", "SCSS", "BEM"],
-    tags: ["Landing", "SCSS", "Responsive"],
-    url: "https://msdreams.github.io/Potr_Pots_landing",
-    urlLabel: "Live demo",
-    cover: potsCoverImage,
-    images: potsImages,
-    accent: "#C9A227",
-    overview:
-      "A landing page for a ceramics brand, built from a Figma layout as an exercise in clean, maintainable CSS and fluid responsive behaviour.",
-    challenge:
-      "Match the design at every breakpoint without media-query soup: the layout had to scale from 320px to wide desktop with a small, readable stylesheet.",
-    process: [
-      "Set up an SCSS structure with variables, mixins and BEM naming so every block could be reasoned about in isolation.",
-      "Used fluid units and a small set of breakpoints instead of per-element overrides.",
-      "Checked the result against the layout at each breakpoint and tuned typography and spacing scales.",
-    ],
-    solution:
-      "A single-page site with semantic HTML, a compact SCSS architecture and smooth transitions between breakpoints.",
-    result:
-      "Live on GitHub Pages. TODO: add any measurable outcome or what you'd do differently now.",
   },
   {
     id: "wch",

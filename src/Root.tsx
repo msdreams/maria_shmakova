@@ -2,7 +2,6 @@ import { BrowserRouter, Navigate, Route, Routes, useParams } from "react-router-
 import App from "./App";
 import { HomePage } from "./Components/home/HomePage";
 import { CaseStudyPage } from "./Components/project/CaseStudyPage";
-import { ProjectsPage } from "./Components/projects/ProjectsPage";
 import { ResumePage } from "./Components/resume/ResumePage";
 
 /** Case studies moved from /project/:id to /projects/:id; keep old links alive. */
@@ -14,9 +13,11 @@ const LegacyProjectRedirect = () => {
 export const Root = () => (
   <BrowserRouter>
     <Routes>
+      {/* The project list lives on the home page now. Kept outside the layout
+          so the redirect doesn't run inside the page transition. */}
+      <Route path="projects" element={<Navigate to="/" replace state={{ scrollTo: "work" }} />} />
       <Route path="/" element={<App />}>
         <Route index element={<HomePage />} />
-        <Route path="projects" element={<ProjectsPage />} />
         <Route path="projects/:id" element={<CaseStudyPage />} />
         <Route path="project/:id" element={<LegacyProjectRedirect />} />
         <Route path="cv" element={<ResumePage />} />
