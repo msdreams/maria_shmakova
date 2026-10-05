@@ -23,9 +23,9 @@ export const CaseStudyPage = () => {
   return (
     <article>
       <Container className="pt-5 md:pt-6">
-        <Link to="/" state={{ scrollTo: "work" }} className="link-underline inline-flex items-center gap-1 text-sm text-ink-600 transition-colors hover:text-ink [&>svg]:transition-transform [&>svg]:duration-300 hover:[&>svg]:-translate-x-0.5">
+        <Link to="/" className="link-underline inline-flex items-center gap-1 text-sm text-ink-600 transition-colors hover:text-ink [&>svg]:transition-transform [&>svg]:duration-300 hover:[&>svg]:-translate-x-0.5">
           <IconChevronLeft size={16} />
-          Projects
+          Home
         </Link>
 
         <motion.header
