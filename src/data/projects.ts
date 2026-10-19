@@ -48,6 +48,8 @@ export interface Project {
     labels?: string[];
   };
   images: ProjectImage[];
+  /** Product walkthrough hosted on Vimeo, shown on the case page. */
+  video?: { vimeoId: string; title: string };
   /** Project's own brand colour — tints the screenshot mosaic and the subtitle tile. */
   accent: string;
   overview: string;
@@ -79,6 +81,7 @@ export const projects: Project[] = [
     cover: loopCover,
     mockup: loopMockup,
     images: loopImages,
+    video: { vimeoId: "1237036900", title: "Sports club management platform: data, members, and public profiles" },
     accent: "#3E5A97",
     overview:
       "Loop is a platform for sport. Players find and book fields, classes, trainers and competitions near them; clubs and trainers run their business in a CRM — bookings, schedules, pricing, staff and payments. A client web app, a CRM and a mobile app share one design system.",

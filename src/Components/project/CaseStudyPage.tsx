@@ -79,6 +79,21 @@ export const CaseStudyPage = () => {
           )}
         </motion.div>
 
+        {project.video && (
+          <Reveal>
+            <div className="relative mt-3 aspect-video overflow-hidden rounded-2xl border border-line bg-paper-2">
+              <iframe
+                src={`https://player.vimeo.com/video/${project.video.vimeoId}?badge=0&autopause=0&player_id=0&app_id=58479`}
+                title={project.video.title}
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+          </Reveal>
+        )}
+
         <div className="mt-10 md:mt-14">
           <Reveal>
             <div className="grid grid-cols-1 border-t border-line md:grid-cols-2 md:gap-x-12">

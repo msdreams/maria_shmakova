@@ -15,8 +15,8 @@ import { emailAddress, site } from "../../data/site";
 const sectionLabel = "mb-[1.8mm] font-label text-[6.8pt] font-semibold uppercase tracking-[0.14em] text-ink-600";
 
 /**
- * The CV as a one-page A4 document: sidebar with photo, contacts and skills,
- * main column with summary and experience. Only rendered for print; built
+ * The CV as a one-page A4 document: sidebar with photo, contacts and education,
+ * main column with summary, skills and experience. Only rendered for print; built
  * from the same data as the web page. Contact details that must not sit in
  * the DOM are written in on `beforeprint` and cleared on `afterprint`.
  */
@@ -63,20 +63,6 @@ export const PrintCV = () => {
           <li className="mt-[1.5mm] text-ink-600">{languages}</li>
         </ul>
 
-        {printSkills.map((g) => (
-          <div key={g.label} className="mb-[3.6mm]">
-            <p className={sectionLabel}>{g.label}</p>
-            <ul className="flex flex-wrap gap-[1.2mm]">
-              {g.items.map((item) => (
-                <li key={item} className="rounded-full border border-ink-300 px-[1.8mm] py-[0.3mm] text-[7.2pt] leading-snug text-ink-800">
-                  {item}
-                </li>
-              ))}
-            </ul>
-            {g.label === "AI tooling" && <p className="mt-[1.6mm] text-[7.2pt] leading-snug text-ink-600">{aiNote}</p>}
-          </div>
-        ))}
-
         <p className={sectionLabel}>Education</p>
         <ul className="mb-[3.6mm] flex flex-col gap-[1.1mm] text-[7.4pt] leading-snug text-ink-700">
           {education.map((e) => (
@@ -101,15 +87,34 @@ export const PrintCV = () => {
         <p className="mt-[2mm] text-[10.5pt] text-ink-600">{site.roleLine}</p>
         <div className="mb-[5mm] mt-[3mm] h-[2px] w-[16mm] bg-accent" />
 
-        <h2 className="font-heading text-[11pt] font-semibold text-ink">{printSummary.headline}</h2>
+        <h2 className="mt-[5mm] font-heading text-[11pt] font-semibold text-ink">{printSummary.headline}</h2>
         {printSummary.paragraphs.map((t) => (
           <p key={t} className="mt-[1.8mm] text-[8.6pt] leading-[1.4] text-ink-700">
             {t}
           </p>
         ))}
 
-        <p className={`${sectionLabel} mt-[5mm]`}>Experience</p>
-        <ol className="flex flex-col gap-[3.4mm]">
+        <p className={`${sectionLabel} mt-[4.5mm]`}>Skills</p>
+        <dl className="flex flex-col gap-[1.6mm]">
+          {printSkills.map((g) => (
+            <div key={g.label}>
+              <dt className="mb-[0.5mm] text-[7.6pt] font-semibold leading-snug text-ink-800">{g.label}</dt>
+              <dd>
+                <ul className="flex flex-wrap gap-[1mm]">
+                  {g.items.map((item) => (
+                    <li key={item} className="rounded-full border border-ink-300 px-[1.5mm] py-[0.3mm] text-[7.2pt] leading-snug text-ink-800">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                {g.label === "AI tooling" && <p className="mt-[0.6mm] text-[7.2pt] leading-snug text-ink-600">{aiNote}</p>}
+              </dd>
+            </div>
+          ))}
+        </dl>
+
+        <p className={`${sectionLabel} mt-[4.5mm]`}>Experience</p>
+        <ol className="flex flex-col gap-[2.4mm]">
           {main.map((job) => (
             <li key={job.period + job.title} className="[break-inside:avoid]">
               <div className="flex items-baseline justify-between gap-[4mm]">
@@ -140,14 +145,14 @@ export const PrintCV = () => {
         </ol>
 
         {early.length > 0 && (
-          <ul className="mt-[4mm] flex flex-col gap-[1.4mm] border-t border-ink-200 pt-[3mm] text-[8.4pt] leading-snug text-ink-700">
-            {early.map((job) => (
-              <li key={job.period + job.title}>
-                <span className="font-semibold text-ink">{job.title}</span>
-                {job.company && <span> · {job.company}</span>} · {job.period}
-              </li>
+          <p className="mt-[3.5mm] border-t border-ink-200 pt-[2.5mm] text-[8.4pt] leading-snug text-ink-700">
+            {early.map((job, i) => (
+              <span key={job.period + job.title}>
+                {i > 0 && ", "}
+                <span className="font-semibold text-ink">{job.title}</span> ({job.period})
+              </span>
             ))}
-          </ul>
+          </p>
         )}
       </main>
     </div>
